@@ -21,5 +21,17 @@
   <p>
     <button ion-button color="primary" menuToggle>Toggle Menu</button>
   </p>
+  <ion-input placeholder="Text Input"> <ion-spinner icon="dots" class="spinner-dark"></ion-spinner></ion-input>
+  
+  <button ion-button clear color="dark" (tap)="toggleSpinner()" >On/Off Spinner</button>
+  <h4>{{text1 || text2}}</h4>
+  <h4>{{disabled['providerName']}}</h4>
+  <ion-list>
+    <ion-item *ngFor="let item of disabled">
+      {{item.disabledAccounts[name]}}
+    </ion-item>
+  </ion-list>
+  <button ion-button color="dark" (tap)="showGoogleMapModal()" >Go Google Map</button>
+  <google-map-page [lat]="-34.9290" [long]="138.6010"></google-map-page>
 
 </ion-content>

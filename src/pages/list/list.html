@@ -8,13 +8,23 @@
 </ion-header>
 
 <ion-content>
+  
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+    <ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <!-- <ion-checkbox [(ngModel)]="item['checked']"></ion-checkbox> -->
+      
       <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
+      <div item-start>
+        {{item.title}}
+      </div>
+      
       <div class="item-note" item-right>
         {{item.note}}
       </div>
-    </button>
+    </ion-item>
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+ 
 </ion-content>
