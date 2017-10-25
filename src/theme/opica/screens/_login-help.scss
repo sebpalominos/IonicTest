@@ -1,0 +1,30 @@
+.login-help {
+  .content {
+    background: url('../assets/img/bg/splash.png') no-repeat center center/cover map-get($opc-colors, brand);
+  }
+  .opc-hero-unit {
+    .hero-opica-device {
+      position: absolute;
+      top: -160px;
+      left: 0;
+      right: 0;
+      img {
+        display: block;
+        width: 240px;
+        height: 240px;
+        margin: 0 auto;
+      }
+    }
+    .hero-opica-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      img {
+        display: block;
+        height: 24px;
+        margin: 0 auto;
+      }
+    }    
+  }
+}

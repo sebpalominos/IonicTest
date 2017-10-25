@@ -1,0 +1,10 @@
+.toast-ios {
+  .toast-wrapper.toast-top {
+    top: 20px;
+  }
+  &.opc-success {
+    .toast-wrapper {
+      background: map-get($colors, tl-green);
+    }
+  }
+}

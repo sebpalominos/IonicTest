@@ -1,0 +1,9 @@
+<ion-list>
+  <button ion-item *ngFor="let sc of spendingCategories" (click)="editSpendingCategory(sc)" [disabled]="sc.isLoading">
+    <ion-spinner item-start name="crescent" *ngIf="sc.isLoading"></ion-spinner>
+    <h2>{{sc.spendingArea.label}}</h2>
+    <p class="spend-current">Current: {{sc.spendingArea.currentValue | currency:'AUD':true}}</p>
+    <ion-note item-end class="spend-limit" *ngIf="sc.spendingLimit?.limitValue >= 0">Limit: {{sc.spendingLimit?.limitValue | currency:'AUD':true}}</ion-note>
+    <ion-note item-end class="spend-limit spend-limit-unset" [hidden]="sc.spendingLimit">None</ion-note>
+  </button>
+</ion-list>

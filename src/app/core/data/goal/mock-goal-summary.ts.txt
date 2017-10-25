@@ -1,0 +1,52 @@
+import { GoalShape } from '../../../screens/goal-centre/shared/goal.model';
+import { AccountGoalShape } from '../../../screens/goal-centre/shared/savings-goal.model';
+import { CategoryGoalShape } from '../../../screens/goal-centre/shared/category-goal.model';
+import { GoalSummaryShape } from '../../../screens/goal-centre/shared/goal-summary.model';
+import { GoalHistoryDataPoint } from '../../../screens/goal-centre/shared/goal-type';
+
+import { GOALS, GOAL_HISTORY_MAP } from './mock-goals';
+
+export const GOAL_SUMMARY: GoalSummaryShape[] = [{
+  name: 'summary',
+  title: 'All goals',
+  data: <IGoalSummaryData> {
+    // Grab the first historyDataPoint available for that goal.
+    valueTargetTotal: GOALS.reduce((tally: number, goal: GoalShape) => tally + GOAL_HISTORY_MAP[goal.id].dataPoints[0].valueTarget, 0),
+    valueActualTotal: GOALS.reduce((tally: number, goal: GoalShape) => tally + GOAL_HISTORY_MAP[goal.id].dataPoints[0].valueActual, 0),
+    timeTotal: 2678400,
+    timeElapsed: 450000,
+  }
+}, {
+  name: 'accountGoalSummary',
+  title: 'Saving goals',
+  data: <IGoalSummaryData> {
+    valueTargetTotal: GOALS.filter(g => !!g['accountId']).reduce((tally: number, goal: GoalShape) => tally + GOAL_HISTORY_MAP[goal.id].dataPoints[0].valueTarget, 0),
+    valueActualTotal: GOALS.filter(g => !!g['accountId']).reduce((tally: number, goal: GoalShape) => tally + GOAL_HISTORY_MAP[goal.id].dataPoints[0].valueActual, 0),
+    timeTotal: 2678400,
+    timeElapsed: 450000,
+  }
+}, {
+  name: 'categoryGoalSummary',
+  title: 'Spending limits',
+  data: <IGoalSummaryData> {
+    valueTargetTotal: GOALS.filter(g => !!g['categoryId']).reduce((tally: number, goal: GoalShape) => tally + goal.valueTarget, 0),
+    valueActualTotal: GOALS.filter(g => !!g['categoryId']).reduce((tally: number, goal: GoalShape) => tally + goal.valueActual, 0),
+    timeTotal: 2678400,
+    timeElapsed: 450000,
+  }
+}];
+
+export const CATEGORY_GOAL_HDP: { [categoryId: number]: GoalHistoryDataPoint } = {
+  20: <GoalHistoryDataPoint> { valueActual: 640, valueTarget: 600, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  22: <GoalHistoryDataPoint> { valueActual: 100, valueTarget: 440, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  23: <GoalHistoryDataPoint> { valueActual: 600, valueTarget: 100, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  47: <GoalHistoryDataPoint> { valueActual: 240, valueTarget: 600, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  200: <GoalHistoryDataPoint> { valueActual: 840, valueTarget: 1200, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  220: <GoalHistoryDataPoint> { valueActual: 120, valueTarget: 880, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  230: <GoalHistoryDataPoint> { valueActual: 1740, valueTarget: 200, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  470: <GoalHistoryDataPoint> { valueActual: 260, valueTarget: 1200, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  2000: <GoalHistoryDataPoint> { valueActual: 940, valueTarget: 2000, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  2200: <GoalHistoryDataPoint> { valueActual: 160, valueTarget: 960, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  2300: <GoalHistoryDataPoint> { valueActual: 1800, valueTarget: 300, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+  4700: <GoalHistoryDataPoint> { valueActual: 272, valueTarget: 1900, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+};

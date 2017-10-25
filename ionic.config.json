@@ -1,6 +1,6 @@
 {
   "name": "MyIonicProject",
-  "app_id": "",
+  "app_id": "2ab2a73a",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

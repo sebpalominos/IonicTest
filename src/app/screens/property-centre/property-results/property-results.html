@@ -1,0 +1,80 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <h3 *ngIf="suggestion" class="title">{{ suggestion.displayName}}</h3>      
+      <h3 *ngIf="!suggestion">Search Results</h3>
+      <p text-capitalize class="filtersize" *ngIf="filterSetting">
+        <ion-icon name="home" class="iconsmall"></ion-icon> {{filterSetting.types}} 
+        <b>&middot;</b> 
+        <ion-icon name="logo-buffer" class="iconsmall"></ion-icon> {{filterSetting.sort}}        
+        <span *ngIf="filterSetting.otm">
+            <b>&middot;</b> 
+            <ion-icon name="basket" class="iconsmall"></ion-icon> On the market
+        </span>
+      </p>
+    </ion-title>
+    <button ion-button menuToggle *ngIf="!navCtrl.canGoBack()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <!-- showWhen="android,windows" -->
+    <ion-buttons end>
+      <button ion-button icon-left (tap)="showFilter()">
+          <ion-icon name="funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!-- <ion-buttons end showWhen="ios">
+      <button ion-button (tap)="showFilter()">
+        Filter
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-toolbar padding-horizontal color="dark" (tap)="launchSearchModal()">
+    <!--<div *ngIf="resultsDescription">{{resultsDescription}}</div> -->
+    <div>{{results?.length | i18nPlural:resultsPluralMapping}} Tap to search again.</div>
+    <ion-buttons right>
+      <button ion-button color="secondary">
+        <ion-icon clear name="search" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-list padding-top *ngIf="adjustableVariables">
+    <ion-list-header>
+      <opc-icon item-start set="business" name="price-tag-4"></opc-icon>
+      Price range: 
+      <ion-badge color="primary">{{adjustableVariables.priceSlider?.lower | currency:'AUD':true:'1.0-0'}}</ion-badge> – 
+      <ion-badge color="primary">{{adjustableVariables.priceSlider?.upper | currency:'AUD':true:'1.0-0'}}</ion-badge>
+    </ion-list-header>
+    <ion-item>
+      <ion-range 
+        name="price" 
+        dualKnobs="true" 
+        [(ngModel)]="adjustableVariables.priceSlider" 
+        [min]="adjustableVariables.priceMin" 
+        [max]="adjustableVariables.priceMax" 
+        [step]="adjustableVariables.priceStep" 
+        (ionChange)="priceRangeChanged()"></ion-range>
+    </ion-item>
+  </ion-list>
+  <div [hidden]="results">
+    <property-summary placeholder="true"></property-summary>
+    <property-summary placeholder="true"></property-summary>
+  </div>
+  <div *ngIf="results">
+    <property-summary *ngFor="let property of results" 
+      [property]="property"
+      (propertySelected)="propertySelected($event)"
+      (propertyFavourited)="propertyToggleFavourite($event)"></property-summary>
+  </div>
+
+  <!-- <button ion-button clear color="light" class="float-button" icon-only (tap)="scrollToTop()" >
+    <ion-icon name="arrow-dropup" is-active="false"></ion-icon>
+  </button> -->
+
+  <ion-infinite-scroll (ionInfinite)="loadMoreProperties($event,false)" *ngIf="moreResults">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    
+</ion-content>

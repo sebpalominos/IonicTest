@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Set property price</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <info-bar context="danger" *ngIf="showPropertyNotSelectedError">
+    No property selected! Cannot set price.
+  </info-bar>
+  <ng-container *ngIf="property">
+    <div padding *ngIf="isEditing">
+      <p>Enter the value (or estimated value) of this property:</p>
+    </div>
+    <div padding [hidden]="isEditing">
+      <p>Confirm the price of your property</p>
+    </div>
+    <ion-list>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img [src]="property.coverImage()">
+        </ion-thumbnail>
+        <h2 text-wrap>{{property.displayName()}}</h2>
+        <p *ngIf="property.currentValue">Our estimated value: ${{property.currentValue | number:'1.0-0'}}</p>
+        <p *ngIf="property.userDefinedValue && property.userDefinedValue !== property.currentValue">Your estimate: ${{property.userDefinedValue | number:'1.0-0'}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-note item-start>$</ion-note>
+        <ion-input 
+          class="price-amount" 
+          type="number" 
+          [ngModel]="priceAmountDisplay" 
+          (ngModelChange)="updatePriceAmountDisplay($event)"
+          placeholder="_____"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+</ion-content>
+<ion-footer padding>
+  <button ion-button block (click)="continue()" [disabled]="property && !property.userDefinedValue">Continue</button>
+</ion-footer>

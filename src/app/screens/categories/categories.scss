@@ -1,0 +1,32 @@
+.category-list {
+  // Todo: increase font size across board
+  .no-categorised {
+    text-align: center;
+    opacity: .25;
+  }
+  .trend-label {
+    margin-left: .75rem;
+  }
+  .categories .item.item-block {
+    &::before {
+      content: '';
+      display: block;
+      @include absolute-fill();
+      background: rgba(white, .2);
+      pointer-events: none;
+      transform: translateX(-100%);
+      transition: none;
+    }
+    &:active {
+      color: black;
+      &::before {
+        transform: translateX(0);
+        // transition: .3s transform .4s ease;
+        transition: transform .4s ease;
+      }
+    }
+  }
+}
+.category-single {
+  
+}

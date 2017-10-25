@@ -1,0 +1,76 @@
+<header class="section-header" padding>
+  <h2 class="section-header-title">Current goals</h2>
+  <div class="section-header-actions">
+    <button ion-button clear (click)="seeAllAction()">
+      See all
+    </button>
+  </div>
+</header> 
+<slider id="slider-home-goals" class="home-goals" [opcSliderOpts]="{ centerMode: true, variableWidth: true, infinite: false, dots: false }">
+  <!--<slider-card *ngFor="let g of goals" (tap)="showOptions(g.goal)">-->
+  <slider-card>
+    <header class="with-background-image darker" style="background-image: url('assets/img/demo/vic1.jpg')">
+      <div margin-vertical>
+        <opc-icon set="job" name="037-key" size="xl"></opc-icon>
+      </div>
+      <h2>4 Fairfield Glade, Craigieburn VIC</h2>
+    </header>
+    <opc-progress max="100" value="68" caption="60%"></opc-progress>
+    <section>
+      <ion-grid no-padding>
+        <ion-row center>
+          <ion-col width-20 text-center><opc-icon set="business" name="graph-8" size="md"></opc-icon></ion-col>
+          <ion-col width-80><span style="color: seagreen">This week: On Target</span></ion-col>
+        </ion-row>
+        <ion-row center>
+          <ion-col width-20 text-center><opc-icon set="essential" name="alarm-clock" size="md"></opc-icon></ion-col>
+          <ion-col width-80>8y 4m 2w since start</ion-col>
+        </ion-row>
+        <ion-row center>
+          <ion-col width-20 text-center><opc-icon set="business" name="pie-chart-1" size="md"></opc-icon></ion-col>
+          <ion-col width-80>Contains 8 surplus tactics</ion-col>
+        </ion-row>
+      </ion-grid>
+    </section>
+    <!--<ion-row class="cta-row">
+      <ion-col class="cta-wrapper">
+        <button ion-button block clear>Goal details</button>
+      </ion-col>
+    </ion-row>-->
+  </slider-card>
+  <slider-card>
+    <header class="with-background-image darker" style="background-image: url('assets/img/demo/disneyland.jpg')">
+      <div margin-vertical>
+        <opc-icon set="job" name="037-target-1" size="xl"></opc-icon>
+      </div>
+      <h2>Holiday to Disneyland</h2>
+    </header>
+    <opc-progress max="100" value="20" caption="20%"></opc-progress>
+    <section>
+      <ion-grid no-padding>
+        <ion-row center>
+          <ion-col width-20 text-center><opc-icon set="business" name="graph-8" size="md"></opc-icon></ion-col>
+          <ion-col width-80><span style="color: seagreen">This week: On Target</span></ion-col>
+        </ion-row>
+        <ion-row center>
+          <ion-col width-20 text-center><opc-icon set="essential" name="alarm-clock" size="md"></opc-icon></ion-col>
+          <ion-col width-80>5w 2d since start</ion-col>
+        </ion-row>
+        <ion-row center>
+          <ion-col width-20 text-center><opc-icon set="business" name="pie-chart-1" size="md"></opc-icon></ion-col>
+          <ion-col width-80>Contains 3 surplus tactics</ion-col>
+        </ion-row>
+      </ion-grid>
+    </section>
+    <!--<ion-row class="cta-row">
+      <ion-col class="cta-wrapper">
+        <button ion-button block clear>Goal details</button>
+      </ion-col>
+    </ion-row>-->
+  </slider-card>
+  <!--<slider-card>
+    <section see-more>
+      See 5 more major goals
+    </section>
+  </slider-card>-->
+</slider>

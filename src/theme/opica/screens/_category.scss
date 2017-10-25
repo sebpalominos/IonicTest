@@ -1,0 +1,43 @@
+scr-category {
+  // Traffic lights
+  .limit-tracking {
+    &.limit-tracking-red {
+      color: map-get($opc-colors, "tl-red");
+    }
+    &.limit-tracking-amber {
+      color: map-get($opc-colors, "tl-amber");
+    }
+    &.limit-tracking-green {
+      color: map-get($opc-colors, "tl-green");
+    }
+  }
+  // Progress bars
+  .note {
+    font-size: 1.25em;
+    font-weight: 100;
+  }
+  .category-goal-timeview .progress-bar {
+    max-width: 225px;
+  }
+  .category-goal-timeview:nth-of-type(7n+1) .progress-bar {
+    @extend .progress-bar-dullgreen;
+  }
+  .category-goal-timeview:nth-of-type(7n+2) .progress-bar {
+    @extend .progress-bar-blue;
+  }
+  .category-goal-timeview:nth-of-type(7n+3) .progress-bar {
+    @extend .progress-bar-purple;
+  }
+  .category-goal-timeview:nth-of-type(7n+4) .progress-bar {
+    @extend .progress-bar-orange;
+  }
+  .category-goal-timeview:nth-of-type(7n+5) .progress-bar {
+    @extend .progress-bar-yellow;
+  }
+  .category-goal-timeview:nth-of-type(7n+6) .progress-bar {
+    @extend .progress-bar-gray;
+  }
+  .category-goal-timeview:nth-of-type(7n+7) .progress-bar {
+    @extend .progress-bar-darkblue;
+  }
+}

@@ -1,0 +1,72 @@
+.category-modal-popover {
+  .popover-content {
+    height: 80vh;
+    width: 90vw;
+    box-shadow: 0 0 26px rgba(black, .4);
+  }
+  .popover-viewport {
+    width: 100%;
+    height: 100%;
+  }
+}
+.category-popup {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  background: white;
+  hr {
+    width: 100%;
+    background: lighten($list-ios-border-color, 15%);
+  }
+  .cat-pop-heading h4 {
+    color: map-get($opc-colors, secondary);
+    font-weight: normal;
+  }
+  .cat-pop-content {
+    flex: 1 3 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
+  }
+  .cat-pop-figures {
+    text-align: center;
+    .numeric-stat { 
+      .icon {
+        font-size: 2rem;
+      }
+      dd {
+        font-size: 4.4em;
+        font-family: 'Bebas Neue', sans-serif;
+        font-weight: normal;
+        color: map-get($opc-colors, primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      dd.trend-up {
+        // More discretionary spending is considered worse
+        color: map-get($colors, tl-red); 
+      }
+      dd.trend-down {
+        // Less discretionary spending is considered better
+        color: map-get($colors, tl-green);
+      }
+      dt {
+        opacity: .75;
+        font-size: .9em;
+      }
+    }
+  }
+  .cat-pop-buttons {
+    flex: 0 1 0;
+  }
+  .popup-cancel-wrapper {
+    border-top: 1px solid $list-ios-border-color;
+  }
+}

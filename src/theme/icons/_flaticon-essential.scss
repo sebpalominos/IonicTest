@@ -1,0 +1,799 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/06/2016 15:41
+    */
+
+    @font-face {
+  font-family: "Flaticon Essential";
+  src: url("../assets/fonts/flaticon/flaticon-essential.eot");
+  src: url("../assets/fonts/flaticon/flaticon-essential?#iefix") format("embedded-opentype"),
+       url("../assets/fonts/flaticon/flaticon-essential.woff") format("woff"),
+       url("../assets/fonts/flaticon/flaticon-essential.ttf") format("truetype"),
+       url("../assets/fonts/flaticon/flaticon-essential.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon Essential";
+    src: url("../assets/fonts/flaticon/flaticon-essential.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi-essential:before{
+        display: inline-block;
+  font-family: "Flaticon Essential";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .fi-essential-add:before { content: "\f100"; }
+.fi-essential-add-1:before { content: "\f101"; }
+.fi-essential-add-2:before { content: "\f102"; }
+.fi-essential-add-3:before { content: "\f103"; }
+.fi-essential-agenda:before { content: "\f104"; }
+.fi-essential-alarm:before { content: "\f105"; }
+.fi-essential-alarm-1:before { content: "\f106"; }
+.fi-essential-alarm-clock:before { content: "\f107"; }
+.fi-essential-alarm-clock-1:before { content: "\f108"; }
+.fi-essential-albums:before { content: "\f109"; }
+.fi-essential-app:before { content: "\f10a"; }
+.fi-essential-archive:before { content: "\f10b"; }
+.fi-essential-archive-1:before { content: "\f10c"; }
+.fi-essential-archive-2:before { content: "\f10d"; }
+.fi-essential-archive-3:before { content: "\f10e"; }
+.fi-essential-attachment:before { content: "\f10f"; }
+.fi-essential-back:before { content: "\f110"; }
+.fi-essential-battery:before { content: "\f111"; }
+.fi-essential-battery-1:before { content: "\f112"; }
+.fi-essential-battery-2:before { content: "\f113"; }
+.fi-essential-battery-3:before { content: "\f114"; }
+.fi-essential-battery-4:before { content: "\f115"; }
+.fi-essential-battery-5:before { content: "\f116"; }
+.fi-essential-battery-6:before { content: "\f117"; }
+.fi-essential-battery-7:before { content: "\f118"; }
+.fi-essential-battery-8:before { content: "\f119"; }
+.fi-essential-battery-9:before { content: "\f11a"; }
+.fi-essential-binoculars:before { content: "\f11b"; }
+.fi-essential-blueprint:before { content: "\f11c"; }
+.fi-essential-bluetooth:before { content: "\f11d"; }
+.fi-essential-bluetooth-1:before { content: "\f11e"; }
+.fi-essential-bookmark:before { content: "\f11f"; }
+.fi-essential-bookmark-1:before { content: "\f120"; }
+.fi-essential-briefcase:before { content: "\f121"; }
+.fi-essential-broken-link:before { content: "\f122"; }
+.fi-essential-calculator:before { content: "\f123"; }
+.fi-essential-calculator-1:before { content: "\f124"; }
+.fi-essential-calendar:before { content: "\f125"; }
+.fi-essential-calendar-1:before { content: "\f126"; }
+.fi-essential-calendar-2:before { content: "\f127"; }
+.fi-essential-calendar-3:before { content: "\f128"; }
+.fi-essential-calendar-4:before { content: "\f129"; }
+.fi-essential-calendar-5:before { content: "\f12a"; }
+.fi-essential-calendar-6:before { content: "\f12b"; }
+.fi-essential-calendar-7:before { content: "\f12c"; }
+.fi-essential-checked:before { content: "\f12d"; }
+.fi-essential-checked-1:before { content: "\f12e"; }
+.fi-essential-clock:before { content: "\f12f"; }
+.fi-essential-clock-1:before { content: "\f130"; }
+.fi-essential-close:before { content: "\f131"; }
+.fi-essential-cloud:before { content: "\f132"; }
+.fi-essential-cloud-computing:before { content: "\f133"; }
+.fi-essential-cloud-computing-1:before { content: "\f134"; }
+.fi-essential-cloud-computing-2:before { content: "\f135"; }
+.fi-essential-cloud-computing-3:before { content: "\f136"; }
+.fi-essential-cloud-computing-4:before { content: "\f137"; }
+.fi-essential-cloud-computing-5:before { content: "\f138"; }
+.fi-essential-command:before { content: "\f139"; }
+.fi-essential-compact-disc:before { content: "\f13a"; }
+.fi-essential-compact-disc-1:before { content: "\f13b"; }
+.fi-essential-compact-disc-2:before { content: "\f13c"; }
+.fi-essential-compass:before { content: "\f13d"; }
+.fi-essential-compose:before { content: "\f13e"; }
+.fi-essential-controls:before { content: "\f13f"; }
+.fi-essential-controls-1:before { content: "\f140"; }
+.fi-essential-controls-2:before { content: "\f141"; }
+.fi-essential-controls-3:before { content: "\f142"; }
+.fi-essential-controls-4:before { content: "\f143"; }
+.fi-essential-controls-5:before { content: "\f144"; }
+.fi-essential-controls-6:before { content: "\f145"; }
+.fi-essential-controls-7:before { content: "\f146"; }
+.fi-essential-controls-8:before { content: "\f147"; }
+.fi-essential-controls-9:before { content: "\f148"; }
+.fi-essential-database:before { content: "\f149"; }
+.fi-essential-database-1:before { content: "\f14a"; }
+.fi-essential-database-2:before { content: "\f14b"; }
+.fi-essential-database-3:before { content: "\f14c"; }
+.fi-essential-diamond:before { content: "\f14d"; }
+.fi-essential-diploma:before { content: "\f14e"; }
+.fi-essential-dislike:before { content: "\f14f"; }
+.fi-essential-dislike-1:before { content: "\f150"; }
+.fi-essential-divide:before { content: "\f151"; }
+.fi-essential-divide-1:before { content: "\f152"; }
+.fi-essential-division:before { content: "\f153"; }
+.fi-essential-document:before { content: "\f154"; }
+.fi-essential-download:before { content: "\f155"; }
+.fi-essential-edit:before { content: "\f156"; }
+.fi-essential-edit-1:before { content: "\f157"; }
+.fi-essential-eject:before { content: "\f158"; }
+.fi-essential-eject-1:before { content: "\f159"; }
+.fi-essential-equal:before { content: "\f15a"; }
+.fi-essential-equal-1:before { content: "\f15b"; }
+.fi-essential-equal-2:before { content: "\f15c"; }
+.fi-essential-error:before { content: "\f15d"; }
+.fi-essential-exit:before { content: "\f15e"; }
+.fi-essential-exit-1:before { content: "\f15f"; }
+.fi-essential-exit-2:before { content: "\f160"; }
+.fi-essential-eyeglasses:before { content: "\f161"; }
+.fi-essential-fast-forward:before { content: "\f162"; }
+.fi-essential-fast-forward-1:before { content: "\f163"; }
+.fi-essential-fax:before { content: "\f164"; }
+.fi-essential-file:before { content: "\f165"; }
+.fi-essential-file-1:before { content: "\f166"; }
+.fi-essential-file-2:before { content: "\f167"; }
+.fi-essential-film:before { content: "\f168"; }
+.fi-essential-fingerprint:before { content: "\f169"; }
+.fi-essential-flag:before { content: "\f16a"; }
+.fi-essential-flag-1:before { content: "\f16b"; }
+.fi-essential-flag-2:before { content: "\f16c"; }
+.fi-essential-flag-3:before { content: "\f16d"; }
+.fi-essential-flag-4:before { content: "\f16e"; }
+.fi-essential-focus:before { content: "\f16f"; }
+.fi-essential-folder:before { content: "\f170"; }
+.fi-essential-folder-1:before { content: "\f171"; }
+.fi-essential-folder-10:before { content: "\f172"; }
+.fi-essential-folder-11:before { content: "\f173"; }
+.fi-essential-folder-12:before { content: "\f174"; }
+.fi-essential-folder-13:before { content: "\f175"; }
+.fi-essential-folder-14:before { content: "\f176"; }
+.fi-essential-folder-15:before { content: "\f177"; }
+.fi-essential-folder-16:before { content: "\f178"; }
+.fi-essential-folder-17:before { content: "\f179"; }
+.fi-essential-folder-18:before { content: "\f17a"; }
+.fi-essential-folder-19:before { content: "\f17b"; }
+.fi-essential-folder-2:before { content: "\f17c"; }
+.fi-essential-folder-3:before { content: "\f17d"; }
+.fi-essential-folder-4:before { content: "\f17e"; }
+.fi-essential-folder-5:before { content: "\f17f"; }
+.fi-essential-folder-6:before { content: "\f180"; }
+.fi-essential-folder-7:before { content: "\f181"; }
+.fi-essential-folder-8:before { content: "\f182"; }
+.fi-essential-folder-9:before { content: "\f183"; }
+.fi-essential-forbidden:before { content: "\f184"; }
+.fi-essential-funnel:before { content: "\f185"; }
+.fi-essential-garbage:before { content: "\f186"; }
+.fi-essential-garbage-1:before { content: "\f187"; }
+.fi-essential-garbage-2:before { content: "\f188"; }
+.fi-essential-gift:before { content: "\f189"; }
+.fi-essential-help:before { content: "\f18a"; }
+.fi-essential-hide:before { content: "\f18b"; }
+.fi-essential-hold:before { content: "\f18c"; }
+.fi-essential-home:before { content: "\f18d"; }
+.fi-essential-home-1:before { content: "\f18e"; }
+.fi-essential-home-2:before { content: "\f18f"; }
+.fi-essential-hourglass:before { content: "\f190"; }
+.fi-essential-hourglass-1:before { content: "\f191"; }
+.fi-essential-hourglass-2:before { content: "\f192"; }
+.fi-essential-hourglass-3:before { content: "\f193"; }
+.fi-essential-house:before { content: "\f194"; }
+.fi-essential-id-card:before { content: "\f195"; }
+.fi-essential-id-card-1:before { content: "\f196"; }
+.fi-essential-id-card-2:before { content: "\f197"; }
+.fi-essential-id-card-3:before { content: "\f198"; }
+.fi-essential-id-card-4:before { content: "\f199"; }
+.fi-essential-id-card-5:before { content: "\f19a"; }
+.fi-essential-idea:before { content: "\f19b"; }
+.fi-essential-incoming:before { content: "\f19c"; }
+.fi-essential-infinity:before { content: "\f19d"; }
+.fi-essential-info:before { content: "\f19e"; }
+.fi-essential-internet:before { content: "\f19f"; }
+.fi-essential-key:before { content: "\f1a0"; }
+.fi-essential-lamp:before { content: "\f1a1"; }
+.fi-essential-layers:before { content: "\f1a2"; }
+.fi-essential-layers-1:before { content: "\f1a3"; }
+.fi-essential-like:before { content: "\f1a4"; }
+.fi-essential-like-1:before { content: "\f1a5"; }
+.fi-essential-like-2:before { content: "\f1a6"; }
+.fi-essential-link:before { content: "\f1a7"; }
+.fi-essential-list:before { content: "\f1a8"; }
+.fi-essential-list-1:before { content: "\f1a9"; }
+.fi-essential-lock:before { content: "\f1aa"; }
+.fi-essential-lock-1:before { content: "\f1ab"; }
+.fi-essential-locked:before { content: "\f1ac"; }
+.fi-essential-locked-1:before { content: "\f1ad"; }
+.fi-essential-locked-2:before { content: "\f1ae"; }
+.fi-essential-locked-3:before { content: "\f1af"; }
+.fi-essential-locked-4:before { content: "\f1b0"; }
+.fi-essential-locked-5:before { content: "\f1b1"; }
+.fi-essential-locked-6:before { content: "\f1b2"; }
+.fi-essential-login:before { content: "\f1b3"; }
+.fi-essential-magic-wand:before { content: "\f1b4"; }
+.fi-essential-magnet:before { content: "\f1b5"; }
+.fi-essential-magnet-1:before { content: "\f1b6"; }
+.fi-essential-magnet-2:before { content: "\f1b7"; }
+.fi-essential-map:before { content: "\f1b8"; }
+.fi-essential-map-1:before { content: "\f1b9"; }
+.fi-essential-map-2:before { content: "\f1ba"; }
+.fi-essential-map-location:before { content: "\f1bb"; }
+.fi-essential-megaphone:before { content: "\f1bc"; }
+.fi-essential-megaphone-1:before { content: "\f1bd"; }
+.fi-essential-menu:before { content: "\f1be"; }
+.fi-essential-menu-1:before { content: "\f1bf"; }
+.fi-essential-menu-2:before { content: "\f1c0"; }
+.fi-essential-menu-3:before { content: "\f1c1"; }
+.fi-essential-menu-4:before { content: "\f1c2"; }
+.fi-essential-microphone:before { content: "\f1c3"; }
+.fi-essential-microphone-1:before { content: "\f1c4"; }
+.fi-essential-minus:before { content: "\f1c5"; }
+.fi-essential-minus-1:before { content: "\f1c6"; }
+.fi-essential-more:before { content: "\f1c7"; }
+.fi-essential-more-1:before { content: "\f1c8"; }
+.fi-essential-more-2:before { content: "\f1c9"; }
+.fi-essential-multiply:before { content: "\f1ca"; }
+.fi-essential-multiply-1:before { content: "\f1cb"; }
+.fi-essential-music-player:before { content: "\f1cc"; }
+.fi-essential-music-player-1:before { content: "\f1cd"; }
+.fi-essential-music-player-2:before { content: "\f1ce"; }
+.fi-essential-music-player-3:before { content: "\f1cf"; }
+.fi-essential-mute:before { content: "\f1d0"; }
+.fi-essential-muted:before { content: "\f1d1"; }
+.fi-essential-navigation:before { content: "\f1d2"; }
+.fi-essential-navigation-1:before { content: "\f1d3"; }
+.fi-essential-network:before { content: "\f1d4"; }
+.fi-essential-newspaper:before { content: "\f1d5"; }
+.fi-essential-next:before { content: "\f1d6"; }
+.fi-essential-note:before { content: "\f1d7"; }
+.fi-essential-notebook:before { content: "\f1d8"; }
+.fi-essential-notebook-1:before { content: "\f1d9"; }
+.fi-essential-notebook-2:before { content: "\f1da"; }
+.fi-essential-notebook-3:before { content: "\f1db"; }
+.fi-essential-notebook-4:before { content: "\f1dc"; }
+.fi-essential-notebook-5:before { content: "\f1dd"; }
+.fi-essential-notepad:before { content: "\f1de"; }
+.fi-essential-notepad-1:before { content: "\f1df"; }
+.fi-essential-notepad-2:before { content: "\f1e0"; }
+.fi-essential-notification:before { content: "\f1e1"; }
+.fi-essential-paper-plane:before { content: "\f1e2"; }
+.fi-essential-paper-plane-1:before { content: "\f1e3"; }
+.fi-essential-pause:before { content: "\f1e4"; }
+.fi-essential-pause-1:before { content: "\f1e5"; }
+.fi-essential-percent:before { content: "\f1e6"; }
+.fi-essential-percent-1:before { content: "\f1e7"; }
+.fi-essential-perspective:before { content: "\f1e8"; }
+.fi-essential-photo-camera:before { content: "\f1e9"; }
+.fi-essential-photo-camera-1:before { content: "\f1ea"; }
+.fi-essential-photos:before { content: "\f1eb"; }
+.fi-essential-picture:before { content: "\f1ec"; }
+.fi-essential-picture-1:before { content: "\f1ed"; }
+.fi-essential-picture-2:before { content: "\f1ee"; }
+.fi-essential-pin:before { content: "\f1ef"; }
+.fi-essential-placeholder:before { content: "\f1f0"; }
+.fi-essential-placeholder-1:before { content: "\f1f1"; }
+.fi-essential-placeholder-2:before { content: "\f1f2"; }
+.fi-essential-placeholder-3:before { content: "\f1f3"; }
+.fi-essential-placeholders:before { content: "\f1f4"; }
+.fi-essential-play-button:before { content: "\f1f5"; }
+.fi-essential-play-button-1:before { content: "\f1f6"; }
+.fi-essential-plus:before { content: "\f1f7"; }
+.fi-essential-power:before { content: "\f1f8"; }
+.fi-essential-previous:before { content: "\f1f9"; }
+.fi-essential-price-tag:before { content: "\f1fa"; }
+.fi-essential-print:before { content: "\f1fb"; }
+.fi-essential-push-pin:before { content: "\f1fc"; }
+.fi-essential-radar:before { content: "\f1fd"; }
+.fi-essential-reading:before { content: "\f1fe"; }
+.fi-essential-record:before { content: "\f1ff"; }
+.fi-essential-repeat:before { content: "\f200"; }
+.fi-essential-repeat-1:before { content: "\f201"; }
+.fi-essential-restart:before { content: "\f202"; }
+.fi-essential-resume:before { content: "\f203"; }
+.fi-essential-rewind:before { content: "\f204"; }
+.fi-essential-rewind-1:before { content: "\f205"; }
+.fi-essential-route:before { content: "\f206"; }
+.fi-essential-save:before { content: "\f207"; }
+.fi-essential-search:before { content: "\f208"; }
+.fi-essential-search-1:before { content: "\f209"; }
+.fi-essential-send:before { content: "\f20a"; }
+.fi-essential-server:before { content: "\f20b"; }
+.fi-essential-server-1:before { content: "\f20c"; }
+.fi-essential-server-2:before { content: "\f20d"; }
+.fi-essential-server-3:before { content: "\f20e"; }
+.fi-essential-settings:before { content: "\f20f"; }
+.fi-essential-settings-1:before { content: "\f210"; }
+.fi-essential-settings-2:before { content: "\f211"; }
+.fi-essential-settings-3:before { content: "\f212"; }
+.fi-essential-settings-4:before { content: "\f213"; }
+.fi-essential-settings-5:before { content: "\f214"; }
+.fi-essential-settings-6:before { content: "\f215"; }
+.fi-essential-settings-7:before { content: "\f216"; }
+.fi-essential-settings-8:before { content: "\f217"; }
+.fi-essential-settings-9:before { content: "\f218"; }
+.fi-essential-share:before { content: "\f219"; }
+.fi-essential-share-1:before { content: "\f21a"; }
+.fi-essential-share-2:before { content: "\f21b"; }
+.fi-essential-shuffle:before { content: "\f21c"; }
+.fi-essential-shuffle-1:before { content: "\f21d"; }
+.fi-essential-shutdown:before { content: "\f21e"; }
+.fi-essential-sign:before { content: "\f21f"; }
+.fi-essential-sign-1:before { content: "\f220"; }
+.fi-essential-skip:before { content: "\f221"; }
+.fi-essential-smartphone:before { content: "\f222"; }
+.fi-essential-smartphone-1:before { content: "\f223"; }
+.fi-essential-smartphone-10:before { content: "\f224"; }
+.fi-essential-smartphone-11:before { content: "\f225"; }
+.fi-essential-smartphone-2:before { content: "\f226"; }
+.fi-essential-smartphone-3:before { content: "\f227"; }
+.fi-essential-smartphone-4:before { content: "\f228"; }
+.fi-essential-smartphone-5:before { content: "\f229"; }
+.fi-essential-smartphone-6:before { content: "\f22a"; }
+.fi-essential-smartphone-7:before { content: "\f22b"; }
+.fi-essential-smartphone-8:before { content: "\f22c"; }
+.fi-essential-smartphone-9:before { content: "\f22d"; }
+.fi-essential-speaker:before { content: "\f22e"; }
+.fi-essential-speaker-1:before { content: "\f22f"; }
+.fi-essential-speaker-2:before { content: "\f230"; }
+.fi-essential-speaker-3:before { content: "\f231"; }
+.fi-essential-speaker-4:before { content: "\f232"; }
+.fi-essential-speaker-5:before { content: "\f233"; }
+.fi-essential-speaker-6:before { content: "\f234"; }
+.fi-essential-speaker-7:before { content: "\f235"; }
+.fi-essential-speaker-8:before { content: "\f236"; }
+.fi-essential-spotlight:before { content: "\f237"; }
+.fi-essential-star:before { content: "\f238"; }
+.fi-essential-star-1:before { content: "\f239"; }
+.fi-essential-stop:before { content: "\f23a"; }
+.fi-essential-stop-1:before { content: "\f23b"; }
+.fi-essential-stopwatch:before { content: "\f23c"; }
+.fi-essential-stopwatch-1:before { content: "\f23d"; }
+.fi-essential-stopwatch-2:before { content: "\f23e"; }
+.fi-essential-stopwatch-3:before { content: "\f23f"; }
+.fi-essential-stopwatch-4:before { content: "\f240"; }
+.fi-essential-street:before { content: "\f241"; }
+.fi-essential-street-1:before { content: "\f242"; }
+.fi-essential-substract:before { content: "\f243"; }
+.fi-essential-substract-1:before { content: "\f244"; }
+.fi-essential-success:before { content: "\f245"; }
+.fi-essential-switch:before { content: "\f246"; }
+.fi-essential-switch-1:before { content: "\f247"; }
+.fi-essential-switch-2:before { content: "\f248"; }
+.fi-essential-switch-3:before { content: "\f249"; }
+.fi-essential-switch-4:before { content: "\f24a"; }
+.fi-essential-switch-5:before { content: "\f24b"; }
+.fi-essential-switch-6:before { content: "\f24c"; }
+.fi-essential-switch-7:before { content: "\f24d"; }
+.fi-essential-tabs:before { content: "\f24e"; }
+.fi-essential-tabs-1:before { content: "\f24f"; }
+.fi-essential-target:before { content: "\f250"; }
+.fi-essential-television:before { content: "\f251"; }
+.fi-essential-television-1:before { content: "\f252"; }
+.fi-essential-time:before { content: "\f253"; }
+.fi-essential-trash:before { content: "\f254"; }
+.fi-essential-umbrella:before { content: "\f255"; }
+.fi-essential-unlink:before { content: "\f256"; }
+.fi-essential-unlocked:before { content: "\f257"; }
+.fi-essential-unlocked-1:before { content: "\f258"; }
+.fi-essential-unlocked-2:before { content: "\f259"; }
+.fi-essential-upload:before { content: "\f25a"; }
+.fi-essential-user:before { content: "\f25b"; }
+.fi-essential-user-1:before { content: "\f25c"; }
+.fi-essential-user-2:before { content: "\f25d"; }
+.fi-essential-user-3:before { content: "\f25e"; }
+.fi-essential-user-4:before { content: "\f25f"; }
+.fi-essential-user-5:before { content: "\f260"; }
+.fi-essential-user-6:before { content: "\f261"; }
+.fi-essential-user-7:before { content: "\f262"; }
+.fi-essential-users:before { content: "\f263"; }
+.fi-essential-users-1:before { content: "\f264"; }
+.fi-essential-video-camera:before { content: "\f265"; }
+.fi-essential-video-camera-1:before { content: "\f266"; }
+.fi-essential-video-player:before { content: "\f267"; }
+.fi-essential-video-player-1:before { content: "\f268"; }
+.fi-essential-video-player-2:before { content: "\f269"; }
+.fi-essential-view:before { content: "\f26a"; }
+.fi-essential-view-1:before { content: "\f26b"; }
+.fi-essential-view-2:before { content: "\f26c"; }
+.fi-essential-volume-control:before { content: "\f26d"; }
+.fi-essential-volume-control-1:before { content: "\f26e"; }
+.fi-essential-warning:before { content: "\f26f"; }
+.fi-essential-wifi:before { content: "\f270"; }
+.fi-essential-wifi-1:before { content: "\f271"; }
+.fi-essential-windows:before { content: "\f272"; }
+.fi-essential-windows-1:before { content: "\f273"; }
+.fi-essential-windows-2:before { content: "\f274"; }
+.fi-essential-windows-3:before { content: "\f275"; }
+.fi-essential-windows-4:before { content: "\f276"; }
+.fi-essential-wireless-internet:before { content: "\f277"; }
+.fi-essential-worldwide:before { content: "\f278"; }
+.fi-essential-worldwide-1:before { content: "\f279"; }
+.fi-essential-zoom-in:before { content: "\f27a"; }
+.fi-essential-zoom-out:before { content: "\f27b"; }
+    
+    $font-fi-essential-add: "\f100";
+    $font-fi-essential-add-1: "\f101";
+    $font-fi-essential-add-2: "\f102";
+    $font-fi-essential-add-3: "\f103";
+    $font-fi-essential-agenda: "\f104";
+    $font-fi-essential-alarm: "\f105";
+    $font-fi-essential-alarm-1: "\f106";
+    $font-fi-essential-alarm-clock: "\f107";
+    $font-fi-essential-alarm-clock-1: "\f108";
+    $font-fi-essential-albums: "\f109";
+    $font-fi-essential-app: "\f10a";
+    $font-fi-essential-archive: "\f10b";
+    $font-fi-essential-archive-1: "\f10c";
+    $font-fi-essential-archive-2: "\f10d";
+    $font-fi-essential-archive-3: "\f10e";
+    $font-fi-essential-attachment: "\f10f";
+    $font-fi-essential-back: "\f110";
+    $font-fi-essential-battery: "\f111";
+    $font-fi-essential-battery-1: "\f112";
+    $font-fi-essential-battery-2: "\f113";
+    $font-fi-essential-battery-3: "\f114";
+    $font-fi-essential-battery-4: "\f115";
+    $font-fi-essential-battery-5: "\f116";
+    $font-fi-essential-battery-6: "\f117";
+    $font-fi-essential-battery-7: "\f118";
+    $font-fi-essential-battery-8: "\f119";
+    $font-fi-essential-battery-9: "\f11a";
+    $font-fi-essential-binoculars: "\f11b";
+    $font-fi-essential-blueprint: "\f11c";
+    $font-fi-essential-bluetooth: "\f11d";
+    $font-fi-essential-bluetooth-1: "\f11e";
+    $font-fi-essential-bookmark: "\f11f";
+    $font-fi-essential-bookmark-1: "\f120";
+    $font-fi-essential-briefcase: "\f121";
+    $font-fi-essential-broken-link: "\f122";
+    $font-fi-essential-calculator: "\f123";
+    $font-fi-essential-calculator-1: "\f124";
+    $font-fi-essential-calendar: "\f125";
+    $font-fi-essential-calendar-1: "\f126";
+    $font-fi-essential-calendar-2: "\f127";
+    $font-fi-essential-calendar-3: "\f128";
+    $font-fi-essential-calendar-4: "\f129";
+    $font-fi-essential-calendar-5: "\f12a";
+    $font-fi-essential-calendar-6: "\f12b";
+    $font-fi-essential-calendar-7: "\f12c";
+    $font-fi-essential-checked: "\f12d";
+    $font-fi-essential-checked-1: "\f12e";
+    $font-fi-essential-clock: "\f12f";
+    $font-fi-essential-clock-1: "\f130";
+    $font-fi-essential-close: "\f131";
+    $font-fi-essential-cloud: "\f132";
+    $font-fi-essential-cloud-computing: "\f133";
+    $font-fi-essential-cloud-computing-1: "\f134";
+    $font-fi-essential-cloud-computing-2: "\f135";
+    $font-fi-essential-cloud-computing-3: "\f136";
+    $font-fi-essential-cloud-computing-4: "\f137";
+    $font-fi-essential-cloud-computing-5: "\f138";
+    $font-fi-essential-command: "\f139";
+    $font-fi-essential-compact-disc: "\f13a";
+    $font-fi-essential-compact-disc-1: "\f13b";
+    $font-fi-essential-compact-disc-2: "\f13c";
+    $font-fi-essential-compass: "\f13d";
+    $font-fi-essential-compose: "\f13e";
+    $font-fi-essential-controls: "\f13f";
+    $font-fi-essential-controls-1: "\f140";
+    $font-fi-essential-controls-2: "\f141";
+    $font-fi-essential-controls-3: "\f142";
+    $font-fi-essential-controls-4: "\f143";
+    $font-fi-essential-controls-5: "\f144";
+    $font-fi-essential-controls-6: "\f145";
+    $font-fi-essential-controls-7: "\f146";
+    $font-fi-essential-controls-8: "\f147";
+    $font-fi-essential-controls-9: "\f148";
+    $font-fi-essential-database: "\f149";
+    $font-fi-essential-database-1: "\f14a";
+    $font-fi-essential-database-2: "\f14b";
+    $font-fi-essential-database-3: "\f14c";
+    $font-fi-essential-diamond: "\f14d";
+    $font-fi-essential-diploma: "\f14e";
+    $font-fi-essential-dislike: "\f14f";
+    $font-fi-essential-dislike-1: "\f150";
+    $font-fi-essential-divide: "\f151";
+    $font-fi-essential-divide-1: "\f152";
+    $font-fi-essential-division: "\f153";
+    $font-fi-essential-document: "\f154";
+    $font-fi-essential-download: "\f155";
+    $font-fi-essential-edit: "\f156";
+    $font-fi-essential-edit-1: "\f157";
+    $font-fi-essential-eject: "\f158";
+    $font-fi-essential-eject-1: "\f159";
+    $font-fi-essential-equal: "\f15a";
+    $font-fi-essential-equal-1: "\f15b";
+    $font-fi-essential-equal-2: "\f15c";
+    $font-fi-essential-error: "\f15d";
+    $font-fi-essential-exit: "\f15e";
+    $font-fi-essential-exit-1: "\f15f";
+    $font-fi-essential-exit-2: "\f160";
+    $font-fi-essential-eyeglasses: "\f161";
+    $font-fi-essential-fast-forward: "\f162";
+    $font-fi-essential-fast-forward-1: "\f163";
+    $font-fi-essential-fax: "\f164";
+    $font-fi-essential-file: "\f165";
+    $font-fi-essential-file-1: "\f166";
+    $font-fi-essential-file-2: "\f167";
+    $font-fi-essential-film: "\f168";
+    $font-fi-essential-fingerprint: "\f169";
+    $font-fi-essential-flag: "\f16a";
+    $font-fi-essential-flag-1: "\f16b";
+    $font-fi-essential-flag-2: "\f16c";
+    $font-fi-essential-flag-3: "\f16d";
+    $font-fi-essential-flag-4: "\f16e";
+    $font-fi-essential-focus: "\f16f";
+    $font-fi-essential-folder: "\f170";
+    $font-fi-essential-folder-1: "\f171";
+    $font-fi-essential-folder-10: "\f172";
+    $font-fi-essential-folder-11: "\f173";
+    $font-fi-essential-folder-12: "\f174";
+    $font-fi-essential-folder-13: "\f175";
+    $font-fi-essential-folder-14: "\f176";
+    $font-fi-essential-folder-15: "\f177";
+    $font-fi-essential-folder-16: "\f178";
+    $font-fi-essential-folder-17: "\f179";
+    $font-fi-essential-folder-18: "\f17a";
+    $font-fi-essential-folder-19: "\f17b";
+    $font-fi-essential-folder-2: "\f17c";
+    $font-fi-essential-folder-3: "\f17d";
+    $font-fi-essential-folder-4: "\f17e";
+    $font-fi-essential-folder-5: "\f17f";
+    $font-fi-essential-folder-6: "\f180";
+    $font-fi-essential-folder-7: "\f181";
+    $font-fi-essential-folder-8: "\f182";
+    $font-fi-essential-folder-9: "\f183";
+    $font-fi-essential-forbidden: "\f184";
+    $font-fi-essential-funnel: "\f185";
+    $font-fi-essential-garbage: "\f186";
+    $font-fi-essential-garbage-1: "\f187";
+    $font-fi-essential-garbage-2: "\f188";
+    $font-fi-essential-gift: "\f189";
+    $font-fi-essential-help: "\f18a";
+    $font-fi-essential-hide: "\f18b";
+    $font-fi-essential-hold: "\f18c";
+    $font-fi-essential-home: "\f18d";
+    $font-fi-essential-home-1: "\f18e";
+    $font-fi-essential-home-2: "\f18f";
+    $font-fi-essential-hourglass: "\f190";
+    $font-fi-essential-hourglass-1: "\f191";
+    $font-fi-essential-hourglass-2: "\f192";
+    $font-fi-essential-hourglass-3: "\f193";
+    $font-fi-essential-house: "\f194";
+    $font-fi-essential-id-card: "\f195";
+    $font-fi-essential-id-card-1: "\f196";
+    $font-fi-essential-id-card-2: "\f197";
+    $font-fi-essential-id-card-3: "\f198";
+    $font-fi-essential-id-card-4: "\f199";
+    $font-fi-essential-id-card-5: "\f19a";
+    $font-fi-essential-idea: "\f19b";
+    $font-fi-essential-incoming: "\f19c";
+    $font-fi-essential-infinity: "\f19d";
+    $font-fi-essential-info: "\f19e";
+    $font-fi-essential-internet: "\f19f";
+    $font-fi-essential-key: "\f1a0";
+    $font-fi-essential-lamp: "\f1a1";
+    $font-fi-essential-layers: "\f1a2";
+    $font-fi-essential-layers-1: "\f1a3";
+    $font-fi-essential-like: "\f1a4";
+    $font-fi-essential-like-1: "\f1a5";
+    $font-fi-essential-like-2: "\f1a6";
+    $font-fi-essential-link: "\f1a7";
+    $font-fi-essential-list: "\f1a8";
+    $font-fi-essential-list-1: "\f1a9";
+    $font-fi-essential-lock: "\f1aa";
+    $font-fi-essential-lock-1: "\f1ab";
+    $font-fi-essential-locked: "\f1ac";
+    $font-fi-essential-locked-1: "\f1ad";
+    $font-fi-essential-locked-2: "\f1ae";
+    $font-fi-essential-locked-3: "\f1af";
+    $font-fi-essential-locked-4: "\f1b0";
+    $font-fi-essential-locked-5: "\f1b1";
+    $font-fi-essential-locked-6: "\f1b2";
+    $font-fi-essential-login: "\f1b3";
+    $font-fi-essential-magic-wand: "\f1b4";
+    $font-fi-essential-magnet: "\f1b5";
+    $font-fi-essential-magnet-1: "\f1b6";
+    $font-fi-essential-magnet-2: "\f1b7";
+    $font-fi-essential-map: "\f1b8";
+    $font-fi-essential-map-1: "\f1b9";
+    $font-fi-essential-map-2: "\f1ba";
+    $font-fi-essential-map-location: "\f1bb";
+    $font-fi-essential-megaphone: "\f1bc";
+    $font-fi-essential-megaphone-1: "\f1bd";
+    $font-fi-essential-menu: "\f1be";
+    $font-fi-essential-menu-1: "\f1bf";
+    $font-fi-essential-menu-2: "\f1c0";
+    $font-fi-essential-menu-3: "\f1c1";
+    $font-fi-essential-menu-4: "\f1c2";
+    $font-fi-essential-microphone: "\f1c3";
+    $font-fi-essential-microphone-1: "\f1c4";
+    $font-fi-essential-minus: "\f1c5";
+    $font-fi-essential-minus-1: "\f1c6";
+    $font-fi-essential-more: "\f1c7";
+    $font-fi-essential-more-1: "\f1c8";
+    $font-fi-essential-more-2: "\f1c9";
+    $font-fi-essential-multiply: "\f1ca";
+    $font-fi-essential-multiply-1: "\f1cb";
+    $font-fi-essential-music-player: "\f1cc";
+    $font-fi-essential-music-player-1: "\f1cd";
+    $font-fi-essential-music-player-2: "\f1ce";
+    $font-fi-essential-music-player-3: "\f1cf";
+    $font-fi-essential-mute: "\f1d0";
+    $font-fi-essential-muted: "\f1d1";
+    $font-fi-essential-navigation: "\f1d2";
+    $font-fi-essential-navigation-1: "\f1d3";
+    $font-fi-essential-network: "\f1d4";
+    $font-fi-essential-newspaper: "\f1d5";
+    $font-fi-essential-next: "\f1d6";
+    $font-fi-essential-note: "\f1d7";
+    $font-fi-essential-notebook: "\f1d8";
+    $font-fi-essential-notebook-1: "\f1d9";
+    $font-fi-essential-notebook-2: "\f1da";
+    $font-fi-essential-notebook-3: "\f1db";
+    $font-fi-essential-notebook-4: "\f1dc";
+    $font-fi-essential-notebook-5: "\f1dd";
+    $font-fi-essential-notepad: "\f1de";
+    $font-fi-essential-notepad-1: "\f1df";
+    $font-fi-essential-notepad-2: "\f1e0";
+    $font-fi-essential-notification: "\f1e1";
+    $font-fi-essential-paper-plane: "\f1e2";
+    $font-fi-essential-paper-plane-1: "\f1e3";
+    $font-fi-essential-pause: "\f1e4";
+    $font-fi-essential-pause-1: "\f1e5";
+    $font-fi-essential-percent: "\f1e6";
+    $font-fi-essential-percent-1: "\f1e7";
+    $font-fi-essential-perspective: "\f1e8";
+    $font-fi-essential-photo-camera: "\f1e9";
+    $font-fi-essential-photo-camera-1: "\f1ea";
+    $font-fi-essential-photos: "\f1eb";
+    $font-fi-essential-picture: "\f1ec";
+    $font-fi-essential-picture-1: "\f1ed";
+    $font-fi-essential-picture-2: "\f1ee";
+    $font-fi-essential-pin: "\f1ef";
+    $font-fi-essential-placeholder: "\f1f0";
+    $font-fi-essential-placeholder-1: "\f1f1";
+    $font-fi-essential-placeholder-2: "\f1f2";
+    $font-fi-essential-placeholder-3: "\f1f3";
+    $font-fi-essential-placeholders: "\f1f4";
+    $font-fi-essential-play-button: "\f1f5";
+    $font-fi-essential-play-button-1: "\f1f6";
+    $font-fi-essential-plus: "\f1f7";
+    $font-fi-essential-power: "\f1f8";
+    $font-fi-essential-previous: "\f1f9";
+    $font-fi-essential-price-tag: "\f1fa";
+    $font-fi-essential-print: "\f1fb";
+    $font-fi-essential-push-pin: "\f1fc";
+    $font-fi-essential-radar: "\f1fd";
+    $font-fi-essential-reading: "\f1fe";
+    $font-fi-essential-record: "\f1ff";
+    $font-fi-essential-repeat: "\f200";
+    $font-fi-essential-repeat-1: "\f201";
+    $font-fi-essential-restart: "\f202";
+    $font-fi-essential-resume: "\f203";
+    $font-fi-essential-rewind: "\f204";
+    $font-fi-essential-rewind-1: "\f205";
+    $font-fi-essential-route: "\f206";
+    $font-fi-essential-save: "\f207";
+    $font-fi-essential-search: "\f208";
+    $font-fi-essential-search-1: "\f209";
+    $font-fi-essential-send: "\f20a";
+    $font-fi-essential-server: "\f20b";
+    $font-fi-essential-server-1: "\f20c";
+    $font-fi-essential-server-2: "\f20d";
+    $font-fi-essential-server-3: "\f20e";
+    $font-fi-essential-settings: "\f20f";
+    $font-fi-essential-settings-1: "\f210";
+    $font-fi-essential-settings-2: "\f211";
+    $font-fi-essential-settings-3: "\f212";
+    $font-fi-essential-settings-4: "\f213";
+    $font-fi-essential-settings-5: "\f214";
+    $font-fi-essential-settings-6: "\f215";
+    $font-fi-essential-settings-7: "\f216";
+    $font-fi-essential-settings-8: "\f217";
+    $font-fi-essential-settings-9: "\f218";
+    $font-fi-essential-share: "\f219";
+    $font-fi-essential-share-1: "\f21a";
+    $font-fi-essential-share-2: "\f21b";
+    $font-fi-essential-shuffle: "\f21c";
+    $font-fi-essential-shuffle-1: "\f21d";
+    $font-fi-essential-shutdown: "\f21e";
+    $font-fi-essential-sign: "\f21f";
+    $font-fi-essential-sign-1: "\f220";
+    $font-fi-essential-skip: "\f221";
+    $font-fi-essential-smartphone: "\f222";
+    $font-fi-essential-smartphone-1: "\f223";
+    $font-fi-essential-smartphone-10: "\f224";
+    $font-fi-essential-smartphone-11: "\f225";
+    $font-fi-essential-smartphone-2: "\f226";
+    $font-fi-essential-smartphone-3: "\f227";
+    $font-fi-essential-smartphone-4: "\f228";
+    $font-fi-essential-smartphone-5: "\f229";
+    $font-fi-essential-smartphone-6: "\f22a";
+    $font-fi-essential-smartphone-7: "\f22b";
+    $font-fi-essential-smartphone-8: "\f22c";
+    $font-fi-essential-smartphone-9: "\f22d";
+    $font-fi-essential-speaker: "\f22e";
+    $font-fi-essential-speaker-1: "\f22f";
+    $font-fi-essential-speaker-2: "\f230";
+    $font-fi-essential-speaker-3: "\f231";
+    $font-fi-essential-speaker-4: "\f232";
+    $font-fi-essential-speaker-5: "\f233";
+    $font-fi-essential-speaker-6: "\f234";
+    $font-fi-essential-speaker-7: "\f235";
+    $font-fi-essential-speaker-8: "\f236";
+    $font-fi-essential-spotlight: "\f237";
+    $font-fi-essential-star: "\f238";
+    $font-fi-essential-star-1: "\f239";
+    $font-fi-essential-stop: "\f23a";
+    $font-fi-essential-stop-1: "\f23b";
+    $font-fi-essential-stopwatch: "\f23c";
+    $font-fi-essential-stopwatch-1: "\f23d";
+    $font-fi-essential-stopwatch-2: "\f23e";
+    $font-fi-essential-stopwatch-3: "\f23f";
+    $font-fi-essential-stopwatch-4: "\f240";
+    $font-fi-essential-street: "\f241";
+    $font-fi-essential-street-1: "\f242";
+    $font-fi-essential-substract: "\f243";
+    $font-fi-essential-substract-1: "\f244";
+    $font-fi-essential-success: "\f245";
+    $font-fi-essential-switch: "\f246";
+    $font-fi-essential-switch-1: "\f247";
+    $font-fi-essential-switch-2: "\f248";
+    $font-fi-essential-switch-3: "\f249";
+    $font-fi-essential-switch-4: "\f24a";
+    $font-fi-essential-switch-5: "\f24b";
+    $font-fi-essential-switch-6: "\f24c";
+    $font-fi-essential-switch-7: "\f24d";
+    $font-fi-essential-tabs: "\f24e";
+    $font-fi-essential-tabs-1: "\f24f";
+    $font-fi-essential-target: "\f250";
+    $font-fi-essential-television: "\f251";
+    $font-fi-essential-television-1: "\f252";
+    $font-fi-essential-time: "\f253";
+    $font-fi-essential-trash: "\f254";
+    $font-fi-essential-umbrella: "\f255";
+    $font-fi-essential-unlink: "\f256";
+    $font-fi-essential-unlocked: "\f257";
+    $font-fi-essential-unlocked-1: "\f258";
+    $font-fi-essential-unlocked-2: "\f259";
+    $font-fi-essential-upload: "\f25a";
+    $font-fi-essential-user: "\f25b";
+    $font-fi-essential-user-1: "\f25c";
+    $font-fi-essential-user-2: "\f25d";
+    $font-fi-essential-user-3: "\f25e";
+    $font-fi-essential-user-4: "\f25f";
+    $font-fi-essential-user-5: "\f260";
+    $font-fi-essential-user-6: "\f261";
+    $font-fi-essential-user-7: "\f262";
+    $font-fi-essential-users: "\f263";
+    $font-fi-essential-users-1: "\f264";
+    $font-fi-essential-video-camera: "\f265";
+    $font-fi-essential-video-camera-1: "\f266";
+    $font-fi-essential-video-player: "\f267";
+    $font-fi-essential-video-player-1: "\f268";
+    $font-fi-essential-video-player-2: "\f269";
+    $font-fi-essential-view: "\f26a";
+    $font-fi-essential-view-1: "\f26b";
+    $font-fi-essential-view-2: "\f26c";
+    $font-fi-essential-volume-control: "\f26d";
+    $font-fi-essential-volume-control-1: "\f26e";
+    $font-fi-essential-warning: "\f26f";
+    $font-fi-essential-wifi: "\f270";
+    $font-fi-essential-wifi-1: "\f271";
+    $font-fi-essential-windows: "\f272";
+    $font-fi-essential-windows-1: "\f273";
+    $font-fi-essential-windows-2: "\f274";
+    $font-fi-essential-windows-3: "\f275";
+    $font-fi-essential-windows-4: "\f276";
+    $font-fi-essential-wireless-internet: "\f277";
+    $font-fi-essential-worldwide: "\f278";
+    $font-fi-essential-worldwide-1: "\f279";
+    $font-fi-essential-zoom-in: "\f27a";
+    $font-fi-essential-zoom-out: "\f27b";

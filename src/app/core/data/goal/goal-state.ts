@@ -1,0 +1,1 @@
+export type LinkAccountStateValue = 'NOT_READY' | 'READY' | 'FINISHED';

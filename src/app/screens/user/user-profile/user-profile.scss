@@ -1,0 +1,35 @@
+scr-user-profile {
+  .profile-cover {
+    position: relative;
+    height: 200px;
+    margin-bottom: 40px;
+    background: url('../assets/img/bg/stars.jpg') center center/cover transparent;
+  }
+  .profile-avatar {
+    display: block;
+    position: absolute;
+    left: 16px;
+    bottom: -20px;
+    height: 80px;
+    width: 80px;
+    border: 2px solid map-get($flat-colors, clouds);
+    border-radius: 80px;
+    background: rgba(white, .4);
+    overflow: hidden;
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .profile-headings {
+    position: absolute;
+    left: 112px;
+    bottom: 5px;
+    color: white;
+    h1 {
+      margin: 0;
+    }
+  }
+}
+  

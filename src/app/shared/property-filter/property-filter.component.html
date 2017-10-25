@@ -1,0 +1,57 @@
+<!-- <div margin>
+    Filters:
+    <button ion-button color="light" outline small icon-left (tap)="propertyTypeFilter()">
+            <ion-icon name="home"></ion-icon>
+            Property Type
+          </button>
+    <button ion-button color="light" outline small icon-left (tap)="sortByFilter()">
+            <ion-icon name="logo-buffer"></ion-icon>
+            Sort by
+          </button>
+</div> -->
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Filter Search</ion-title>
+    <ion-buttons end showWhen="android,windows">
+      <button ion-button (tap)="cancel()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end showWhen="ios">
+      <button ion-button (tap)="cancel()">
+        <span>Close</span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider color="light"></ion-item-divider>
+    <ion-item (tap)="propertyTypeFilter()">
+      <ion-icon name="home" item-left></ion-icon>
+      <h2>Property Type</h2>
+      <p>{{propertyType}}</p>
+    </ion-item>
+    <ion-item>
+        <ion-icon name="logo-buffer" item-left (tap)="sortByFilter()"></ion-icon>
+        <ion-label (tap)="sortByFilter()">
+          <h2>Sort By</h2>
+          <p>{{sortBy}}, {{sort}}</p>
+        </ion-label>
+        <ion-toggle [(ngModel)]="filters.sort" (ionChange)="toggleSort()"></ion-toggle>      
+    </ion-item>
+    <ion-item>
+        <ion-icon name="basket" item-left></ion-icon>
+        <ion-label>
+          <h2>Properties for Sale Only</h2>
+          <p>{{otm}}</p>
+        </ion-label>
+        <!-- <p>{{sortBy}}</p> -->
+        <ion-toggle item-end [(ngModel)]="filters.otm" (ionChange)="toggleOTM()"></ion-toggle>
+      </ion-item>
+  </ion-item-group>
+</ion-content>
+<ion-footer padding class="realestate-search-submit">
+  <button ion-button block large (tap)="search()">Search</button>
+</ion-footer>

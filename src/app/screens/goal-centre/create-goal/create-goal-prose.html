@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="close()">
+        <span showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Goal Setup</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <header padding class="create-goal-preamble" *ngIf="!proseFinished()">
+    <opc-icon-heading src="assets/icons/squidink/svg64/multiple-bubble chat 3.svg" size="lg">
+      <h4>Tell us more about your goal</h4>
+      <p>Enter details at the prompt.</p>
+    </opc-icon-heading>
+  </header>
+  <header padding class="create-goal-preamble" *ngIf="proseFinished()">
+    <opc-icon-heading src="assets/icons/squidink/svg64/multiple-bubble chat 3.svg" size="lg">
+      <h4>Here's what you've told us</h4>
+    </opc-icon-heading>
+  </header>
+  <div padding class="main-prompt" [ngClass]="{ 'main-prompt-submitting': showSubmittingProse }" *ngIf="proseActive()">
+    <aside class="submitting-message" *ngIf="showSubmittingProse">Submitting...</aside>
+    <div *ngIf="activePassage">
+      <div class="prompt-pretext">
+        <span *ngIf="otherPassages.length" [hidden]="activePassage.activePrompt.setting.lineBreakAtStart">&hellip;</span>
+        {{activePassage.activePrompt.setting.preText}}
+      </div>
+      <ion-input *ngIf="!hasSelectableValues" name="activeProseInput" class="prose-input" type="text" [(ngModel)]="activePassage.userInput"></ion-input>
+      <ion-select *ngIf="hasSelectableValues" name="activeProseInput" class="prose-input" [(ngModel)]="activePassage.userInput">
+        <ion-option *ngFor="let selectableValue of activePassage.selectableValues" [value]="selectableValue.value">{{selectableValue.description}}</ion-option>
+      </ion-select>
+      <div class="prompt-posttext">{{activePassage.activePrompt.setting.postText}}</div>
+      <p *ngIf="hasSelectableValues">{{getSelectedValueExplainer()}}}</p>
+    </div>
+  </div>
+  <div class="prose-history" [ngClass]="{ 'prose-history-conclusion': proseFinished() }" *ngIf="otherPassages.length">
+    <div class="prose-history-item" *ngFor="let passage of otherPassages; let i = index">
+      <ion-icon name="checkmark-circle"></ion-icon>
+      <span *ngFor="let prompt of passage.prompts">
+        {{prompt.setting.preText}} <strong>{{prompt.setting.displayValue()}}</strong> {{prompt.setting.postText}} 
+      </span>
+      <span *ngIf="activePassage && 0 == i" [hidden]="activePassage?.activePrompt.setting.lineBreakAtStart">&hellip;</span>
+    </div> 
+  </div>
+</ion-content>
+<ion-footer padding [ngSwitch]="proseDisplayState">
+  <button ion-button block disabled *ngSwitchCase="'NOT_READY'">Loading &hellip;</button>
+  <button ion-button block (click)="startProse()" *ngSwitchCase="'READY'">Start</button>
+  <button ion-button block (click)="submitProse()" *ngSwitchCase="'STARTED'">Next Question</button>
+  <button ion-button block (click)="next()" *ngSwitchCase="'FINISHED'">Continue</button>
+</ion-footer>

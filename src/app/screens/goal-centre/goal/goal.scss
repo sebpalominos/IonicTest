@@ -1,0 +1,11 @@
+.goal-single {
+  .content {
+    background: map-get($opc-colors, bg3);  
+  }
+  .section {
+    // padding: $content-padding 0;
+    margin-bottom: $content-margin;
+    background: map-get($opc-colors, bg);
+    box-shadow: 0 0 20px rgba(#555, .2);
+  }
+}

@@ -1,0 +1,21 @@
+<!--<slider id="slider-home-shortcuts" class="shortcuts-slider" [opcSliderOpts]="{ centerMode: false, variableWidth: true, infinite: true }">
+  <slider-card *ngFor="let shortcut of shortcuts" [navPush]="">
+  </slider-card>
+</slider>-->
+<ion-grid>
+  <ion-row>
+    <ion-col col-4 *ngFor="let shortcut of shortcuts">
+      <ion-card class="shortcut" [ngClass]="{ disabled: shortcut.disabled }" (tap)="shortcutSelected(shortcut)">
+        <ion-card-content class="shortcut-icon">
+          <img [src]="shortcut.iconPath" [alt]="shortcut.label">
+        </ion-card-content>
+        <ion-card-content text-center text-nowrap class="shortcut-label">
+          {{shortcut.label}} 
+        </ion-card-content>
+        <ion-badge class="floating-badge" color="tl-red" *ngIf="shortcut.designation === 'alpha'">α</ion-badge>
+        <ion-badge class="floating-badge" color="tl-amber" *ngIf="shortcut.designation === 'beta'">β</ion-badge>
+        <ion-badge class="floating-badge" color="tl-amber" *ngIf="shortcut.disabled"><small>Coming soon</small></ion-badge>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

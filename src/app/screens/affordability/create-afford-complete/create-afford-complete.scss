@@ -1,0 +1,9 @@
+.create-afford-complete {
+  .scroll-content {
+    @include absolute-center-flex();
+    .congrats-message {
+      text-align: center;
+      margin-bottom: $content-margin;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<info-bar snap="top" context="danger" *ngIf="showLoadingError" (click)="loadCategory()">
+  We couldn't retrieve info for this category. Tap here to try again.
+</info-bar>
+<div padding class="cat-pop-content" *ngIf="!showLoadingError">
+  <div ion-grid no-padding>
+    <ion-row class="cat-pop-heading" align-items-center>
+      <h1 text-left ion-col>{{category?.name}}</h1>
+      <h4 text-right ion-col col-auto>{{stats?.activeMonthName}}</h4>
+    </ion-row>
+    <!-- <hr>
+    <ion-row *ngIf="stats?.activeMonthSpend" align-items-center>
+      <h2 ion-col text-left>
+        <opc-money [sign]="category?.credit" color="inverse">{{stats?.activeMonthSpend | number:'1.0-0'}}</opc-money> 
+      </h2>
+      <div ion-col col-6>
+        <span *ngIf="category?.credit">credit in this category</span>
+        <span *ngIf="!category?.credit">debit in this category</span>
+      </div>
+    </ion-row> -->
+    <hr>
+    <ion-row class="cat-pop-figures">
+      <div ion-col *ngFor="let stat of statsByMonthGroup">
+        <dl padding class="numeric-stat">
+          <dd [ngClass]="{ 'percentage-value': stat.isPercentage, 'trend-up': stat.trend > 0, 'trend-down': stat.trend < 0 }">
+            <ion-icon name="md-trending-down" *ngIf="stat.trend <= 0"></ion-icon>
+            <ion-icon name="md-trending-up" *ngIf="stat.trend > 0"></ion-icon>
+            <span>{{stat.value | number:'1.0-0'}}</span>
+          </dd>
+          <dt>{{stat.label}}</dt>
+        </dl>
+      </div>
+    </ion-row>
+    <ion-row padding [hidden]="statsByMonthGroup?.length">
+      <h6 ion-col text-center>No insight previews available</h6>
+    </ion-row>
+  </div>
+  <div ion-grid>
+    <hr *ngIf="activeMonthSpendDiff">
+    <ion-row *ngIf="activeMonthSpendDiff" align-items-center>
+      <h3 ion-col text-left>
+        <opc-money color="inverse">{{activeMonthSpendDiff.value | number:'1.0-0'}}</opc-money> 
+      </h3>
+      <div ion-col col-8>
+        <span *ngIf="activeMonthSpendDiff.sign >= 0">more than the prior month ({{stats?.previousMonthName}})</span>
+        <span *ngIf="activeMonthSpendDiff.sign < 0">less than the prior month ({{stats?.previousMonthName}})</span>
+      </div>
+    </ion-row>
+    <hr *ngIf="currentMonthSpendDiff">
+    <ion-row *ngIf="currentMonthSpendDiff" align-items-center>
+      <h3 ion-col text-left>
+        <opc-money color="inverse">{{currentMonthSpendDiff.value | number:'1.0-0'}}</opc-money> 
+      </h3>
+      <div ion-col col-8>
+        <span *ngIf="currentMonthSpendDiff.sign >= 0">less than this current month</span>
+        <span *ngIf="currentMonthSpendDiff.sign < 0">more than this current month</span>
+      </div>
+    </ion-row>
+  </div>
+</div>
+<div class="cat-pop-buttons">
+  <div padding [hidden]="showLoadingError">
+    <button ion-button block (tap)="view()">View Category</button>
+  </div>
+  <div class="popup-cancel-wrapper">
+    <button ion-button full clear color="secondary" (tap)="close()">Close</button>
+  </div>
+</div>

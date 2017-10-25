@@ -1,0 +1,36 @@
+<ion-header no-border>
+  <ion-navbar hideBackButton transparent>
+    <ion-buttons left>
+      <button ion-button color="light" navPop>
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content fullscreen>
+  <!-- <hero-unit padding #hero>
+    <div class="hero-opica-device">
+      <img src="assets/img/res/opica/splash-device.png" alt="logo">
+    </div>
+    <div class="hero-opica-text">
+      <img src="assets/img/res/opica/splash-text.png" alt="OPICA Insights">
+    </div>
+  </hero-unit> -->
+  <ion-card>
+    <img class="help-video-link" src="assets/img/opica-productvideo1-thumbnail.jpg" alt="Insights App demo video" (tap)="launchProductVideo()">
+    <ion-card-content>
+      <p>OPICA Insights taps into an innovative intelligence platform, that aggregates and categorises bank account data into an easy to understand framework.</p>
+    </ion-card-content>
+    <ion-card-content>
+      <button ion-button block (tap)="sendEmail()">Get access to Insights</button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <p>OPICA Group provides innovative insights for clients and accelerated responsible lending insights for institutions.</p>
+    </ion-card-content>
+    <ion-card-content>
+      <button ion-button block outline color="primary" (tap)="launchWebsite()">Visit the OPICA Group website</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

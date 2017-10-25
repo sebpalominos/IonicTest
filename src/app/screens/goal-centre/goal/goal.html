@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Goal Details</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <info-bar context="danger" *ngIf="showLoadingError">
+    There was an error when retrieving your goal. <a (click)="retrieveGoal()">Try again.</a>
+  </info-bar>
+  <cover-image></cover-image>
+  <ion-card>
+    <ion-card-header>
+      {{goal?.name}}
+    </ion-card-header>
+    <ion-card-content>
+      <!--<opc-icon-heading src="assets/icons/squidink/svg64/info.svg" size="lg">
+        <p>{{goal?.cta.longDescription}}</p>
+      </opc-icon-heading>-->
+      {{primaryAction?.callToAction.description}}
+    </ion-card-content>
+    <button-row>
+      <button ion-button small item-end (click)="openWorkspace(goal.cta)">{{primaryAction?.callToAction.actionLabel}}</button>
+    </button-row>
+  </ion-card>
+  <div class="section">
+    <ion-list>
+      <ion-list-header>
+        <span *ngFor="let summary of goal?.summary.objectSummaries">
+          <ng-container [ngSwitch]="summary.label">
+            <span *ngSwitchCase="'generic_savings_saving_for'">Saving for {{summary.savingFor}}</span>
+          </ng-container>
+        </span>
+        <button ion-button
+          small outline item-end
+          color="primary" 
+          (click)="editGoal()">Edit</button>
+      </ion-list-header>
+      <ion-item *ngFor="let summary of goal?.summary.moneySummaries">
+        {{summary.label}} <ion-note item-end>{{summary.currentValue}}</ion-note>
+      </ion-item>
+      <ion-item *ngFor="let summary of goal?.summary.timeSummaries">
+        {{summary.label}} <ion-note item-end>{{summary.timeValue}} {{timeScaleTypeValues[summary.timeScale]}}</ion-note>
+      </ion-item>
+    </ion-list>
+  </div>
+  <section class="section" padding *ngFor="let indicator of goal?.overview.milestoneIndicators">
+    <h2>{{indicator.title}}</h2>
+    <p>{{indicator.targetTimeframe}}</p>
+    <opc-progress max="100" [value]="indicator.completionPercentage" [caption]="indicator.completionPercentage + '% ' + indicator.completionLabel"></opc-progress>
+    <p>{{indicator.information}}</p>
+    <p>{{indicator.timeframePassage}}</p>
+  </section>
+  <div class="section">
+    <h2 padding>Milestones</h2>
+    <ion-list>
+      <ion-item *ngFor="let timeframe of goal?.overview.milestoneTimeframes">
+        <h2>{{timeframe.texts.index}} </h2>
+        <p>{{timeframe.texts.timeFrame}}</p>        
+        <ion-note item-end>{{timeframe.texts.target}}</ion-note>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="section">
+    <h2 padding>Action Plan</h2>
+    <ion-list>
+      <button ion-item *ngFor="let action of goal?.actions" (click)="openWorkspace(action)" [disabled]="!action.enabled">
+        <h2>{{action.shortDescription}}</h2>
+        <p text-wrap>{{action.longDescription}}</p>
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar-caption"><span class="caption-inner"></span></div>
+          <opc-progress max="100" [value]="action.completionRate" [caption]="action.completionRate + '%'"></opc-progress>
+        </div>
+      </button>
+    </ion-list>
+  </div>
+</ion-content>

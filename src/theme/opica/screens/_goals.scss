@@ -1,0 +1,92 @@
+slider.goal-summary {
+  .carousel {
+    color: white;
+    background: map-get($flat-colors, wisteria); 
+    background: url('../assets/img/demo/beach1.jpg') no-repeat center center/cover #111;
+    &::before {
+      // shader
+      content: '';
+      display: block;
+      @include absolute-fill();
+      background: rgba(0,0,0,0.3);
+    }
+  }
+  .pie-chart {
+    .canvas-holder {
+      height: 200px;
+      width: 200px;
+      &.doughnut .overlay-center {
+        font-size: 3.6em;
+      }
+    }
+  }
+}
+.goal-list-current {
+  // Rainbow progress background bars
+  
+  .item .progress-bar-danger::after {
+    content: '';
+    display: block;
+    @include absolute-fill();
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(firebrick, .2),
+      rgba(firebrick, .2) 10px,
+      rgba(#400, .2) 10px,
+      rgba(#400, .2) 20px
+    ) !important;
+  }
+  .goal-list-group:nth-child(odd){
+    .item:nth-of-type(6n+1) .progress-bar {
+      @extend .progress-bar-dullgreen;
+    }
+    .item:nth-of-type(6n+2) .progress-bar {
+      @extend .progress-bar-blue;
+    }
+    .item:nth-of-type(6n+3) .progress-bar {
+      @extend .progress-bar-orange;
+    }
+    .item:nth-of-type(6n+4) .progress-bar {
+      @extend .progress-bar-gray;
+    }
+    .item:nth-of-type(6n+5) .progress-bar {
+      @extend .progress-bar-yellow;
+    }
+    .item:nth-of-type(6n+6) .progress-bar {
+      @extend .progress-bar-darkblue;
+    }
+  }
+  .goal-list-group:nth-child(even){
+    // Alternate and stagger down by two colors
+    .item:nth-of-type(6n+1) .progress-bar {
+      @extend .progress-bar-purple;
+    }
+    .item:nth-of-type(6n+2) .progress-bar {
+      @extend .progress-bar-yellow;
+    }
+    .item:nth-of-type(6n+3) .progress-bar {
+      @extend .progress-bar-gray;
+    }
+    .item:nth-of-type(6n+4) .progress-bar {
+      @extend .progress-bar-darkblue;
+    }
+    .item:nth-of-type(6n+5) .progress-bar {
+      @extend .progress-bar-dullgreen;
+    }
+    .item:nth-of-type(6n+6) .progress-bar {
+      @extend .progress-bar-blue;
+    }
+  }
+
+}
+.goal-single {
+  .canvas-holder {
+    padding: 12px;
+  }
+}
+.edit-goal {
+  .goal-name, .target-value {
+    font-size: 1.6em;
+    font-weight: 200;
+  }
+}

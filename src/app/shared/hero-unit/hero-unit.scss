@@ -1,0 +1,37 @@
+.opc-hero-unit {
+  display: block;
+  position:relative;
+  height: $hero-unit-height;
+}
+.hero-inner {
+  position: relative;
+  height: 100%;
+}
+.hero-inner .slider {
+  // Assume slick slider implementation - TODO FIX 
+  .slick-slider {
+    height: $hero-unit-height;
+    min-width: 100%;
+  }
+  .slick-list, .slick-track {
+    height: 100%;
+    min-width: 100%;
+  }
+}
+
+.content.hero-edge {
+  .opc-hero-unit {
+    .ios & { padding-top: $toolbar-ios-height; margin-top: -$toolbar-ios-height; }
+    .md & { padding-top: $toolbar-md-height; margin-top: -$toolbar-md-height; }
+  }
+}
+
+// Overscrolls are classed divs etc that sit logically underneath the hero unit box, within the main body,
+.overscroll {
+  position: relative;
+  // top: $hero-unit-height;
+  box-shadow: 0 -5px 5px rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(0,0,0,0);      // Force inner margin to render  
+  z-index: 20;
+  // padding-top: 2px;
+}

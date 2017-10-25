@@ -1,0 +1,131 @@
+$property-summary-info-height: 100px !default;
+$property-summary-image-height: 180px !default;
+.opc-property-summary {
+  .card {
+    margin: 0 0 15px 0;
+    border-radius: 0;
+    width: 100%;
+    background: white;
+  }
+  .card-header {
+    background: map-get($colors, dark);
+    color: map-get($colors, light);
+    padding: $content-padding/2;
+    h2, h3 {
+      color: map-get($colors, light);
+    }
+  }
+  .property-heading {
+    position: relative;
+    padding: $content-padding/2;
+    background: map-get($flat-colors, clouds);
+    font-weight: bold;
+    text-align: center;
+    max-height: 6rem;
+    margin: -3rem 0 1rem;
+    z-index: 600;
+    border-bottom: 3px solid darken(map-get($flat-colors, clouds), 10%);
+    // box-shadow: 0 2px 0px rgba(#777, .2);
+    h1, h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+  .property-card-features {
+    font-size: 1.5rem;
+    .feature-image {
+      display: inline-block;
+      height: 1.7rem;
+      width: auto;
+    }
+    .icon-map{
+      font-size: 1.7em;
+    }
+  }
+  .property-summary-image {
+    position: relative;
+    height: $property-summary-image-height;
+    background-attachment: scroll;
+    background-color: map-get($opc-colors, slate);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .floating-favourite {
+      position: absolute;
+      top: 4px;
+      right: 6px;    
+      text-shadow: 0 0 2px rgba(black, .4);
+      color: white;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 2px 5px;
+    }
+    .floating-propertyType {
+      position: absolute;
+      top: 4px;
+      left: 6px;    
+      text-shadow: 0 0 2px rgba(black, .4);
+      background: #39a9f3;
+      color: map-get($opc-colors, bg);
+      padding: 2px 5px;
+    }
+  }
+  .property-summary-info {
+    height: $property-summary-info-height;
+  }
+  .property-summary-value {
+    font-size: x-large;
+    small {
+      display: block;
+      font-size: 12px;
+    }
+  }
+  .property-card-favourited {
+    font-size: 2rem;
+    small {
+      display: block;
+      font-size: 1rem;
+    }
+  }
+  p {
+    color: map-get($opc-colors, muted);
+  }
+  .small-text{
+    font-size: 85%;
+  }
+}
+
+  
+//===================================================================
+// Creates a blank white card with faint "placeholder" rectangles
+// Ideally this should be within an ion-card
+.opc-property-summary[placeholder] {
+  .card {
+    &::before {
+      // image placeholder 
+      content: '';
+      display: block;
+      background: rgba(map-get($flat-colors, _silver), .4);
+      height: 160px;
+      width: 100%;
+    }
+    .card-content {
+      &::before {
+        content: '';
+        display: block;
+        background: rgba(map-get($flat-colors, _silver), .6);
+        height: 24px;
+        width: 40%;
+        margin-bottom: 8px;
+      } 
+      &::after {
+        content: '';
+        display: block;
+        background: rgba(map-get($flat-colors, _silver), .6);
+        height: 18px;
+        width: 100%;
+      }
+    }
+  }
+}
+//===================================================================

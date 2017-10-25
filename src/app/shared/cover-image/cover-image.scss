@@ -1,0 +1,7 @@
+.cover-image-placeholder {
+  @include background-image();
+  background-color: map-get($opc-colors, slate);
+  background-image: url('assets/img/placeholder/cover-image-placeholder.png');
+  display: block;
+  min-height: 200px;
+}

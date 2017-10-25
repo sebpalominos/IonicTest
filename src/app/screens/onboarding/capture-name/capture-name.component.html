@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left *ngIf="navCtrl.canGoBack()">
+      <button ion-button icon-left clear navPop color="light">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content fullscreen>
+  <form class="auth-form" (ngSubmit)="submit()">
+    <div padding>
+      <h1>Welcome to Insights</h1>
+      <p>Please enter your preferred name before proceeding.</p>
+    </div>
+    <fieldset padding class="auth-form-fields">
+      <ion-input type="text" name="preferredName" [(ngModel)]="preferredName" placeholder="Your given name"></ion-input>
+    </fieldset>
+  </form>
+</ion-content>
+<ion-footer padding>
+  <button ion-button block (click)="submit()">Continue</button>
+</ion-footer>

@@ -1,0 +1,49 @@
+<ion-header no-border>
+  <ion-navbar hideBackButton transparent>
+    <ion-buttons left *ngIf="navCtrl.canGoBack()">
+      <button ion-button icon-left clear navPop color="light">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content fullscreen>
+  <section>
+    <h1>Your affordability goal</h1>
+    <div *ngIf="goal.existingPropertyNameTemp">
+      <h4>Owned Property</h4>
+      <p>{{goal.existingPropertyNameTemp}}</p>
+      <p>Asset value: {{goal.existingAssetValue | currency:'AUD':true}}</p>
+    </div>
+    <!--<div *ngIf="goal.mortgageAccounts && goal.mortgageAccounts.length">
+      <span *ngFor="let mortgage of goal.mortgageAccounts">{{mortgage.displayName()}} </span>
+    </div>-->
+    <div *ngIf="goal.targetPropertyNameTemp">
+      <h4>Target Property</h4>
+      {{goal.targetPropertyNameTemp}}
+      <p>Asset value: {{goal.targetAssetValue}}</p>
+    </div>
+  </section>
+  <ion-list no-margin>
+    <ion-item>
+      Max amount borrowable
+      <ion-note item-end>{{goal.maxAmountBorrowable | currency:'AUD':true}}</ion-note>
+    </ion-item>
+    <ion-item>
+      Equity
+      <ion-note item-end>{{goal.equity | currency:'AUD':true}}</ion-note>
+    </ion-item>
+    <ion-item>
+      Amount until affordable
+      <ion-note item-end>{{goal.amountUntilAffordable | currency:'AUD':true}}</ion-note>
+    </ion-item>
+    <ion-item>
+      Months until affordable
+      <ion-note item-end>{{goal.intervalsUntilAffordable}}</ion-note>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block (click)="continueGoal()">Edit existing goal</button>
+    <div text-center *ngIf="goal.snapshotDate">Last updated: {{goal.snapshotDate | date:'medium'}}</div>  
+  </div>
+</ion-content>

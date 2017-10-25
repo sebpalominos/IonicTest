@@ -1,0 +1,56 @@
+.fullscreen-form {
+  $opc-login-keyboard-breakpoint: 400px;
+  .auth-form {
+    transition: opacity 2.4s ease 1s;
+    // .button-default .button-inner {
+    //   color: map-get($opc-colors, brand);
+    // } 
+  }
+  .auth-form-fields {
+    @media (max-height: $opc-login-keyboard-breakpoint){
+      max-height: $opc-login-keyboard-breakpoint;
+      overflow: hidden;
+      margin-top: 0;
+      @include absolute-fill(2);
+      top: auto;
+    }
+  }
+  .other-actions {
+    @media (max-height: $opc-login-keyboard-breakpoint){
+      display: none;
+    }
+  }
+  .item-select {
+    padding: 0;
+    background: transparent;
+    color: white;
+  }
+  .text-input {
+    // background: rgba(#444, .1);
+    background: rgba(map-get($flat-colors, _silver), .2);
+    color: map-get($opc-colors, primary);
+    font-size: 1.8rem;
+    margin: 0 0 $content-margin/2;
+    width: 100%;
+    .ios & {
+      padding: $item-ios-padding-top $item-ios-padding-right $item-ios-padding-bottom $item-ios-padding-left;
+    }
+    .md & {
+      padding: $item-md-padding-top $item-md-padding-right $item-md-padding-bottom $item-md-padding-left;
+    }
+  }
+  .input-inverse {
+    .text-input {
+      color: map-get($opc-inverse-colors, fg);
+    }
+  }
+  // Let's all agree that there's only one reason that an ion-fixed submit would be here.
+  // This is the invisible submit butto to drive iOS form submission
+  input[ion-fixed][type='submit'] {
+    transform: translateX(999px);
+    opacity: 0;
+    height: 1px;
+    width: 1px;
+  }
+
+}

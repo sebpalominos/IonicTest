@@ -1,0 +1,54 @@
+<slider id="slider-home-summary" class="home-summary" [opcSliderOpts]="{ dots: true, infinite: false }" inner-dots>
+  <!--<slider-card class="home-under-construction" borderless padding [navPush]="screens.categoryList">
+    <div>
+      <img src="assets/icons/squidink/svg64/miscellaneous/hard-hat.svg" alt="Hard hat"> Under construction<br>
+      Click here for categories
+    </div>
+  </slider-card>-->
+  <slider-card borderless padding class="home-cashflow" (tap)="cashflowSlideSelected()">
+    <div ion-grid no-padding>
+      <div ion-row class="cashflow-heading">
+        <opc-icon-heading *ngIf="weatherStatus" class="cfh-label cfh-label-upper" [ngClass]="{ 'cfh-label-show': showWeatherStatus }" [src]="weatherStatus.iconUrl" size="lg">  
+          {{weatherStatus.label}}
+          <p>Your cashflow this month is <opc-money>{{lastMonthIncome-lastMonthExpenses | number:'1.0-0'}}</opc-money></p>
+        </opc-icon-heading>
+        <opc-icon-heading class="cfh-label cfh-label-lower" [ngClass]="{ 'cfh-label-show': !showWeatherStatus }" src="assets/icons/squidink/svg64/calendar-month.svg" size="lg">
+          Last Month <p>How am I doing?</p>
+        </opc-icon-heading>
+      </div>
+      <div ion-row class="cashflow-side">
+        <div ion-col col-6 class="cashflow-stats">
+          <div class="cashflow-income">
+            <h4 no-margin>Income</h4>
+            <ion-spinner name="crescent" *ngIf="showLoadingCashflowSummaries"></ion-spinner>
+            <opc-money sign="1" [hidden]="showLoadingCashflowSummaries">{{lastMonthIncome | number:'1.0-0'}}</opc-money>
+          </div>
+          <div class="cashflow-expenses">
+            <h4 no-margin>Expenses</h4>
+            <ion-spinner name="crescent" *ngIf="showLoadingCashflowSummaries"></ion-spinner>
+            <opc-money sign="-1" [hidden]="showLoadingCashflowSummaries">{{lastMonthExpenses | number:'1.0-0'}}</opc-money>
+          </div>
+        </div>
+        <div ion-col col-6 class="cashflow-comparison pie-chart" *ngIf="chartData">
+          <pie-chart [title]="chartTitle" [data]="chartData">
+            <label>Categorisation</label>
+            <span>{{categorisationRate}}<small class="symbol">%</small></span>
+          </pie-chart>
+        </div>
+      </div>
+    </div>
+  </slider-card>
+  <slider-card borderless padding class="home-more">
+    <div class="more-outer">
+      <div class="more-inner">
+        <div>
+          <img src="assets/img/res/opica/splash-device.png" style="position: relative; top: -40px; height: 80px; transform: scale(1.4)" alt="device">
+          <img src="assets/img/res/opica/splash-text.png" style="height: 20px; width: auto;" alt="OPICA Insights">
+          <!--<h1>OPICA Insights</h1>-->
+          <p>www.opicagroup.com.au</p>
+          <!--<p><a href="mailto:tim.brown@opicagroup.com.au">Tim Brown</a> | <a href="mailto:gopal.hariharan@opicagroup.com.au">Gopal Hariharan</a></p>-->
+        </div>
+      </div>
+    </div>
+  </slider-card>
+</slider>

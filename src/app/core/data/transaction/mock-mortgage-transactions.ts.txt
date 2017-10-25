@@ -1,0 +1,63 @@
+// A very simple mock
+
+import { TransactionShape } from '../../../screens/transactions/shared/transaction.model';
+import { CategoryShape } from '../../../screens/categories/shared/category.model';
+
+export const TRANSACTIONS_MORTGAGE: TransactionShape[] = [
+  { 
+    id: 'ed6c80db-61f4-e611-bca9-005056963182',
+    title: 'DEPOSIT WESTPAC BANKCORPDIRECT DR 742959',
+    description: 'DEPOSIT WESTPAC BANKCORPDIRECT DR 742959', 
+    amount: -1600.20, 
+    dateTransacted: new Date('2016-02-16'), 
+    categoryId: 91
+  }, { 
+    id: 'ef6c10ab-62f5-e411-b119-005056263182',
+    title: 'INTEREST',
+    description: 'INTEREST', 
+    amount: -1600.20, 
+    dateTransacted: new Date('2016-02-29'), 
+    categoryId: 91
+  }, { 
+    id: '5e7d6a9e-8205-4421-8d76-c809e8e4f8fd',
+    title: 'DEPOSIT WESTPAC BANKCORPDIRECT DR 742959',
+    description: 'DEPOSIT WESTPAC BANKCORPDIRECT DR 742959', 
+    amount: -1600.20, 
+    dateTransacted: new Date('2016-03-01'),
+    categoryId: 91
+  }, { 
+    id: '	13344c55-6cb2-e622-bcdd-005056963182',
+    title: 'WITHDRAWAL MOBILE 1790816 PYMT Eastwood C Carpet reno',
+    description: 'WITHDRAWAL MOBILE 1790816 PYMT Eastwood C Carpet reno', 
+    amount: 3650.00, 
+    dateTransacted: new Date('2016-03-03'),
+    categoryId: 96
+  }, { 
+    id: '	13344c55-6cb2-e622-bcdd-005056963182',
+    title: 'BANK TFR Painting work reno',
+    description: 'BANK TFR Painting work reno', 
+    amount: 4250.02, 
+    dateTransacted: new Date('2016-03-06')
+  }, { 
+    id: 'fe50ac55-6cb2-e611-bcdd-005056963182',
+    title: 'DEPOSIT WESTPAC BANKCORPDIRECT DR 742959',
+    description: 'DEPOSIT WESTPAC BANKCORPDIRECT DR 742959', 
+    amount: 1600.20, 
+    dateTransacted: new Date('2016-03-15'),
+    categoryId: 91
+  }, { 
+    id: '	1234ac55-6cb2-e622-bcdd-005056963182',
+    title: 'DEPOSIT WESTPAC BANKCORPDIRECT DR 742959',
+    description: 'DEPOSIT WESTPAC BANKCORPDIRECT DR 742959', 
+    amount: -1600.20, 
+    dateTransacted: new Date('2016-03-29'),
+    categoryId: 91
+  }
+];
+
+export const TRANSACTION_CATEGORIES_MORTGAGE: CategoryShape[] = [
+  { id: 91, name: 'Mortgage Repayment',  parentId: 8 },
+  { id: 38, name: 'Interest',  parentId: 1 },
+  { id: 96, name: 'Home renovation', description: 'Renovation work on a home or property', parentId: 8 },
+  { id: 98, name: 'Rent', description: 'Payments made for a rental tenancy', parentId: 8 },
+];

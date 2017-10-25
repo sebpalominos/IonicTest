@@ -1,0 +1,19 @@
+.afford-time {
+  .card.afford-time-card {
+    width: 90vw;
+    // height: 260px;
+    // max-height: 260px;
+    margin: 0 $content-margin $content-margin;
+    background: white;
+    .card-header {
+      background: map-get($opc-colors, brand);
+      color: white;
+    }
+    .list-ios > .item-block:last-child {
+      border: none;
+    }
+    .list .item-ios {
+      background: white;
+    }
+  }
+}

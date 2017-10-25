@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Account Details</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <section class="section insto-header" *ngIf="account">
+    <opc-icon-heading icon-rounded [src]="account.institution.getLogoUrl()" size="xl" [ngClass]="{ 'small-heading': account.preferredName().length > 16 }">
+      {{account.preferredName()}}
+      <p>{{account.typeName()}} &middot; Updated {{account.dateLastRefreshed | date:'shortDate'}}</p> 
+    </opc-icon-heading>
+  </section>
+  <section>Set a private nickname for this account.</section>
+  <ion-list>
+    <ion-item>
+      <opc-icon item-start set="business" name="wallet-1"></opc-icon>
+      <ion-input type="text" placeholder="Account nickname" [(ngModel)]="nickname"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block (click)="updateAccount()">Update</button>
+  </div>
+</ion-content>

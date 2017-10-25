@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{workspaceTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content [ngSwitch]="workspaceTypeName">
+  <savings-related-workspace *ngSwitchCase="'SAVINGS'" [id]="goalTypeIdentifier" [workspacePath]="workspacePath"></savings-related-workspace>
+  <account-related-workspace *ngSwitchCase="'ACCOUNT'" [id]="goalTypeIdentifier" [workspacePath]="workspacePath"></account-related-workspace>
+</ion-content>

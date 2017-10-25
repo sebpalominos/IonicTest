@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Deposit affordability</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <loading-bar [active]="showWorkspaceLoading">Loading information</loading-bar>
+  <info-bar context="danger" *ngIf="showLoadingError" (tap)="loadAction()">
+    Could not load the information required to set targets. Tap to try again.
+  </info-bar>
+  <!--<section>
+    <opc-icon-heading src="assets/icons/squidink/svg64/financial/target.svg" size="xl">
+      <h2>Time until affordability</h2>
+      <p>How long do you want to save for?</p>
+    </opc-icon-heading>
+  </section>-->
+  <ion-list no-margin *ngIf="targetProperty">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img [src]="targetProperty.coverImage()">
+      </ion-thumbnail>
+      <h2 text-wrap>{{targetProperty.displayName()}}</h2>
+      <p *ngIf="targetProperty.currentValue">Estimated value: ${{targetProperty.currentValue | number:'1.0-0'}}</p>
+    </ion-item>
+  </ion-list>
+  <ng-container *ngIf="workspace">
+    <section text-center *ngIf="showSliderBased">
+      <h4>How long do you want to save for?</h4>
+      <dl class="numeric-stat" *ngIf="timeToAffordability">
+        <dd [ngSwitch]="timePeriod">
+          <span *ngSwitchCase="'WEEKLY'">{{timeToAffordability * 4.35 | number:'1.0-0'}}</span>
+          <span *ngSwitchCase="'MONTHLY'">{{timeToAffordability | number:'1.0-0'}}</span>
+          <span *ngSwitchCase="'YEARLY'">{{timeToAffordability / 12 | number:'1.2-2'}}</span>
+        </dd>
+        <dt [ngSwitch]="timePeriod">
+          <span *ngSwitchCase="'WEEKLY'">Weeks</span>
+          <span *ngSwitchCase="'MONTHLY'">Months</span>
+          <span *ngSwitchCase="'YEARLY'">Years</span>
+        </dt>
+      </dl>
+      <ion-range 
+        [(ngModel)]="timeToAffordability" 
+        color="secondary" 
+        [min]="sliderRangeLower" 
+        [max]="sliderRangeUpper" 
+        [step]="sliderStep" 
+        (ionBlur)="recalculateAffordability()">
+        <!--<ion-label range-left>${{sliderRangeLower | number:'1.0-0'}}</ion-label>
+        <ion-label range-right>${{sliderRangeUpper | number:'1.0-0'}}</ion-label>-->
+      </ion-range>
+      <p>The shorter your duration, the more surplus you have to achieve
+        <ng-container [ngSwitch]="timePeriod">
+          <span *ngSwitchCase="'WEEKLY'">per week.</span>
+          <span *ngSwitchCase="'MONTHLY'">per month.</span>
+          <span *ngSwitchCase="'YEARLY'">per year.</span>
+        </ng-container> 
+        In this scenario, you would need a surplus of around 
+        <ng-container [ngSwitch]="timePeriod">
+          <span *ngSwitchCase="'WEEKLY'">${{surplusTargetAmountMonthly / 4.35 | number:'1.2-2'}} per week</span>
+          <span *ngSwitchCase="'MONTHLY'">${{surplusTargetAmountMonthly | number:'1.2-2'}} per month</span>
+          <span *ngSwitchCase="'YEARLY'">${{surplusTargetAmountMonthly * 12 | number:'1.0-0'}} per year</span>
+        </ng-container> 
+        to achieve your deposit amount.
+      </p>
+    </section>
+    <ion-list no-margin  *ngIf="showSliderBased">
+      <ion-item>
+        <ion-label>Display as</ion-label>
+        <ion-select [(ngModel)]="timePeriod" (ionChange)="recalculateSliderLabels()">
+          <ion-option value="YEARLY">Yearly</ion-option>
+          <ion-option value="MONTHLY">Monthly</ion-option>
+          <ion-option value="WEEKLY">Weekly</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-list no-margin  *ngIf="!showSliderBased">
+      <ion-list-header>
+        Amount to save per month
+      </ion-list-header>
+      <ion-item>
+        <ion-note item-start>$</ion-note>
+        <ion-input type="number" name="surplusTarget" [(ngModel)]="surplusTargetAmountMonthly" placeholder="Enter monthly target amount"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div text-center>
+      <button ion-button clear color="primary" *ngIf="showSliderBased" (click)="showSliderBased = false">Set amount directly</button>
+      <button ion-button clear color="primary" *ngIf="!showSliderBased" (click)="showSliderBased = true">Select from time range</button>
+    </div>
+  </ng-container> 
+  <ion-card *ngIf="workspace">
+    <ion-card-content text-center>
+      <p>Last month your surplus was ${{workspace.lastMonthActualSurplus | number:'1.0-0'}} and this month your projected surplus is ${{workspace.thisMonthProjectedSurplus | number:'1.0-0'}}.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer padding>
+  <button ion-button block (click)="submit(true)" [disabled]="!surplusTargetAmountMonthly">Next</button>
+</ion-footer>

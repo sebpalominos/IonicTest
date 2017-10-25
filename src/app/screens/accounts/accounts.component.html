@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Accounts</ion-title>
+    <ion-buttons end [hidden]="showAccountsLoading">
+      <button ion-button icon-only clear color="dark" (tap)="showOptions()" *ngIf="!showEditMode && !showDisableMode">
+        <ion-icon name="more"></ion-icon>
+      </button>
+      <button ion-button clear color="dark" (tap)="showEditMode = false" *ngIf="showEditMode">Done</button>
+      <button ion-button clear color="dark" (tap)="cancelDisableAccount()" *ngIf="showDisableMode">Cancel</button>
+      <!-- <button ion-button clear color="dark" (tap)="disableAccount()" *ngIf="showDisableMode">Disable</button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-refresher (ionRefresh)="loadAccounts(false, $event)" [enabled]="!showEditMode && (!showAccountsLoading || accounts?.length)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher>
+  <accounts-loading *ngIf="showAccountsLoading && !(accounts?.length)"></accounts-loading>
+  <!-- No accounts available -->
+  <info-bar snap="top" context="danger" *ngIf="showAccountsLoadingError" (click)="loadAccounts()">
+    There was an error in retrieving your current list of accounts. Tap here to try again.
+  </info-bar>
+  <ion-card class="announcement" *ngIf="showNoAccountsTip" [hidden]="showAccountsLoading">
+    <div class="captioned-image">
+      <img src="assets/img/demo/WBC-sol_h_b_starting-a-business_388x228.jpg">
+      <div class="card-title" padding>Add your bank accounts</div>
+    </div>
+    <ion-card-content>
+      <p>OPICA Insights intelligently categorises your transactions to help you achieve your goals.</p>
+      <p><em>Note: If you added your bank accounts recently, they might still be syncing. Pull down to refresh.</em></p>
+    </ion-card-content>
+    <button-row>
+      <button ion-button item-end small (tap)="showOnboardingModal()">
+        Add a bank account
+      </button>
+    </button-row>
+  </ion-card>
+  <div text-nowrap class="account-counter" *ngIf="accountStats" [hidden]="!accounts">
+    <ion-icon name="flash"></ion-icon> &nbsp; {{accountStats.numActiveAccounts | i18nPlural:numAccountsPluralMapping}} &middot; Net balance
+    <opc-money [sign]="accountStats.netWorth < 0 ? -1 : 1" colorize>{{accountStats.netWorth | number:'1.2-2'}}</opc-money>
+    <!-- <span *ngIf="overallMetric">&middot; {{overallMetric.total | i18nPlural:numTotalTransactionsPluralMapping}}</span> -->
+  </div>
+  <ion-list class="accounts-list" *ngIf="hasActiveAccounts" [reorder]="showEditMode || showDisableMode" (ionItemReorder)="reorderAccounts($event)">
+    <!--<ion-list-header>My connected accounts</ion-list-header>-->
+    <!--<ion-item-group >-->
+    <ion-item detail-none *ngFor="let item of accounts" (tap)="selectedAccount(item)">
+
+      <ion-checkbox color="dark" [(ngModel)]="item['checked']" *ngIf="showDisableMode" (ionChange)="selectedDisabledAccount()"></ion-checkbox>
+
+      <button ion-button icon-only item-start clear (tap)="removeAccount(item)" *ngIf="showEditMode">
+        <ion-icon ion-text color="danger" name="remove-circle"></ion-icon>
+      </button>
+
+      <ion-avatar item-start [hidden]="showEditMode || showDisableMode">
+        <img [src]="item.account.institution.getLogoUrl()" alt="item.account.institutionName()" *ngIf="item.account.institution">
+      </ion-avatar>
+      <h2>{{item.account.nickname || item.account.preferredName()}}</h2>
+      <p>{{item.account.balance?.currentValue | currency:'AUD':true}} &middot; {{item.account.typeName()}}</p>
+      <!--<p *ngIf="account.projectedEndOfMonthBalance">Projected EOM: {{account.projectedEndOfMonthBalance.currentValue | currency:'AUD':true}}</p>-->
+      <!--<ion-note item-end>{{account.balance?.currentValue | currency:'AUD':true}}</ion-note>-->
+      <ng-container item-end *ngIf="item.isDisconnected">
+        <ion-icon item-end ion-text color="tl-amber" name="warning" *ngIf="item.isReconnectable"></ion-icon>
+        <ion-icon item-end ion-text color="tl-red" name="warning" *ngIf="!item.isReconnectable"></ion-icon>
+      </ng-container>
+    </ion-item>
+    <!--</ion-item-group>-->
+  </ion-list>
+  <ion-list class="pending-accounts-list" *ngIf="hasSyncingAccounts">
+    <ion-list-header>Currently synchronising</ion-list-header>
+    <ion-item ion-item *ngFor="let syncingAccount of syncingAccounts">      
+      <ion-avatar item-start *ngIf="syncingAccount.institution">
+        <img [src]="syncingAccount.institution.getLogoUrl()" alt="Syncing" *ngIf="syncingAccount.origin != 'reenabled' ">
+        <img [src]="syncingAccount.institution.logoUrl" alt="Syncing" *ngIf="syncingAccount.origin == 'reenabled'">
+      </ion-avatar>
+      <h2 *ngIf="syncingAccount.origin != 'reenabled' && syncingAccount.institution">{{syncingAccount.institutionName()}}</h2>
+      <h2 *ngIf="syncingAccount.origin == 'reenabled' && syncingAccount.institution" text-uppercase>{{syncingAccount.institution.slug}}</h2>      
+      <p>Syncing &middot; Pull down to refresh sync status</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer [ngClass]="{'disable-button': showDisableMode}">
+  <ion-toolbar no-padding *ngIf="hasNoAccounts" [hidden]="showAccountsLoading || showDisableMode">
+    <categorisation-banner></categorisation-banner>
+  </ion-toolbar>
+  <div text-nowrap class="account-counter enabled-account" *ngIf="reenableAccountCount > 0 && !showDisableMode">
+       Reconnecting {{reenableAccountCount}} <span *ngIf="reenableAccountCount == 1">account</span> <span *ngIf="reenableAccountCount > 1">accounts</span>...
+    </div>
+  <div text-nowrap class="account-counter disable-account" *ngIf="disableAccountCount > 0 && !showDisableMode" (tap)="showDisabledAccounts()" >
+    <ion-icon name="eye-off" is-active="false"></ion-icon>
+    &nbsp; {{disableAccountCount}} <span *ngIf="disableAccountCount == 1">account</span> <span *ngIf="disableAccountCount > 1">accounts</span> disabled
+  </div>
+  <button ion-button block large (tap)="disableAccount()" *ngIf="showDisableMode" text-capitalize>Disable Accounts</button>
+</ion-footer>

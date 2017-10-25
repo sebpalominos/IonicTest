@@ -1,0 +1,8 @@
+.property-quicksearch {
+  .quicksearch-content {
+    // position: relative;
+    background: url('../assets/img/bg/realestate-search.jpg') no-repeat top center/cover map-get($colors, dark);
+    color: white;
+    padding: $content-padding*2 $content-padding;
+  }
+}

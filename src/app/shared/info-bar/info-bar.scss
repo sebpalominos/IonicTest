@@ -1,0 +1,53 @@
+.info-bar { 
+  display: block;
+  // padding-left: $content-padding*2;
+  // margin: $content-margin;
+  color: map-get($colors, dark);
+  background: none transparent;
+  font-size: 1.4rem;
+  &[ion-fixed] {
+    width: 100vw;
+    background: white;
+  }
+  .info-bar-inner {
+    display: flex;
+    align-items: flex-start;
+    &, &.ltr {
+      justify-content: flex-start;
+      flex-flow: row no-wrap;
+    }
+    &.center {
+      justify-content: flex-start;
+      justify-content: center;
+    }
+    &.rtl {
+      justify-content: flex-end;
+      flex-direction: row-reverse;
+      .info-bar-content {
+        text-align: right;
+      }
+    }
+    .info-bar-content {
+      flex: 1 1 auto;
+    }
+    .info-bar-dismiss {
+      flex: 0 0 auto;
+    }
+  }
+  // text-transform: uppercase;
+  // The alert might be "snapped" to the top or bottom – in this cases, remove the border 
+  // and automatically add padding.
+  .info-bar-inner {
+    padding: $content-padding/4 $content-padding/2;
+    &.snap-top {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    &.snap-bottom {
+      border-bottom: none;
+      border-left: none;
+      border-right: none;
+    }
+  }
+}

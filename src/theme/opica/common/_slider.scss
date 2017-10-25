@@ -1,0 +1,71 @@
+// Specific OPICA themes for sliders 
+.opc-slider {
+  button[ion-button][block] {
+    text-transform: uppercase;
+    font-size: 1.1em;
+    margin-top: 25px;
+    margin-bottom: -5px;
+  }
+}
+
+.carousel-card {
+  h2 {
+    margin: .25em 0;
+  }
+  .numeric-stat {
+    margin: .5em 0;
+  }
+}
+
+$slider-card-border: none !default;
+.opc-slider-card {
+  position: relative;
+  border: $slider-card-border;
+  &[forceCardHeight] {
+    padding-bottom: 60px;
+    min-height: 240px;
+    .cta-row, .opc-button-row {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+  .slider-inline-row {
+    .account-name, .account-balance {
+      font-size: 2rem;
+      font-weight: 300;
+    }
+  }
+}
+
+.slider-inline-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  & > * {
+    font-size: 2rem;
+    font-weight: 200;
+  }
+}
+
+.slider-icon {
+  $icon-h: 50px;
+  $icon-w: 50px;
+  $icon-sm-h: 20px;
+  $icon-sm-w: 20px;
+  @include inline-logo-icon($icon-w, $icon-h);
+  &.icon-sm {
+    @include inline-logo-icon($icon-sm-w, $icon-sm-h, true);
+  }
+}
+
+.card-thumbnail {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(black, .1);
+  border-radius: 60px;
+  background-position: center center;
+  background-size: cover;
+  transform: scale(1.2);
+}

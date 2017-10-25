@@ -1,0 +1,82 @@
+.create-goal {
+  .create-goal-preamble {
+    background: white;
+  } 
+}
+
+$create-goal-prose-fg-color: white !default;
+$create-goal-prose-bg-color: map-get($flat-colors, peter-river) !default;
+$create-goal-prose-height: 40vh;
+.create-goal-prose {
+  .content {
+    background-color: map-get($opc-inverse-colors, bg2);   // dark gray    
+  }
+  .scroll-content {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+  }
+  .create-goal-preamble {
+    flex: 0 1 auto;
+  }
+  .main-prompt {
+    flex: 1 0 auto;
+    color: $create-goal-prose-fg-color;
+    font-size: 2rem;
+    // height: $create-goal-prose-height;
+    transition: height .5s ease;
+    text-align: center;
+    .prose-input {
+      .text-input {
+        background: transparent;
+        color: white;
+        font-weight: bold;
+        font-size: 2.2rem;
+        text-align: center;
+        border-bottom-color: rgba(255,255,255,.7);
+        width: 90%;
+      }
+    }
+  }
+  .main-prompt-submitting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  }
+  .prose-input {
+    margin-bottom: .5rem;
+    .text-input {
+      display: block;
+      padding: 4px;
+      margin: 0;
+      border: none;
+      border-bottom: 1px solid transparent;
+    }
+  }
+
+  .prose-history {
+    flex: 0 1 auto;
+    background-color: darken($create-goal-prose-bg-color, 10%);
+    border-top: 3px solid lighten($create-goal-prose-bg-color, 10%);
+    color: white;
+    font-size: 1.6rem;
+    &.prose-history-conclusion {
+      flex: 1 1 auto;
+    }
+    .prose-history-item {
+      padding: .5rem $content-padding;
+      &:nth-child(odd) {
+        background-color: darken($create-goal-prose-bg-color, 0%);
+      }
+      &:nth-child(even) {
+        background-color: darken($create-goal-prose-bg-color, 5%);
+      }
+    }
+    .icon {
+      margin-right: $content-padding;
+      color: map-get($flat-colors, emerald);
+    }
+  }
+
+}

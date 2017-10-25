@@ -1,0 +1,33 @@
+<div text-center margin-vertical *ngIf="showLoading">
+  <ion-spinner name="crescent">Loading</ion-spinner>
+</div>
+<info-bar margin context="info" [hidden]="showLoading || transactions?.length">No transactions within the last week</info-bar>
+<ion-list #transactionList *ngIf="showLoading || transactions?.length">
+  <ion-list-header>
+    Top Transactions this week
+  </ion-list-header>
+  <ng-container *ngFor="let item of transactions">
+    <ion-item-sliding *ngIf="item.visible">
+      <ion-item>
+        <h2 text-wrap [ngClass]="{ 'long-tx-name': item.tx.title.length > 30}">{{item.tx.title}}</h2>
+        <!--&nbsp;<small class="transaction-verified" *ngIf="item.tx.category"><ion-icon name="checkmark-circle"></ion-icon></small>-->
+        <p>
+          <span class="tag-row" *ngIf="item.tx.category">
+            <ion-icon class="tag-icon" name="pricetag"></ion-icon>
+            <ion-badge>{{item.tx.category?.name}}</ion-badge>
+          </span>&nbsp;
+          {{item.tx.dateTransacted | date:'mediumDate'}}
+        </p>
+        <ion-note item-end><opc-money colorize [sign]="item.tx.type">{{item.tx.amount | number:'1.2-2'}}</opc-money></ion-note>
+      </ion-item>
+      <ion-item-options side="right" icon-left (ionSwipe)="editCategory(item.tx)">
+        <button ion-button expandable (click)="editCategory(item.tx)">
+          <ion-icon name="albums"></ion-icon> Categorise
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ng-container>
+  <button ion-item [hidden]="!transactions" [navPush]="screens.transactionList" [navParams]="{ accountId: accountId }">
+    View more items
+  </button>
+</ion-list>

@@ -1,0 +1,68 @@
+<ion-card margin-bottom *ngIf="isPlaceholder">
+  <ion-card-content></ion-card-content>
+</ion-card>
+<ion-card (click)="selectProperty()" (press)="showPropertyOptions()" *ngIf="property">
+  <!--<ion-card-header [hidden]="mortgage">
+    <h3>{{property.displayName()}}</h3>
+  </ion-card-header>-->
+  <ion-card-header *ngIf="mortgage">
+    <h3>{{mortgage.displayName()}}</h3>
+    <p>Balance: {{mortgage.currentBalance | currency:'AUD':true}} &middot; Repayment: {{mortgage.currentRepayment | currency:'AUD':true}}</p>
+  </ion-card-header>
+  <!--<img [src]="property.coverImage()">-->
+  <ion-card-content class="property-summary-image" [ngStyle]="{ 'background-image': property.coverImage(true) }">
+    <span class="floating-favourite">
+      <ng-container *ngIf="!isFavourite">
+        <small>Not Shortlisted</small>
+        <ion-icon name="star-outline"></ion-icon>
+      </ng-container>
+      <ng-container *ngIf="isFavourite">
+        <small>Shortlisted</small>
+        <ion-icon name="star"></ion-icon>
+      </ng-container>
+    </span>
+    <span class="floating-propertyType" *ngIf="property.features.buildingType >=0">
+        {{propertyTypes[property.features.buildingType]}}
+    </span>
+
+  </ion-card-content>
+  <ion-card-content class="property-summary-info">
+    <div class="property-heading">
+      <h1>{{property.displayName()}}</h1>
+    </div>
+    <ion-grid no-padding class="property-card-features">
+      <ion-row align-items-center>
+        <ion-col col-8>
+
+          <span *ngIf="property.features.bed"><img class="feature-image" src="assets/icons/squidink/svg64/household/bed-2.svg" alt="Bed"> 
+              {{property.features.bed || 0}} &nbsp;&nbsp;</span>
+          <span *ngIf="property.features.bath"><img class="feature-image" src="assets/icons/squidink/svg64/household/rain-shower.svg" alt="Bathrooms"> 
+              {{property.features.bath || 0}} &nbsp;&nbsp;</span>
+          <span *ngIf="property.features.car"><img class="feature-image" src="assets/icons/misc/car.png" alt="Garage">
+              {{property.features.car || 0}} &nbsp;&nbsp;</span>
+          <ion-icon name="map" *ngIf="property.coordinates" class="icon-map" color="mid" (tap)="showGoogleMap()"></ion-icon>
+
+          <span *ngIf="property.features.landSize >0 && !property.otmForSaleDetail"><br/>
+            <b class="small-text">Land size</b> {{property.features.landSize}} sq m
+          </span>
+          <span *ngIf="property.otmForSaleDetail"><br/>
+              <b class="small-text">On Sale: </b>{{property.otmForSaleDetail.date}}
+          </span>
+          <span *ngIf="property.otmForSaleDetail">
+              | {{property.otmForSaleDetail.method}}
+          </span>
+
+        </ion-col>
+
+        <ion-col col-4 text-right class="property-summary-value">
+          <ng-container>
+            <b *ngIf="property.currentValue">${{moneyShortener(property.currentValue)}}</b>
+            <span *ngIf="!property.currentValue" style="font-size: initial;">Unknown</span>
+            <small>Price estimate</small>
+          </ng-container>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ng-content></ng-content>
+  </ion-card-content>
+</ion-card>

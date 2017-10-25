@@ -1,0 +1,379 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 22/06/2016 15:37
+    */
+
+    @font-face {
+  font-family: "Flaticon Business";
+  src: url("../assets/fonts/flaticon/flaticon-business.eot");
+  src: url("../assets/fonts/flaticon/flaticon-business?#iefix") format("embedded-opentype"),
+       url("../assets/fonts/flaticon/flaticon-business.woff") format("woff"),
+       url("../assets/fonts/flaticon/flaticon-business.ttf") format("truetype"),
+       url("../assets/fonts/flaticon/flaticon-business.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon Business";
+    src: url("../assets/fonts/flaticon/flaticon-business.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi-business:before{
+  display: inline-block;
+  font-family: "Flaticon Business";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .fi-business-atm:before { content: "\f100"; }
+.fi-business-atm-1:before { content: "\f101"; }
+.fi-business-atm-2:before { content: "\f102"; }
+.fi-business-bag:before { content: "\f103"; }
+.fi-business-bag-1:before { content: "\f104"; }
+.fi-business-bag-2:before { content: "\f105"; }
+.fi-business-bag-3:before { content: "\f106"; }
+.fi-business-bag-4:before { content: "\f107"; }
+.fi-business-bag-5:before { content: "\f108"; }
+.fi-business-bag-6:before { content: "\f109"; }
+.fi-business-bank:before { content: "\f10a"; }
+.fi-business-barbershop:before { content: "\f10b"; }
+.fi-business-barcode:before { content: "\f10c"; }
+.fi-business-barcode-1:before { content: "\f10d"; }
+.fi-business-basket:before { content: "\f10e"; }
+.fi-business-basket-1:before { content: "\f10f"; }
+.fi-business-basket-2:before { content: "\f110"; }
+.fi-business-box:before { content: "\f111"; }
+.fi-business-box-1:before { content: "\f112"; }
+.fi-business-box-2:before { content: "\f113"; }
+.fi-business-box-3:before { content: "\f114"; }
+.fi-business-briefcase:before { content: "\f115"; }
+.fi-business-briefcase-1:before { content: "\f116"; }
+.fi-business-calculator:before { content: "\f117"; }
+.fi-business-cart:before { content: "\f118"; }
+.fi-business-cart-1:before { content: "\f119"; }
+.fi-business-cart-10:before { content: "\f11a"; }
+.fi-business-cart-11:before { content: "\f11b"; }
+.fi-business-cart-12:before { content: "\f11c"; }
+.fi-business-cart-13:before { content: "\f11d"; }
+.fi-business-cart-14:before { content: "\f11e"; }
+.fi-business-cart-15:before { content: "\f11f"; }
+.fi-business-cart-16:before { content: "\f120"; }
+.fi-business-cart-17:before { content: "\f121"; }
+.fi-business-cart-2:before { content: "\f122"; }
+.fi-business-cart-3:before { content: "\f123"; }
+.fi-business-cart-4:before { content: "\f124"; }
+.fi-business-cart-5:before { content: "\f125"; }
+.fi-business-cart-6:before { content: "\f126"; }
+.fi-business-cart-7:before { content: "\f127"; }
+.fi-business-cart-8:before { content: "\f128"; }
+.fi-business-cart-9:before { content: "\f129"; }
+.fi-business-cashier:before { content: "\f12a"; }
+.fi-business-cashier-1:before { content: "\f12b"; }
+.fi-business-change:before { content: "\f12c"; }
+.fi-business-check:before { content: "\f12d"; }
+.fi-business-coin:before { content: "\f12e"; }
+.fi-business-coin-1:before { content: "\f12f"; }
+.fi-business-coin-10:before { content: "\f130"; }
+.fi-business-coin-2:before { content: "\f131"; }
+.fi-business-coin-3:before { content: "\f132"; }
+.fi-business-coin-4:before { content: "\f133"; }
+.fi-business-coin-5:before { content: "\f134"; }
+.fi-business-coin-6:before { content: "\f135"; }
+.fi-business-coin-7:before { content: "\f136"; }
+.fi-business-coin-8:before { content: "\f137"; }
+.fi-business-coin-9:before { content: "\f138"; }
+.fi-business-coins:before { content: "\f139"; }
+.fi-business-coins-1:before { content: "\f13a"; }
+.fi-business-crate:before { content: "\f13b"; }
+.fi-business-crate-1:before { content: "\f13c"; }
+.fi-business-crate-2:before { content: "\f13d"; }
+.fi-business-crate-3:before { content: "\f13e"; }
+.fi-business-crate-4:before { content: "\f13f"; }
+.fi-business-crate-5:before { content: "\f140"; }
+.fi-business-credit-card:before { content: "\f141"; }
+.fi-business-credit-card-1:before { content: "\f142"; }
+.fi-business-credit-card-2:before { content: "\f143"; }
+.fi-business-credit-card-3:before { content: "\f144"; }
+.fi-business-credit-card-4:before { content: "\f145"; }
+.fi-business-credit-card-5:before { content: "\f146"; }
+.fi-business-credit-card-6:before { content: "\f147"; }
+.fi-business-delivery-cart:before { content: "\f148"; }
+.fi-business-delivery-cart-1:before { content: "\f149"; }
+.fi-business-diagram:before { content: "\f14a"; }
+.fi-business-diagram-1:before { content: "\f14b"; }
+.fi-business-diagram-2:before { content: "\f14c"; }
+.fi-business-diagram-3:before { content: "\f14d"; }
+.fi-business-folder:before { content: "\f14e"; }
+.fi-business-folder-1:before { content: "\f14f"; }
+.fi-business-get-money:before { content: "\f150"; }
+.fi-business-graph:before { content: "\f151"; }
+.fi-business-graph-1:before { content: "\f152"; }
+.fi-business-graph-2:before { content: "\f153"; }
+.fi-business-graph-3:before { content: "\f154"; }
+.fi-business-graph-4:before { content: "\f155"; }
+.fi-business-graph-5:before { content: "\f156"; }
+.fi-business-graph-6:before { content: "\f157"; }
+.fi-business-graph-7:before { content: "\f158"; }
+.fi-business-graph-8:before { content: "\f159"; }
+.fi-business-grocery:before { content: "\f15a"; }
+.fi-business-grocery-1:before { content: "\f15b"; }
+.fi-business-insert-coin:before { content: "\f15c"; }
+.fi-business-investment:before { content: "\f15d"; }
+.fi-business-justice:before { content: "\f15e"; }
+.fi-business-justice-scale:before { content: "\f15f"; }
+.fi-business-megaphone:before { content: "\f160"; }
+.fi-business-money:before { content: "\f161"; }
+.fi-business-notes:before { content: "\f162"; }
+.fi-business-notes-1:before { content: "\f163"; }
+.fi-business-notes-2:before { content: "\f164"; }
+.fi-business-open:before { content: "\f165"; }
+.fi-business-pack:before { content: "\f166"; }
+.fi-business-pie-chart:before { content: "\f167"; }
+.fi-business-pie-chart-1:before { content: "\f168"; }
+.fi-business-pie-chart-2:before { content: "\f169"; }
+.fi-business-pie-chart-3:before { content: "\f16a"; }
+.fi-business-pie-chart-4:before { content: "\f16b"; }
+.fi-business-pie-chart-5:before { content: "\f16c"; }
+.fi-business-pie-chart-6:before { content: "\f16d"; }
+.fi-business-piggy-bank:before { content: "\f16e"; }
+.fi-business-piggy-bank-1:before { content: "\f16f"; }
+.fi-business-point-of-service:before { content: "\f170"; }
+.fi-business-poor:before { content: "\f171"; }
+.fi-business-presentation:before { content: "\f172"; }
+.fi-business-presentation-1:before { content: "\f173"; }
+.fi-business-presentation-10:before { content: "\f174"; }
+.fi-business-presentation-11:before { content: "\f175"; }
+.fi-business-presentation-12:before { content: "\f176"; }
+.fi-business-presentation-13:before { content: "\f177"; }
+.fi-business-presentation-14:before { content: "\f178"; }
+.fi-business-presentation-15:before { content: "\f179"; }
+.fi-business-presentation-16:before { content: "\f17a"; }
+.fi-business-presentation-17:before { content: "\f17b"; }
+.fi-business-presentation-18:before { content: "\f17c"; }
+.fi-business-presentation-19:before { content: "\f17d"; }
+.fi-business-presentation-2:before { content: "\f17e"; }
+.fi-business-presentation-3:before { content: "\f17f"; }
+.fi-business-presentation-4:before { content: "\f180"; }
+.fi-business-presentation-5:before { content: "\f181"; }
+.fi-business-presentation-6:before { content: "\f182"; }
+.fi-business-presentation-7:before { content: "\f183"; }
+.fi-business-presentation-8:before { content: "\f184"; }
+.fi-business-presentation-9:before { content: "\f185"; }
+.fi-business-price-tag:before { content: "\f186"; }
+.fi-business-price-tag-1:before { content: "\f187"; }
+.fi-business-price-tag-2:before { content: "\f188"; }
+.fi-business-price-tag-3:before { content: "\f189"; }
+.fi-business-price-tag-4:before { content: "\f18a"; }
+.fi-business-price-tag-5:before { content: "\f18b"; }
+.fi-business-price-tag-6:before { content: "\f18c"; }
+.fi-business-price-tag-7:before { content: "\f18d"; }
+.fi-business-price-tag-8:before { content: "\f18e"; }
+.fi-business-price-tag-9:before { content: "\f18f"; }
+.fi-business-receipt:before { content: "\f190"; }
+.fi-business-record:before { content: "\f191"; }
+.fi-business-rewind-time:before { content: "\f192"; }
+.fi-business-rich:before { content: "\f193"; }
+.fi-business-safebox:before { content: "\f194"; }
+.fi-business-safebox-1:before { content: "\f195"; }
+.fi-business-safebox-2:before { content: "\f196"; }
+.fi-business-safebox-3:before { content: "\f197"; }
+.fi-business-safebox-4:before { content: "\f198"; }
+.fi-business-stamp:before { content: "\f199"; }
+.fi-business-stamp-1:before { content: "\f19a"; }
+.fi-business-stand:before { content: "\f19b"; }
+.fi-business-store:before { content: "\f19c"; }
+.fi-business-store-1:before { content: "\f19d"; }
+.fi-business-store-2:before { content: "\f19e"; }
+.fi-business-store-3:before { content: "\f19f"; }
+.fi-business-strongbox:before { content: "\f1a0"; }
+.fi-business-suitcase:before { content: "\f1a1"; }
+.fi-business-suitcase-1:before { content: "\f1a2"; }
+.fi-business-suitcase-2:before { content: "\f1a3"; }
+.fi-business-time-is-money:before { content: "\f1a4"; }
+.fi-business-time-passing:before { content: "\f1a5"; }
+.fi-business-wallet:before { content: "\f1a6"; }
+.fi-business-wallet-1:before { content: "\f1a7"; }
+.fi-business-wallet-2:before { content: "\f1a8"; }
+.fi-business-yen:before { content: "\f1a9"; }
+    
+    $font-fi-business-atm: "\f100";
+    $font-fi-business-atm-1: "\f101";
+    $font-fi-business-atm-2: "\f102";
+    $font-fi-business-bag: "\f103";
+    $font-fi-business-bag-1: "\f104";
+    $font-fi-business-bag-2: "\f105";
+    $font-fi-business-bag-3: "\f106";
+    $font-fi-business-bag-4: "\f107";
+    $font-fi-business-bag-5: "\f108";
+    $font-fi-business-bag-6: "\f109";
+    $font-fi-business-bank: "\f10a";
+    $font-fi-business-barbershop: "\f10b";
+    $font-fi-business-barcode: "\f10c";
+    $font-fi-business-barcode-1: "\f10d";
+    $font-fi-business-basket: "\f10e";
+    $font-fi-business-basket-1: "\f10f";
+    $font-fi-business-basket-2: "\f110";
+    $font-fi-business-box: "\f111";
+    $font-fi-business-box-1: "\f112";
+    $font-fi-business-box-2: "\f113";
+    $font-fi-business-box-3: "\f114";
+    $font-fi-business-briefcase: "\f115";
+    $font-fi-business-briefcase-1: "\f116";
+    $font-fi-business-calculator: "\f117";
+    $font-fi-business-cart: "\f118";
+    $font-fi-business-cart-1: "\f119";
+    $font-fi-business-cart-10: "\f11a";
+    $font-fi-business-cart-11: "\f11b";
+    $font-fi-business-cart-12: "\f11c";
+    $font-fi-business-cart-13: "\f11d";
+    $font-fi-business-cart-14: "\f11e";
+    $font-fi-business-cart-15: "\f11f";
+    $font-fi-business-cart-16: "\f120";
+    $font-fi-business-cart-17: "\f121";
+    $font-fi-business-cart-2: "\f122";
+    $font-fi-business-cart-3: "\f123";
+    $font-fi-business-cart-4: "\f124";
+    $font-fi-business-cart-5: "\f125";
+    $font-fi-business-cart-6: "\f126";
+    $font-fi-business-cart-7: "\f127";
+    $font-fi-business-cart-8: "\f128";
+    $font-fi-business-cart-9: "\f129";
+    $font-fi-business-cashier: "\f12a";
+    $font-fi-business-cashier-1: "\f12b";
+    $font-fi-business-change: "\f12c";
+    $font-fi-business-check: "\f12d";
+    $font-fi-business-coin: "\f12e";
+    $font-fi-business-coin-1: "\f12f";
+    $font-fi-business-coin-10: "\f130";
+    $font-fi-business-coin-2: "\f131";
+    $font-fi-business-coin-3: "\f132";
+    $font-fi-business-coin-4: "\f133";
+    $font-fi-business-coin-5: "\f134";
+    $font-fi-business-coin-6: "\f135";
+    $font-fi-business-coin-7: "\f136";
+    $font-fi-business-coin-8: "\f137";
+    $font-fi-business-coin-9: "\f138";
+    $font-fi-business-coins: "\f139";
+    $font-fi-business-coins-1: "\f13a";
+    $font-fi-business-crate: "\f13b";
+    $font-fi-business-crate-1: "\f13c";
+    $font-fi-business-crate-2: "\f13d";
+    $font-fi-business-crate-3: "\f13e";
+    $font-fi-business-crate-4: "\f13f";
+    $font-fi-business-crate-5: "\f140";
+    $font-fi-business-credit-card: "\f141";
+    $font-fi-business-credit-card-1: "\f142";
+    $font-fi-business-credit-card-2: "\f143";
+    $font-fi-business-credit-card-3: "\f144";
+    $font-fi-business-credit-card-4: "\f145";
+    $font-fi-business-credit-card-5: "\f146";
+    $font-fi-business-credit-card-6: "\f147";
+    $font-fi-business-delivery-cart: "\f148";
+    $font-fi-business-delivery-cart-1: "\f149";
+    $font-fi-business-diagram: "\f14a";
+    $font-fi-business-diagram-1: "\f14b";
+    $font-fi-business-diagram-2: "\f14c";
+    $font-fi-business-diagram-3: "\f14d";
+    $font-fi-business-folder: "\f14e";
+    $font-fi-business-folder-1: "\f14f";
+    $font-fi-business-get-money: "\f150";
+    $font-fi-business-graph: "\f151";
+    $font-fi-business-graph-1: "\f152";
+    $font-fi-business-graph-2: "\f153";
+    $font-fi-business-graph-3: "\f154";
+    $font-fi-business-graph-4: "\f155";
+    $font-fi-business-graph-5: "\f156";
+    $font-fi-business-graph-6: "\f157";
+    $font-fi-business-graph-7: "\f158";
+    $font-fi-business-graph-8: "\f159";
+    $font-fi-business-grocery: "\f15a";
+    $font-fi-business-grocery-1: "\f15b";
+    $font-fi-business-insert-coin: "\f15c";
+    $font-fi-business-investment: "\f15d";
+    $font-fi-business-justice: "\f15e";
+    $font-fi-business-justice-scale: "\f15f";
+    $font-fi-business-megaphone: "\f160";
+    $font-fi-business-money: "\f161";
+    $font-fi-business-notes: "\f162";
+    $font-fi-business-notes-1: "\f163";
+    $font-fi-business-notes-2: "\f164";
+    $font-fi-business-open: "\f165";
+    $font-fi-business-pack: "\f166";
+    $font-fi-business-pie-chart: "\f167";
+    $font-fi-business-pie-chart-1: "\f168";
+    $font-fi-business-pie-chart-2: "\f169";
+    $font-fi-business-pie-chart-3: "\f16a";
+    $font-fi-business-pie-chart-4: "\f16b";
+    $font-fi-business-pie-chart-5: "\f16c";
+    $font-fi-business-pie-chart-6: "\f16d";
+    $font-fi-business-piggy-bank: "\f16e";
+    $font-fi-business-piggy-bank-1: "\f16f";
+    $font-fi-business-point-of-service: "\f170";
+    $font-fi-business-poor: "\f171";
+    $font-fi-business-presentation: "\f172";
+    $font-fi-business-presentation-1: "\f173";
+    $font-fi-business-presentation-10: "\f174";
+    $font-fi-business-presentation-11: "\f175";
+    $font-fi-business-presentation-12: "\f176";
+    $font-fi-business-presentation-13: "\f177";
+    $font-fi-business-presentation-14: "\f178";
+    $font-fi-business-presentation-15: "\f179";
+    $font-fi-business-presentation-16: "\f17a";
+    $font-fi-business-presentation-17: "\f17b";
+    $font-fi-business-presentation-18: "\f17c";
+    $font-fi-business-presentation-19: "\f17d";
+    $font-fi-business-presentation-2: "\f17e";
+    $font-fi-business-presentation-3: "\f17f";
+    $font-fi-business-presentation-4: "\f180";
+    $font-fi-business-presentation-5: "\f181";
+    $font-fi-business-presentation-6: "\f182";
+    $font-fi-business-presentation-7: "\f183";
+    $font-fi-business-presentation-8: "\f184";
+    $font-fi-business-presentation-9: "\f185";
+    $font-fi-business-price-tag: "\f186";
+    $font-fi-business-price-tag-1: "\f187";
+    $font-fi-business-price-tag-2: "\f188";
+    $font-fi-business-price-tag-3: "\f189";
+    $font-fi-business-price-tag-4: "\f18a";
+    $font-fi-business-price-tag-5: "\f18b";
+    $font-fi-business-price-tag-6: "\f18c";
+    $font-fi-business-price-tag-7: "\f18d";
+    $font-fi-business-price-tag-8: "\f18e";
+    $font-fi-business-price-tag-9: "\f18f";
+    $font-fi-business-receipt: "\f190";
+    $font-fi-business-record: "\f191";
+    $font-fi-business-rewind-time: "\f192";
+    $font-fi-business-rich: "\f193";
+    $font-fi-business-safebox: "\f194";
+    $font-fi-business-safebox-1: "\f195";
+    $font-fi-business-safebox-2: "\f196";
+    $font-fi-business-safebox-3: "\f197";
+    $font-fi-business-safebox-4: "\f198";
+    $font-fi-business-stamp: "\f199";
+    $font-fi-business-stamp-1: "\f19a";
+    $font-fi-business-stand: "\f19b";
+    $font-fi-business-store: "\f19c";
+    $font-fi-business-store-1: "\f19d";
+    $font-fi-business-store-2: "\f19e";
+    $font-fi-business-store-3: "\f19f";
+    $font-fi-business-strongbox: "\f1a0";
+    $font-fi-business-suitcase: "\f1a1";
+    $font-fi-business-suitcase-1: "\f1a2";
+    $font-fi-business-suitcase-2: "\f1a3";
+    $font-fi-business-time-is-money: "\f1a4";
+    $font-fi-business-time-passing: "\f1a5";
+    $font-fi-business-wallet: "\f1a6";
+    $font-fi-business-wallet-1: "\f1a7";
+    $font-fi-business-wallet-2: "\f1a8";
+    $font-fi-business-yen: "\f1a9";

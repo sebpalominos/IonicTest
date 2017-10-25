@@ -1,0 +1,70 @@
+$opc-login-brand-logo-height: 200px;
+$opc-login-brand-logo-width: 200px;
+$opc-login-brand-start: 30vh;
+$opc-login-keyboard-breakpoint: 400px;
+
+.fullscreen-form {
+  .button-default.button-ios-light .button-inner,
+  .button-outline-ios-light.activated {
+    // Match button text colour with background colour
+    color: map-get($opc-colors, brand);
+  }
+}
+
+.opc-login {
+  .text-input {
+    background: rgba(black, .3);
+    color: white;
+  }
+  .brand-logo-upper {
+    height: $opc-login-brand-logo-height;
+    width: $opc-login-brand-logo-width;
+    transform: translateY($opc-login-brand-start);
+    opacity: 0;
+    @include absolute-fill(6);
+    top: -#{$opc-login-brand-logo-height/1.8};
+    bottom: auto;
+    transition: transform 2s ease, opacity 1.4s ease;
+    &:not([src]){
+      background: url('../assets/img/res/opica/splash-device.png') no-repeat center center/contain transparent;
+    }
+  } 
+  .show-form .brand-logo-upper {
+    opacity: 1;
+    transform: translateY(0);
+    @media (max-height: $opc-login-keyboard-breakpoint){
+      transform: scale(.8) translateY(-20px);
+    }
+  }
+  .brand-logo-lower {
+    height: auto;
+    min-height: 40px;
+    width: 220px;
+    max-width: 75%;
+    opacity: 0;
+    @include absolute-fill(7);
+    bottom: auto;
+    transform: translateY($opc-login-brand-start * 1.6);
+    transition: transform 2.2s ease, opacity 1.6s ease;
+    &:not([src]){
+      background: url('../assets/img/res/opica/splash-text.png') no-repeat center center/contain transparent;
+    }
+  }
+  .show-form .brand-logo-lower {
+    opacity: 1;
+    transform: translateY(#{$opc-login-brand-logo-height/2});
+    @media (max-height: $opc-login-keyboard-breakpoint){
+      transform: scale(.8) translateY(#{$opc-login-brand-logo-height/2});
+    }
+  }
+  .login-form {
+    opacity: 0;     // Will be overriden when show-form below comes in
+  }
+  .show-form .login-form {
+    opacity: 1;
+  }
+  .content {
+    background: url('../assets/img/bg/splash.png') no-repeat center center/cover map-get($opc-colors, brand);
+    color: white;
+  }
+}

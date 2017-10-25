@@ -1,0 +1,5 @@
+Stub: Create an app history service, which records user-defined actions into localstorage then retrieves across sessions.
+
+For example, the user selected the X segment-button last time; next time, take them back to the X segment button.
+
+02/03/2017 - this can be rolled into the preferences 

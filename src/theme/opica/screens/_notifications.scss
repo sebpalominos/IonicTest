@@ -1,0 +1,39 @@
+.notification-list {
+  $unread-color: map-get($flat-colors, belize-hole);
+  .notification-item {
+    &.item-ios { padding-left: $item-ios-padding-left * 2 }
+    &.item-md { padding-left: $item-md-padding-left * 2 }
+    &::before {
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-top: 1.2rem;
+      display: inline-block;
+      position: absolute;
+      left: $item-ios-padding-left * 2/3;
+      color: map-get($opc-colors, alt); 
+      // color: map-get($opc-colors, main);
+      align-self: flex-start;
+    }
+  }
+  .notification-item:not(.notification-unread){
+    &::before {
+      // content: '✓';
+      // opacity: .6;
+      content: '';
+    }
+  }
+  .notification-item.notification-unread {
+    background: mix($unread-color, $list-background-color, 10%);
+    &::before {
+      // content: '⚑';
+      content: '•';
+      // content: url('data:image/svg+xml;<svg class="menu-header-status-dot" width="10" height="10"><circle cx="5" cy="5" r="5"/></svg>');
+      display: block;
+      transform: scale(1.5);
+      color: $unread-color;
+      fill: $unread-color;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

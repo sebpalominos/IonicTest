@@ -1,0 +1,44 @@
+// DEFAULT settings for Opica slider and Opica slider card
+$slider-bg-image-darken-factor: .4 !default;
+$slider-bg-image-lighten-factor: .4 !default;
+.opc-slider {
+  display: block;
+  .slick-dotted.slick-slider {
+    margin-bottom: 45px;
+    .slick-dots { bottom: -30px; }
+  }
+  &.inner-dots, &[inner-dots] {
+    .slick-dotted.slick-slider {
+      margin-bottom: 0;
+      padding-bottom: 30px;
+      .slick-dots { bottom: 5px; }
+    }
+  }
+  .with-background-image {
+    position: relative;
+    background-color: transparent;
+    background-position: center center;
+    background-size: cover;
+    & > * {
+      position: relative;
+      z-index: 2;
+    }
+    &.darker {
+      color: map-get($colors, light);
+    }
+    &.lighter {
+      color: map-get($colors, dark);
+    }
+    &::after {
+      content: '';
+      @include absolute-fill();
+      z-index: 1;
+    }
+    &.darker::after {
+      background: rgba(black, $slider-bg-image-darken-factor);
+    }
+    &.lighter::after {
+      background: rgba(white, $slider-bg-image-lighten-factor);
+    }
+  }
+}

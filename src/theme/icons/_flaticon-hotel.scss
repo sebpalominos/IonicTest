@@ -1,0 +1,219 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 18/11/2016 08:32
+    */
+
+    @font-face {
+  font-family: "Flaticon Hotel";
+  src: url("../assets/fonts/flaticon/flaticon-hotel.eot");
+  src: url("../assets/fonts/flaticon/flaticon-hotel.eot?#iefix") format("embedded-opentype"),
+       url("../assets/fonts/flaticon/flaticon-hotel.woff") format("woff"),
+       url("../assets/fonts/flaticon/flaticon-hotel.ttf") format("truetype"),
+       url("../assets/fonts/flaticon/flaticon-hotel.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon Hotel";
+    src: url("../assets/fonts/flaticon/flaticon-hotel.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi-hotel:before{
+        display: inline-block;
+  font-family: "Flaticon Hotel";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .fi-hotel-agenda:before { content: "\f100"; }
+.fi-hotel-air-conditioner:before { content: "\f101"; }
+.fi-hotel-bathrobe:before { content: "\f102"; }
+.fi-hotel-bathtub:before { content: "\f103"; }
+.fi-hotel-bed:before { content: "\f104"; }
+.fi-hotel-bed-1:before { content: "\f105"; }
+.fi-hotel-bed-2:before { content: "\f106"; }
+.fi-hotel-bed-3:before { content: "\f107"; }
+.fi-hotel-beds:before { content: "\f108"; }
+.fi-hotel-bell:before { content: "\f109"; }
+.fi-hotel-building:before { content: "\f10a"; }
+.fi-hotel-building-1:before { content: "\f10b"; }
+.fi-hotel-building-2:before { content: "\f10c"; }
+.fi-hotel-bunk:before { content: "\f10d"; }
+.fi-hotel-burj-al-arab:before { content: "\f10e"; }
+.fi-hotel-calendar:before { content: "\f10f"; }
+.fi-hotel-car:before { content: "\f110"; }
+.fi-hotel-cctv:before { content: "\f111"; }
+.fi-hotel-cocktail:before { content: "\f112"; }
+.fi-hotel-coffee:before { content: "\f113"; }
+.fi-hotel-cutlery:before { content: "\f114"; }
+.fi-hotel-doorknob:before { content: "\f115"; }
+.fi-hotel-doorknob-1:before { content: "\f116"; }
+.fi-hotel-doorknob-2:before { content: "\f117"; }
+.fi-hotel-doorknob-3:before { content: "\f118"; }
+.fi-hotel-elevator:before { content: "\f119"; }
+.fi-hotel-elevator-1:before { content: "\f11a"; }
+.fi-hotel-escalator:before { content: "\f11b"; }
+.fi-hotel-escalator-1:before { content: "\f11c"; }
+.fi-hotel-exchange:before { content: "\f11d"; }
+.fi-hotel-fast-food:before { content: "\f11e"; }
+.fi-hotel-fire-extinguisher:before { content: "\f11f"; }
+.fi-hotel-hairdryer:before { content: "\f120"; }
+.fi-hotel-hairdryer-1:before { content: "\f121"; }
+.fi-hotel-hanger:before { content: "\f122"; }
+.fi-hotel-hotel:before { content: "\f123"; }
+.fi-hotel-hotel-1:before { content: "\f124"; }
+.fi-hotel-hotel-2:before { content: "\f125"; }
+.fi-hotel-hotel-3:before { content: "\f126"; }
+.fi-hotel-hotel-4:before { content: "\f127"; }
+.fi-hotel-hotel-5:before { content: "\f128"; }
+.fi-hotel-hotel-sign:before { content: "\f129"; }
+.fi-hotel-hotel-sign-1:before { content: "\f12a"; }
+.fi-hotel-hotel-sign-2:before { content: "\f12b"; }
+.fi-hotel-hotel-sign-3:before { content: "\f12c"; }
+.fi-hotel-hotel-sign-4:before { content: "\f12d"; }
+.fi-hotel-information:before { content: "\f12e"; }
+.fi-hotel-laptop:before { content: "\f12f"; }
+.fi-hotel-location:before { content: "\f130"; }
+.fi-hotel-luggage:before { content: "\f131"; }
+.fi-hotel-luggage-1:before { content: "\f132"; }
+.fi-hotel-luggage-2:before { content: "\f133"; }
+.fi-hotel-luggage-3:before { content: "\f134"; }
+.fi-hotel-luggage-4:before { content: "\f135"; }
+.fi-hotel-luggage-5:before { content: "\f136"; }
+.fi-hotel-meal:before { content: "\f137"; }
+.fi-hotel-menu:before { content: "\f138"; }
+.fi-hotel-menu-1:before { content: "\f139"; }
+.fi-hotel-menu-2:before { content: "\f13a"; }
+.fi-hotel-menu-3:before { content: "\f13b"; }
+.fi-hotel-menu-4:before { content: "\f13c"; }
+.fi-hotel-menu-5:before { content: "\f13d"; }
+.fi-hotel-monitor:before { content: "\f13e"; }
+.fi-hotel-no-pictures:before { content: "\f13f"; }
+.fi-hotel-no-smoking:before { content: "\f140"; }
+.fi-hotel-parking:before { content: "\f141"; }
+.fi-hotel-parking-1:before { content: "\f142"; }
+.fi-hotel-passport:before { content: "\f143"; }
+.fi-hotel-reception:before { content: "\f144"; }
+.fi-hotel-restaurant:before { content: "\f145"; }
+.fi-hotel-room-key:before { content: "\f146"; }
+.fi-hotel-room-key-1:before { content: "\f147"; }
+.fi-hotel-room-key-2:before { content: "\f148"; }
+.fi-hotel-room-service:before { content: "\f149"; }
+.fi-hotel-room-service-1:before { content: "\f14a"; }
+.fi-hotel-room-service-2:before { content: "\f14b"; }
+.fi-hotel-room-service-3:before { content: "\f14c"; }
+.fi-hotel-safebox:before { content: "\f14d"; }
+.fi-hotel-shower:before { content: "\f14e"; }
+.fi-hotel-slippers:before { content: "\f14f"; }
+.fi-hotel-smoking:before { content: "\f150"; }
+.fi-hotel-stool:before { content: "\f151"; }
+.fi-hotel-suitcase:before { content: "\f152"; }
+.fi-hotel-suitcase-1:before { content: "\f153"; }
+.fi-hotel-telephone:before { content: "\f154"; }
+.fi-hotel-telephone-1:before { content: "\f155"; }
+.fi-hotel-television:before { content: "\f156"; }
+.fi-hotel-towel:before { content: "\f157"; }
+.fi-hotel-vacuum-cleaner:before { content: "\f158"; }
+.fi-hotel-wifi:before { content: "\f159"; }
+    
+    $font-fi-hotel-agenda: "\f100";
+    $font-fi-hotel-air-conditioner: "\f101";
+    $font-fi-hotel-bathrobe: "\f102";
+    $font-fi-hotel-bathtub: "\f103";
+    $font-fi-hotel-bed: "\f104";
+    $font-fi-hotel-bed-1: "\f105";
+    $font-fi-hotel-bed-2: "\f106";
+    $font-fi-hotel-bed-3: "\f107";
+    $font-fi-hotel-beds: "\f108";
+    $font-fi-hotel-bell: "\f109";
+    $font-fi-hotel-building: "\f10a";
+    $font-fi-hotel-building-1: "\f10b";
+    $font-fi-hotel-building-2: "\f10c";
+    $font-fi-hotel-bunk: "\f10d";
+    $font-fi-hotel-burj-al-arab: "\f10e";
+    $font-fi-hotel-calendar: "\f10f";
+    $font-fi-hotel-car: "\f110";
+    $font-fi-hotel-cctv: "\f111";
+    $font-fi-hotel-cocktail: "\f112";
+    $font-fi-hotel-coffee: "\f113";
+    $font-fi-hotel-cutlery: "\f114";
+    $font-fi-hotel-doorknob: "\f115";
+    $font-fi-hotel-doorknob-1: "\f116";
+    $font-fi-hotel-doorknob-2: "\f117";
+    $font-fi-hotel-doorknob-3: "\f118";
+    $font-fi-hotel-elevator: "\f119";
+    $font-fi-hotel-elevator-1: "\f11a";
+    $font-fi-hotel-escalator: "\f11b";
+    $font-fi-hotel-escalator-1: "\f11c";
+    $font-fi-hotel-exchange: "\f11d";
+    $font-fi-hotel-fast-food: "\f11e";
+    $font-fi-hotel-fire-extinguisher: "\f11f";
+    $font-fi-hotel-hairdryer: "\f120";
+    $font-fi-hotel-hairdryer-1: "\f121";
+    $font-fi-hotel-hanger: "\f122";
+    $font-fi-hotel-hotel: "\f123";
+    $font-fi-hotel-hotel-1: "\f124";
+    $font-fi-hotel-hotel-2: "\f125";
+    $font-fi-hotel-hotel-3: "\f126";
+    $font-fi-hotel-hotel-4: "\f127";
+    $font-fi-hotel-hotel-5: "\f128";
+    $font-fi-hotel-hotel-sign: "\f129";
+    $font-fi-hotel-hotel-sign-1: "\f12a";
+    $font-fi-hotel-hotel-sign-2: "\f12b";
+    $font-fi-hotel-hotel-sign-3: "\f12c";
+    $font-fi-hotel-hotel-sign-4: "\f12d";
+    $font-fi-hotel-information: "\f12e";
+    $font-fi-hotel-laptop: "\f12f";
+    $font-fi-hotel-location: "\f130";
+    $font-fi-hotel-luggage: "\f131";
+    $font-fi-hotel-luggage-1: "\f132";
+    $font-fi-hotel-luggage-2: "\f133";
+    $font-fi-hotel-luggage-3: "\f134";
+    $font-fi-hotel-luggage-4: "\f135";
+    $font-fi-hotel-luggage-5: "\f136";
+    $font-fi-hotel-meal: "\f137";
+    $font-fi-hotel-menu: "\f138";
+    $font-fi-hotel-menu-1: "\f139";
+    $font-fi-hotel-menu-2: "\f13a";
+    $font-fi-hotel-menu-3: "\f13b";
+    $font-fi-hotel-menu-4: "\f13c";
+    $font-fi-hotel-menu-5: "\f13d";
+    $font-fi-hotel-monitor: "\f13e";
+    $font-fi-hotel-no-pictures: "\f13f";
+    $font-fi-hotel-no-smoking: "\f140";
+    $font-fi-hotel-parking: "\f141";
+    $font-fi-hotel-parking-1: "\f142";
+    $font-fi-hotel-passport: "\f143";
+    $font-fi-hotel-reception: "\f144";
+    $font-fi-hotel-restaurant: "\f145";
+    $font-fi-hotel-room-key: "\f146";
+    $font-fi-hotel-room-key-1: "\f147";
+    $font-fi-hotel-room-key-2: "\f148";
+    $font-fi-hotel-room-service: "\f149";
+    $font-fi-hotel-room-service-1: "\f14a";
+    $font-fi-hotel-room-service-2: "\f14b";
+    $font-fi-hotel-room-service-3: "\f14c";
+    $font-fi-hotel-safebox: "\f14d";
+    $font-fi-hotel-shower: "\f14e";
+    $font-fi-hotel-slippers: "\f14f";
+    $font-fi-hotel-smoking: "\f150";
+    $font-fi-hotel-stool: "\f151";
+    $font-fi-hotel-suitcase: "\f152";
+    $font-fi-hotel-suitcase-1: "\f153";
+    $font-fi-hotel-telephone: "\f154";
+    $font-fi-hotel-telephone-1: "\f155";
+    $font-fi-hotel-television: "\f156";
+    $font-fi-hotel-towel: "\f157";
+    $font-fi-hotel-vacuum-cleaner: "\f158";
+    $font-fi-hotel-wifi: "\f159";

@@ -1,0 +1,61 @@
+$loading-bar-height: 36px !default;
+.loading-bar {
+  position: relative;
+  height: 0;
+  .lb-outer {
+    display: none;
+    height: $loading-bar-height;
+    // position: absolute;
+    overflow: hidden;
+    // top: 0;
+    // right: 0;
+    // left: 0;
+  }
+  .lb-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $loading-bar-height;
+    transition: transform .2s linear;
+    transform: translateY(-($loading-bar-height*2));
+    & > * {
+      flex: 0 1 auto;
+    }
+  }
+  .lb-outer.active {
+    display: block;
+    .lb-inner {
+      transform: translateY(0);
+    }
+  }
+  // Colours for inner
+  .lb-inner {
+    color: white;
+    height: $loading-bar-height;
+    background: map-get($colors, primary);
+  }
+  .spinner {
+    margin-left: -1em;
+    margin-right: .5em;
+    height: 22px;
+    width: 22px;
+    circle {
+      stroke: white;
+    }
+  }
+  // Create a pseudo element spinner
+  // Todo: convert to SVG spinner
+  // .lb-inner::before {
+    // content: '';
+    // display: block;
+    // height: 14px;
+    // width: 20px;
+    // background: url('../assets/icons/spinners/arrows-white-on-transparent.gif') no-repeat center center/contain transparent;
+  // }
+  // @each $item, $color in $colourList {
+  //   [data-section-id="#{$item}"] {
+  //   border-top: map-get($color, color1);
+  //   border-bottom: map-get($color, color2);
+  //   }
+  // }
+}

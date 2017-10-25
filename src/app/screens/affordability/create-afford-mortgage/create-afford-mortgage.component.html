@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Select Mortgage Account</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="skip()">Skip</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <loading-bar [active]="showWorkspaceLoading">Loading information</loading-bar>
+  <header padding class="create-goal-preamble">
+    <opc-icon-heading src="assets/icons/squidink/svg64/financial/calculator.svg" size="lg">
+      <h4>Link your Mortgage account</h4>
+      <p>Select your account from the list.</p>
+    </opc-icon-heading>
+  </header>
+  <info-bar context="danger" *ngIf="showPropertyNotSelectedError">
+    No property selected! Cannot associate mortgage.
+  </info-bar>
+  <ion-list radio-group [(ngModel)]="selectedAccount">
+    <ion-item *ngFor="let account of accounts">
+      <ion-label>
+        <h2 text-wrap>{{account.displayName()}}</h2>
+        <p>Balance: {{account.currentBalance | currency:'AUD':true}}</p>
+        <p>Regular repayment: {{account.currentRepayment | currency:'AUD':true}}</p>
+      </ion-label>
+      <ion-radio [value]="account"></ion-radio>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer padding>
+  <button ion-button block (click)="continue()" [disabled]="!selectedAccount">Continue</button>
+</ion-footer>

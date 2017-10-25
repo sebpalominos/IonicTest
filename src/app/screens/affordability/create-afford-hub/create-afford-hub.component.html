@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="close()">
+        <span showWhen="ios">Close</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>My Affordability Goal</ion-title>
+  </ion-navbar>
+  <ion-navbar ion-grid no-padding [ngClass]="{ 'hub-ready': checkAffordabilitySetupComplete() }">
+    <ion-row>
+      <ion-col class="afford-status" *ngFor="let status of statuses">
+        <ion-icon 
+          name="checkmark-circle" 
+          class="afford-status-icon" 
+          [ngClass]="{ 'afford-icon-complete': status.checkComplete() }"></ion-icon>
+        <div>{{status.label}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="folded-scenario-item" *ngIf="isExistingPropertyFolded">
+    <header text-center (tap)="isExistingPropertyFolded = false"><ion-icon name="add"></ion-icon> Tap here to add existing property</header>
+  </div>
+  <div class="scenario-item" [hidden]="isExistingPropertyFolded">
+    <h6 padding-horizontal>My Existing Property</h6>
+    <aside class="cutout-placeholder" (tap)="changeExistingProperty()" [hidden]="existingPropertySummary || interimExistingProperty">
+      <span>Tap to select your existing property</span>
+    </aside>
+    <ion-list>
+      <button ion-item disabled *ngIf="interimExistingProperty">
+        <ion-spinner item-start name="crescent"></ion-spinner>
+        <h2 text-wrap>{{interimExistingProperty.displayName()}}</h2>
+        <p>Saving...</p>
+      </button>
+      <button ion-item (tap)="changeExistingProperty()" *ngIf="existingPropertySummary" [hidden]="interimExistingProperty">
+        <ion-thumbnail item-start>
+          <img [src]="existingPropertySummary.thumbnailImage()">
+        </ion-thumbnail>
+        <h2 text-wrap>{{existingPropertySummary.displayName()}}</h2>
+        <p *ngIf="existingPropertySummary.currentValue">Estimated value: ${{existingPropertySummary.currentValue | number:'1.0-0'}}</p> 
+      </button>
+      <ion-item *ngIf="interimMortgage">
+        <ion-spinner item-start name="crescent"></ion-spinner>
+        <h2>{{interimMortgage.displayName()}}</h2>
+        <p>Saving...</p>
+      </ion-item>
+      <ion-item *ngIf="mortgage" [hidden]="interimMortgage">
+        <opc-icon item-start set="business" name="wallet-1" size="md"></opc-icon>
+        <h2>{{mortgage.displayName()}}</h2>
+        <p>${{mortgage.currentBalance | number:'1.0-0'}} &middot; ${{mortgage.currentRepayment | number:'1.0-0'}} regular payment</p>
+        <!--currentRepayment: number;-->
+        <!--currentBalance: number;-->
+        <!--interestRate: number;-->
+      </ion-item>
+    </ion-list>
+    <!--<property-summary *ngIf="existingPropertySummary" 
+      [property]="existingPropertySummary"
+      [mortgage]="mortgage"
+      (tap)="changeExistingProperty()"></property-summary>-->
+  </div>
+  <div class="scenario-item">
+    <h6 padding-horizontal>My Target Property</h6>
+    <aside class="cutout-placeholder" (tap)="changeTargetProperty()" [hidden]="targetPropertySummary || interimTargetProperty">
+      <span>Tap to select your target property</span>
+    </aside>
+    <ion-list>
+      <button ion-item disabled *ngIf="interimTargetProperty">
+        <ion-spinner item-start name="crescent"></ion-spinner>
+        <h2 text-wrap>{{interimTargetProperty.displayName()}}</h2>
+        <p>Saving...</p>
+      </button>
+      <button ion-item (tap)="changeTargetProperty()" *ngIf="targetPropertySummary" [hidden]="interimTargetProperty">
+        <ion-thumbnail item-start>
+          <img [src]="targetPropertySummary.thumbnailImage()">
+        </ion-thumbnail>
+        <h2 text-wrap>{{targetPropertySummary.displayName()}}</h2>
+        <p *ngIf="targetPropertySummary.currentValue">Estimated value: ${{targetPropertySummary.currentValue | number:'1.0-0'}}</p>
+      </button>
+    </ion-list>
+    <!--<property-summary *ngIf="targetPropertySummary" 
+      [property]="targetPropertySummary"
+      (tap)="changeTargetProperty()"></property-summary>-->
+  </div>
+  <div class="scenario-item">
+    <h6 padding-horizontal>Affordability Plan</h6>
+    <aside class="cutout-placeholder" (tap)="changeSurplus()" [hidden]="surplus">
+      <span *ngIf="!targetPropertySummary">(Select a target property first)</span>
+      <span *ngIf="targetPropertySummary">Tap to set your affordability plan</span>
+    </aside>
+    <ion-list *ngIf="surplus">
+      <button ion-item (tap)="changeSurplus()">
+        <ng-container item-start *ngIf="getSavingsProgressRatio() > 0.5">
+          <ion-icon item-start name="checkmark-circle" class="status-icon" [ngClass]="getSavingsProgressColor()"></ion-icon>
+        </ng-container>
+        <ng-container item-start *ngIf="getSavingsProgressRatio() == null || getSavingsProgressRatio() <= 0.5">
+          <ion-icon item-start name="warning" class="status-icon" [ngClass]="getSavingsProgressColor()"></ion-icon>
+        </ng-container>
+        <h2>Affordability Plan</h2>
+        <p text-wrap>
+          Saving-to-surplus progress: 
+          <span>${{surplus.spendingLimitCurrentSavings | number:'1.0-0'}}</span> / 
+          <span>${{surplus.spendingLimitSavingsRequired | number:'1.0-0'}}</span>
+        </p>
+        <!--<opc-progress
+          class="progress-bar" 
+          [max]="surplus.spendingLimitSavingsRequired" 
+          [value]="surplus.spendingLimitCurrentSavings"></opc-progress>-->
+      </button>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-footer>
+  <div padding>
+    <button ion-button block (click)="continue()" [disabled]="!checkAffordabilitySetupComplete()">Finish setup</button>
+  </div>
+  <!-- <div padding text-center class="afford-setup-ok-message" *ngIf="checkAffordabilitySetupComplete()">
+    Great! You're ready to start tracking your goal.
+  </div> -->
+</ion-footer>

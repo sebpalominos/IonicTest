@@ -1,0 +1,22 @@
+.property-next {
+  .opc-hero-unit {
+    background: map-get($opc-colors, slate);
+    color: white; 
+    height: 25vh;
+    .hero-inner {
+      position: static;
+    }
+  }
+  .carousel-card {
+    width: 85vw;
+    min-height: 140px;
+    position: relative;
+  }
+  .card {
+    margin: 0;
+  }
+  .card-extra {
+    @include absolute-center-flex();
+    min-height: 140px;
+  }
+}

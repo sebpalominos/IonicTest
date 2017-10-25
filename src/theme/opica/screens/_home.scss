@@ -1,0 +1,94 @@
+.opc-home {
+  &.home-placeholder .hero-inner {
+    // background: url('../assets/img/demo/warringahfwy.jpg') center center/cover transparent;
+    background: #555;
+    
+  }
+  // Home summary (top section) white labelled
+  .opc-slider.home-summary {
+    // Custom background for home summary, and resize carousel dots
+    // $carousel-text-color: $text-color;
+    $home-summary-text-color: white;
+    $home-summary-text-color-alt: map-get($flat-colors, clouds);
+    .carousel {
+      // background-image: url('../assets/img/demo/trianglemosaic.png');
+      // background-repeat: no-repeat; 
+      // background-position: top center;
+      // background-size: 100% auto; 
+      // background: #555;
+      background-color: map-get($flat-colors, wet-asphalt);
+      color: $home-summary-text-color;
+      .carousel-card .icon-heading {
+        .ih-heading h2 {
+          color: $home-summary-text-color-alt;
+          font-size: 1.8rem;
+        }
+        p {
+          color: $home-summary-text-color-alt;
+          font-size: 1.2rem;
+          opacity: .9;
+        }
+        // display: inline-block;
+        // padding: 4px 6px;
+        // border-radius: 6px;
+        // border: 2px solid white;
+        h2 {
+          font-size: 2.2rem;
+        }
+      }
+      .slick-dots {
+        opacity: .78;
+        li button:before {
+          color: $home-summary-text-color;
+          font-size: 12px;
+        }
+      }
+    }
+    .carousel::before {
+      content: '';
+      @include absolute-fill;
+      background: url('../assets/img/bg/18446710_10155341528910909_5152133762252722064_n.jpg') center center/cover transparent;
+      opacity: .4;
+    }
+  }
+
+  // Card sliders (bottom sections)
+  .card-slider .opc-slider {
+    // Resize carousel dots, give nicer card headers
+    .carousel {
+      .slick-dots {
+        opacity: .78;
+        li button:before {
+          color: $text-color;
+          font-size: 9px;
+        }
+      }
+    }
+    .opc-slider-card {
+      header h2, header h3 {
+        font-weight: 300;
+        margin: 0;
+      }
+      header h2.smaller {
+        font-size: 2rem;
+      }
+      header h3.smaller {
+        font-size: 1.8rem;
+      }
+    }
+    // N.B. Must be coupled with slick option for variableWidth
+    .carousel-card {
+      width: 80vw;
+      .md  & {
+        width: 300px;
+        max-width: 320px;
+      }
+    }
+  }
+
+  .opc-button-row .opc-button-row-caption a {
+    // color: white;
+    border-bottom: none;
+  }
+
+}

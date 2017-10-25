@@ -1,0 +1,169 @@
+.home-summary {
+  // .card {
+  //   position: relative;
+  // }
+  .slider-card {
+    // min-width: 100vw;
+    .carousel-card {
+      position: relative;
+      // min-width: 100vw;
+      min-height: 210px;
+    }
+  }
+  $cashflow-heading-height: 50px;
+  $cashflow-summary-height: 140px;
+  .home-cashflow {
+    .cashflow-heading {
+      // flex: 0 0 $cashflow-heading-height;
+      position: relative;
+      top: -$content-padding/2;
+      height: $cashflow-heading-height + $content-padding/2;
+      .icon-heading {
+        margin: .25em $content-margin 0;
+        z-index: 4;
+      }
+      // &:hover {
+      //   .cfh-label.cfh-label-upper {
+      //     transform: translateY(0) rotateX(0);
+      //   }
+      //   .cfh-label.cfh-label-bottom {
+      //     transform: translateY(-100%) rotateX(90deg);
+      //   }
+      // }
+      .cfh-label {
+        position: absolute;
+        transition: transform .4s linear;
+        transform-origin: center 40%;
+      }
+      .cfh-label.cfh-label-upper {
+        transform: translateY(-100%) rotateX(90deg);
+        &.cfh-label-show {
+          transform: translateY(0) rotateX(0);
+        }
+      }
+      .cfh-label.cfh-label-lower {
+        transform: translateY(100%) rotateX(90deg);
+        &.cfh-label-show {
+          transform: translateY(0) rotateX(0);
+        }
+      }
+    }
+    .cashflow-heading::before {
+      content: '';
+      position: absolute;
+      top: -$content-padding*1.5;
+      left: 0;
+      right: 0;
+      display: block;
+      width: 100%;
+      border-radius: 4px;
+      background: map-get($opc-colors, brand);
+      box-shadow: 0 0 8px rgba(black, .2), inset 0 -5px 8px lighten(map-get($opc-colors, brand), 5%);
+      height: $cashflow-heading-height + $content-padding*1.5;
+      z-index: 0;
+    }
+    .cashflow-side {
+      height: $cashflow-summary-height;
+    }
+    .cashflow-stats {
+      display: flex;
+      justify-content: space-between;
+      align-content: flex-start;
+      flex-flow: column nowrap;
+      .cashflow-income {
+        flex: 0 1 auto;
+        .money {
+          padding-left: .5rem;
+          font-size: 4rem;
+          text-shadow: 0 0 .5em rgba(white, .3);
+        }
+        .spinner circle {
+          stroke: rgba(white, .5);
+        }
+      }
+      .cashflow-expenses  {
+        .money {
+          padding-left: 1rem;
+          font-size: 3rem;
+          text-shadow: 0 0 1em rgba(white, .3);
+        }
+        .spinner circle {
+          stroke: rgba(white, .5);
+        }
+      }
+    }
+    .cashflow-comparison {
+      .pie-chart {
+        transform: scale(1.3) translate(10px, -5px);
+        width: $cashflow-summary-height;
+        height: $cashflow-summary-height;
+        .overlay-center {
+          span {
+            display: block;
+            font-size: 4.5rem;
+            line-height: 1;
+            letter-spacing: -2px;
+          }
+        }
+      }
+      .bar-chart .canvas-holder {
+        transform: translateY(-$cashflow-heading-height);
+        height: 215px; 
+      }
+    }
+  }
+  .home-more {
+    .more-outer {
+      @include absolute-center-flex;
+    }
+    .more-inner {
+      padding: $content-padding;
+      overflow: hidden;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      background: map-get($opc-colors, brand);
+      box-shadow: 0 2px 0 rgba(black, .2);
+      border-radius: 6px;
+      text-align: center;
+      text-shadow: 0 2px 0 rgba(black, .15);
+      img {
+        margin: 0 auto;
+      }
+    }
+  }
+  .home-under-construction {
+    .carousel-card {
+      img {
+        display: inline;
+      }
+      @include absolute-center-flex();
+      text-align: center;
+    }
+  }
+  .home-property-quicksearch {
+    .property-quicksearch, .quicksearch-content {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // PIES FOR DAYS
+  .pie-chart {
+    .canvas-holder {
+      // position: absolute;
+      // bottom: 0;
+      // right: 20px;
+      &.doughnut canvas {
+        @include center-overlap();
+        z-index: 20;
+      }
+      &.doughnut .overlay-center {
+        @include center-overlap();
+        z-index: 10;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Spending Breakdown <p>Hold any category to preview</p>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="showFilterOptions()">
+        <ion-icon name="filter"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="has-month-nav-bar">
+  <!-- <ion-refresher (ionRefresh)="loadCategories(false, $event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher> -->
+  <categories-loading *ngIf="showInitialLoading"></categories-loading>
+  <ion-list class="categories" [hidden]="showInitialLoading">
+    <ion-list-header text-wrap class="month-nav-bar" color="dark" (press)="showMonthNavOptions()">
+      <ion-icon item-start class="month-nav-prev" name="md-arrow-round-back" (click)="setPrevMonth()"></ion-icon>
+      <ion-icon item-end class="month-nav-next" name="md-arrow-round-forward" (click)="setNextMonth()" [hidden]="hideNextMonth"></ion-icon>
+      {{activeMonthTitle}} &middot; {{filterDisplayTitle}}
+    </ion-list-header>
+    <ion-item detail-none no-lines *ngFor="let cc of coloredCategories" [hidden]="cc.isHidden" (tap)="categorySelected(cc)" (press)="displayCategoryPopup(cc.category, cc.stats)">
+      <h2>
+        {{cc.category.name | truncate:25}}
+        <small class="trend-label" *ngIf="cc.stats && cc.stats.previousMonthDeltaPercent">
+          <ion-icon name="md-arrow-dropdown" *ngIf="cc.stats.previousMonthDeltaTrend <= 0"></ion-icon>
+          <ion-icon name="md-arrow-dropup" *ngIf="cc.stats.previousMonthDeltaTrend > 0"></ion-icon>
+          <!-- <ion-icon name="md-trending-down" *ngIf="cc.stats.previousMonthDeltaTrend <= 0"></ion-icon>
+          <ion-icon name="md-trending-up" *ngIf="cc.stats.previousMonthDeltaTrend > 0"></ion-icon> -->
+          {{cc.stats.previousMonthDeltaPercent}}%
+        </small>
+      </h2>
+      <p *ngIf="cc.count">{{cc.count | i18nPlural:numTransactionsPluralMapping}}</p>
+      <!--<opc-progress item-start bg="true" max="100" value="100"></opc-progress>-->
+      <!--<opc-progress bg="true" [max]="cty.activeValueTarget()" [value]="cty.activeValueActual()" *ngIf="!cty.activeOverspent()"></opc-progress>-->
+      <!--<ion-icon item-end name="log-in" *ngIf="cc.category?.credit"></ion-icon>
+      <ion-icon item-end name="log-out" *ngIf="!cc.category?.credit"></ion-icon>-->
+      <ion-note item-end><opc-money sign="1">{{cc.totalValue | number:'1.0-0'}}</opc-money></ion-note>
+      <ion-note item-end *ngIf="cc.isCredit"><small>CR</small></ion-note>
+      <ion-note item-end *ngIf="!cc.isCredit"><small>DR</small></ion-note>
+    </ion-item>
+  </ion-list>
+  <section class="no-categorised" [hidden]="showInitialLoading || showCategoriesLoading || coloredCategories?.length">
+    <opc-icon set="essential" name="route" size="xl"></opc-icon>
+    <div>No categorisations so far this month</div>
+  </section>
+  <div padding text-center *ngIf="showCategoriesLoading" [hidden]="showInitialLoading">
+    <ion-spinner name="crescent" ></ion-spinner>
+  </div>
+</ion-content>
+<ion-footer [hidden]="showInitialLoading">
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="selectedFilter" color="secondary">
+      <ion-segment-button *ngFor="let seg of segmentButtons" [value]="seg.value" (ionSelect)="changeCategoryListView(seg)">{{seg.label}}</ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  <ion-toolbar no-padding>
+    <categorisation-banner></categorisation-banner>  
+  </ion-toolbar>
+</ion-footer>

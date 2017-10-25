@@ -1,0 +1,34 @@
+.property-results {
+  .toolbar-ios-dark, .toolbar-md-dark {
+    color: map-get($colors, light);
+  }
+  .filtersize{
+    font-size: small !important;
+  }
+  .iconsmall{
+    font-size: small;
+  }
+  .title{
+    font-size: 2rem;
+  }
+
+  h3{
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+  // .float-button {
+    
+  //  background-color:#ff9514;
+  //  opacity: 0.75;
+  //  color: white;
+  //  border-radius: 50%;
+  //  /*border-radius:15% 0 0 0;*/
+  //  width: 30px;
+  //  padding: 25px;
+  //  font-size: 40px;
+  //  position: fixed;
+  //  bottom: 15%; /* Adjust height */
+  //  right: 10%; /* Adjust position */
+  //  z-index: 1000;
+  //  }
+}

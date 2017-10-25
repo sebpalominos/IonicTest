@@ -1,0 +1,21 @@
+{
+  "theme": {
+    "logo": "https://opcins-pub-assets.s3-ap-southeast-2.amazonaws.com/logos/westpac.png",
+    "bgColor": "#d5002b"
+  },
+  "capabilities": {
+    "CAP_DASHBOARD": "on",
+    "CAP_ACCOUNTS": "on",
+    "CAP_BREAKDOWN": "on",
+    "CAP_AFFORDABILITY": "disabled",
+    "CAP_GOAL_CENTRE": "disabled", 
+    "CAP_PROPERTY_CENTRE": "disabled", 
+    "CAP_EXPLORE_PROFILE": "on", 
+    "CAP_NOTIFICATION_CENTRE": "off", 
+    "CAP_UNIVSEARCH": "on",
+    "CAP_IMMORTAL_LOGIN": "on",
+    "CAP_CREATE_USER": "on",
+    "CAP_USE_PIN": "on",
+    "CAP_OTHER": "on"
+  }
+}

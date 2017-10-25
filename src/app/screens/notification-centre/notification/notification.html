@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Notification</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div [innerHTML]="notification.messageHtml"></div>
+  <p>{{notification.dateTime | date:'medium'}}</p>
+</ion-content>

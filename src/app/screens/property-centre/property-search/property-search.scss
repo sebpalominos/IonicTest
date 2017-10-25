@@ -1,0 +1,58 @@
+.property-search {
+  ion-spinner * {
+    stroke: #FFFCFC;
+    fill: #222;
+  }
+  .search-form {
+    padding: $content-padding;
+    .form-group + .form-group {
+      margin-top: $content-margin/2;
+    }
+  }
+  // The main searchbar on the search screen
+  .realestate-searchbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid map-get($colors, light);
+    border-radius: 4px;
+    .icon {
+      padding-left: $content-padding;
+      padding-right: $content-padding/2;
+      font-size: 3rem;
+      margin-top: 3px;
+      flex: 0 1 auto;
+    }
+    .input {
+      width: auto;
+      flex: 1 0 auto;
+    }
+    .text-input {
+      margin: 0;
+      color: map-get($opc-inverse-colors, fg);
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    
+  }
+  .realestate-search-submit {
+    transition: all .4s ease;
+    // transform: translateY(100px);
+    // &.show {
+      // transform: translateY(0);
+    // }
+  }
+  .chip {
+    .button, .icon {
+      text-align: center;
+    }
+  }
+  .location-type{
+    color:white;
+  }
+  .badge-md-secondary {
+    // color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}

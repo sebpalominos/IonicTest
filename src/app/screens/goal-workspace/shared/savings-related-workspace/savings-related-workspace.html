@@ -1,0 +1,21 @@
+<hero-unit #hero>
+  <pie-chart 
+    [data]="overallSummaryGraphData" 
+    [labels]="overallSummaryGraphLabels" 
+    [options]="overallSummaryGraphOptions">
+    <div>${{totalSpend?.currentValue | number:'1.0-0'}}</div>
+    <small>Total Spend</small>
+  </pie-chart>
+  <div class="hero-spend-amount" *ngIf="discretionarySpend">  
+    <dl class="numeric-stat">
+      <dt>Discretionary Spend</dt>
+      <dd class="money-value">{{discretionarySpend.currentValue | number:'1.0-0'}}</dd>
+    </dl>
+  </div>
+</hero-unit>
+<div class="overscroll">
+  <spending-limit 
+  *ngFor="let sc of spendingCategories"
+  [spendingCategory]="sc"
+  (edit)="editSpendingCategory($event)"></spending-limit>
+</div>

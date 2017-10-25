@@ -1,0 +1,68 @@
+<ion-header no-border>
+  <ion-navbar class="opc-search-navbar" color="light">
+    <button ion-button menuToggle *ngIf="viewCtrl.isFirst()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-toolbar no-padding class="omni-search-bar">
+      <ion-searchbar #searchbar 
+        [(ngModel)]="searchOverlay.queryText" 
+        [showCancelButton]="true" 
+        (ionCancel)="searchOverlay.reset($event)" 
+        (ionFocus)="searchOverlay.handleAction($event)" 
+        (ionBlur)="searchOverlay.handleAction($event)" 
+        (ionInput)="searchOverlay.handleAction($event)"></ion-searchbar>
+    </ion-toolbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showOptions()">
+        <ion-icon name="more" clear></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content (ionScroll)="searchOverlay.close(); scrollunder.handleScrollEvent($event)">
+  <search-overlay ion-fixed #searchOverlay [searchbar]="searchbar"></search-overlay>
+  <div *ngIf="goals">
+    <ion-list *ngIf="(goals | filterActiveGoals:true).length">
+      <ion-list-header>
+        Active Goals
+      </ion-list-header>
+      <ion-item-sliding *ngFor="let goal of goals | filterActiveGoals:true">
+        <ion-item class="goal-selected" (click)="selectGoal(goal)">
+          <h2>{{goal.typeHeader.title}}</h2>
+          <p text-wrap>{{goal.typeHeader.description}}</p>
+          <!--<ion-note item-end>Active</ion-note>-->
+          <ion-icon item-end class="goal-warning-color" name="warning" *ngIf="goal.needsAttention"></ion-icon>
+          <ion-icon item-end class="goal-ok-color" name="checkmark-circle" *ngIf="!goal.needsAttention"></ion-icon>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="removeGoal(goal)">
+            <ion-icon name="trash"></ion-icon> Remove
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <ion-list *ngIf="(goals | filterActiveGoals:false).length">
+      <ion-list-header>
+        Create a goal
+      </ion-list-header>
+      <ion-item class="goal-deselected" *ngFor="let goal of goals | filterActiveGoals:false" (click)="addGoal(goal)">
+        <h2>{{goal.typeHeader.title}}</h2>
+        <p text-wrap>{{goal.typeHeader.description}}</p>
+        <opc-icon item-end set="essential" name="plus"></opc-icon>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="(goals | filterActiveGoals:true).length">
+      <ion-list-header>
+        Previously completed actions
+      </ion-list-header>
+      <button ion-item *ngFor="let action of completedActions" [navPush]="screens.workspace" [navParams]="{ action: action }">
+        <h2>{{action.shortDescription}}</h2>
+        <p>{{action.goalLabel}} &middot; {{action.status}}</p>
+        <opc-icon item-start set="business" name="time-passing" size="lg" *ngIf="action.status === 'UNDERWAY'"></opc-icon>
+        <opc-icon item-start set="essential" name="play-button-1" size="lg" *ngIf="action.status === 'TO_DO'"></opc-icon>
+        <opc-icon item-start set="interaction" name="archive-3" size="lg" *ngIf="action.status === 'DONE'"></opc-icon>
+        <ion-icon item-end class="goal-warning-color" name="warning" *ngIf="action.isSetup"></ion-icon>
+      </button>
+    </ion-list>
+  </div>
+</ion-content>

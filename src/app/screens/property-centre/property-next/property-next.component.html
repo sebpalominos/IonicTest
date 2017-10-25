@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Property Centre</ion-title>
+    <button ion-button menuToggle color="light" *ngIf="!navCtrl.canGoBack()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content fullscreen>
+  <hero-unit padding #hero>
+    <afford-teaser></afford-teaser>
+  </hero-unit>  
+  <div class="overscroll" padding-vertical>
+    <section>
+      <h4 text-center>Find a property and start your Affordability Goal</h4>
+      <button ion-button icon-left block [navPush]="screens.propertyResults">
+        <ion-icon name="search"></ion-icon> Start your search here
+      </button>
+    </section>
+    <hr>
+    <div padding-vertical *ngIf="topFavourites && topFavourites.length > 0">
+      <h2 padding-horizontal>My Shortlisted Properties</h2>
+      <info-bar context="info" [hidden]="topFavourites && topFavourites.length > 0">Looks like you haven't got any shortlisted properties. You can add some through Property Search.</info-bar>
+      <!--<h5 padding-horizontal *ngIf="topFavourites && topFavourites.length > 0">My Property Shortlist</h5>      -->
+      <slider margin-bottom id="slider-property-shortlist" class="property-shortlist" [opcSliderOpts]="{ centerMode: true, variableWidth: true, infinite: false, dots: false }">
+        <slider-card *ngFor="let fav of topFavourites">
+          <property-summary placeholder="true" [hidden]="fav.property"></property-summary>
+          <property-summary 
+            *ngIf="fav.property" 
+            favourite="true"
+            [property]="fav.summary"
+            (propertySelected)="propertySelected($event)"></property-summary>
+        </slider-card>
+        <slider-card *ngIf="totalFavourites > topShownCount" [hidden]="showLoadingFavourites">
+          <div class="card-extra">
+            <div padding class="inner">
+              <p>You've got {{totalFavourites - topShownCount| i18nPlural:numFavouritesLeftPluralMapping}} on your shortlist</p>
+              <button ion-button [navPush]="screens.propertyShortlist">View all</button>
+            </div>
+          </div>
+        </slider-card>
+        <slider-card [hidden]="showLoadingFavourites">
+          <div class="card-extra">
+            <div padding class="inner">
+              <p>Add more properties to your shortlist</p>
+              <button ion-button icon-left [navPush]="screens.propertyResults">
+                <ion-icon name="search"></ion-icon> Find a property
+              </button>
+            </div>
+          </div>
+        </slider-card>
+      </slider>
+    </div>
+    <ion-list>
+      <button ion-item [navPush]="screens.propertyShortlist">
+        <ion-icon item-start name="images"></ion-icon> View all shortlisted properties
+      </button>
+    </ion-list>
+  </div>
+</ion-content>

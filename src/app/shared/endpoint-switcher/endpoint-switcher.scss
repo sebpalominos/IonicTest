@@ -1,0 +1,12 @@
+.endpoint-switcher {
+  .button-inner {
+    display: flex;
+    text-align: left;
+    flex-flow: column nowrap;
+  }
+  .endpoint-switcher-subtitle {
+    display: block;
+    font-size: 1.2rem;
+    opacity: .8;
+  }
+}

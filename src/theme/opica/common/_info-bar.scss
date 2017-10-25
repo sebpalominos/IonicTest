@@ -1,0 +1,37 @@
+// This module contains solutions for all your visual feedback needs
+@mixin info-bar-color($color, $bg-alpha: .2){
+    border-color: rgba($color, $bg-alpha*1.5);
+    color: $color;
+    background-color: rgba($color, $bg-alpha);
+    a {
+      color: $color;
+    }
+}
+.info-bar {
+  .ib {
+    border: 1px solid map-get($colors, light);
+    border-radius: 2px;
+  }
+  // Color schemes
+  .ib-ok, .ib-success {
+    @include info-bar-color(map-get($opc-colors, info-bar-success));
+  }
+  .ib-info {
+    @include info-bar-color(map-get($opc-colors, info-bar-info));
+  }
+  .ib-warning {
+    @include info-bar-color(map-get($opc-colors, info-bar-warning));
+  }
+  .ib-danger {
+    @include info-bar-color(map-get($opc-colors, info-bar-danger));    
+  }
+  // sizing [deprec]
+  .ib-small {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}

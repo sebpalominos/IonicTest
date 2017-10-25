@@ -1,0 +1,113 @@
+// ================================
+// Common styles across all screens
+// ================================
+
+section {
+  padding: $content-padding;
+}
+
+/** Build in subtitles for toolbars */
+.header .toolbar-content {
+  p {
+    .ios & {
+      color: $item-ios-paragraph-text-color;
+      font-size: 1.2rem;
+      margin: 0;
+      font-weight: normal;
+    }
+    .md & {
+      color: $item-md-paragraph-text-color;
+      font-size: 1.1rem;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+}
+
+/** Section headers are displayed above <slider>'s */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  .section-header-title {
+    flex: 1 0 auto;
+    margin: 0;
+    font-weight: 400;
+    color: map-get($opc-colors, fg);
+  }
+  .section-header-actions {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    opacity: .6;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button[ion-button] {
+      color: map-get($opc-colors, fg);
+      height: auto !important;
+    }
+  }
+}
+
+/**
+ * <dl class="numeric-stat"> elements display a dollar figure 
+ * below a heading
+ */
+dl.numeric-stat {
+  dt {
+    font-size: 1.2em;
+  }
+  dd {
+    margin: 0;
+    font-weight: 300;
+  }
+  dd:first-of-type {
+    font-size: 2.6em;
+  }
+  dd.money-value::before {
+    display: inline-block;
+    content: '$';
+    font-size: .8em;
+    vertical-align: top;
+    margin-right: 2px;
+  }
+  dd.percentage-value::after {
+    display: inline-block;
+    content: '%';
+    font-size: .8em;
+    vertical-align: top;
+    margin-left: 2px;
+  }
+}
+
+dl {
+  dd.numerator {
+    display: inline-block;
+    font-size: 2.4em;
+  }
+  dd.vinculum, 
+  dd.denominator {
+    display: inline-block;
+    font-size: 2.05em;
+  }
+  dd.vinculum, 
+  dd.denominator {
+    opacity: 0.85;
+  }
+}
+
+dl.inline {
+  margin: 0;
+  dt {
+    display: inline-block;
+    font-weight: bold;    
+  }
+  dt.block-title {
+    display: block;
+  }
+  dd {
+    display: inline-block;
+    margin: 0;
+  }
+}

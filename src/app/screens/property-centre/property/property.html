@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-navbar>
+    <!--<button ion-button icon-only clear (click)="navCtrl.pop()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>-->
+    <ion-title>{{property?.address.full}}</ion-title>
+    <ion-buttons end>
+      <button ion-button clear (tap)="setFavouriteFromIcon(true)" *ngIf="!isFavourite">
+        <ion-icon name="star-outline" ></ion-icon>
+      </button>
+      <button ion-button clear (tap)="setFavouriteFromIcon(false)" *ngIf="isFavourite">
+        <ion-icon name="star" *ngIf="isFavourite"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <info-bar context="danger" (tap)="loadProperty()" *ngIf="showLoadingError">
+    There was an error when retrieving details of this property. Tap to try again.
+  </info-bar>
+  <property-summary placeholder="true" [hidden]="property"></property-summary>
+  <slider id="slider-property-images" class="property-images" [opcSliderOpts]="{ dots: false, infinite: true }" *ngIf="property?.images">
+    <slider-card borderless *ngFor="let image of property.images">
+      <img [src]="image" [alt]="property.address.street + ' #' + index">
+    </slider-card>
+  </slider>
+  <ng-container *ngIf="property">
+    <div class="property-heading" [ngClass]="{ 'has-images': property.images && property.images.length }">
+      <h1>{{property.address.full}}</h1>
+    </div>
+    <section>
+      <ion-grid class="property-main-features" no-padding>
+        <ion-row>
+          <!-- <ion-col text-center><img src="assets/icons/squidink/svg64/household/bed-2.svg" alt="Bed"> {{property.features.bed}}</ion-col>
+          <ion-col text-center><img src="assets/icons/squidink/svg64/household/rain-shower.svg" alt="Bathrooms"> {{property.features.bath}}</ion-col>
+          <ion-col text-center><img src="assets/icons/misc/car.png" alt="Garage"> {{property.features.car}}</ion-col> -->
+          <ion-col text-center>
+            <span *ngIf="property.features.bed"><img class="feature-image" src="assets/icons/squidink/svg64/household/bed-2.svg" alt="Bed"> 
+              &nbsp; {{property.features.bed || 0}} &nbsp;</span> 
+            <span *ngIf="property.features.bath"><img class="feature-image" src="assets/icons/squidink/svg64/household/rain-shower.svg" alt="Bathrooms"> 
+              &nbsp; {{property.features.bath || 0}} &nbsp;</span> 
+            <span *ngIf="property.features.car"><img class="feature-image" src="assets/icons/misc/car.png" alt="Garage">
+              &nbsp; {{property.features.car || 0}} &nbsp;</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <hr>
+      <ion-grid no-padding>
+        <ion-row align-items-center>
+          <ion-col text-center *ngIf="currentValue">
+            <dl class="numeric-stat">
+              <dt>Current Value <!--<ion-badge color="secondary">High confidence</ion-badge>--></dt>
+              <dd class="money-value">{{property.currentValue | number:'1.0-0'}}</dd>
+            </dl>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-center *ngFor="let subInfoItem of subInfo">
+            <dl class="inline">
+              <dt class="block-title">{{subInfoItem.title}}</dt>
+              <dd>{{subInfoItem.value}}</dd>
+            </dl>
+          </ion-col>
+        </ion-row>
+        <!--<ion-row>
+          <ion-col text-center *ngIf="lastSaleDisplayValue">
+            
+          </ion-col>
+        </ion-row>-->
+      </ion-grid>
+      <hr>
+      <dl class="inline" *ngIf="lastSaleDisplayValue">
+        <dt>Last Sale Price: </dt>
+        <dd>{{lastSaleDisplayValue}}</dd>
+      </dl>
+    </section>
+    <div padding>
+      <button block ion-button icon-left *ngIf="!isFavourite" (click)="setFavourite(true)">
+        <ion-icon name="star"></ion-icon> Add to shortlist
+      </button>
+      <button block ion-button icon-left *ngIf="isFavourite" (click)="setFavourite(false)">
+        <ion-icon name="star-outline"></ion-icon> Remove from shortlist
+      </button>
+      <button block ion-button outline color="primary" (click)="showGoalCreateOptions()">Create goal with this</button>
+    </div>
+    <ion-list>
+      <ion-item *ngIf="property.features.buildingType">
+        Type <ion-note item-end>{{propertyTypes[property.features.buildingType]}}</ion-note>
+      </ion-item>
+      <!-- <ion-item *ngIf="property.saleType >=0">
+        Sale Type <ion-note item-end *ngIf="property.saleType == 0">Not for sale</ion-note>
+        <ion-note item-end *ngIf="property.saleType == 1">For sale</ion-note>
+        <ion-note item-end *ngIf="property.saleType == 2">Under contract</ion-note>
+      </ion-item> -->
+      <ion-item *ngIf="property.features.landSize">
+        Land size <ion-note item-end>{{property.features.landSize}} sq m</ion-note>
+      </ion-item>
+      <ion-item *ngIf="property.features.floorSize">
+        Floor size <ion-note item-end>{{property.features.floorSize}} sq m</ion-note>
+      </ion-item>
+      <ion-item-divider color="light"></ion-item-divider>
+      <ion-item *ngIf="coordinates">
+        <google-map [lat]="coordinates.latitude" [long]="coordinates.longitude"></google-map>
+      </ion-item>
+
+    </ion-list>
+  </ng-container>
+  <ion-card margin class="announcement" hidden>
+    <div class="captioned-image">
+      <img src="assets/img/demo/WBC-sol_h_b_starting-a-business_388x228.jpg">
+      <div class="card-title" padding>One step closer</div>
+    </div>
+    <ion-card-content>
+      <p>Get your home loan approval through this app.</p>
+    </ion-card-content>
+    <ion-row class="cta-row" no-padding>
+      <ion-col width-50 class="cta-wrapper">
+        <button ion-button block clear>
+          No thanks
+        </button>
+      </ion-col>
+      <ion-col width-50 class="cta-wrapper">
+        <button ion-button icon-left full clear (tap)="hideAnnouncement()">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>          
+          Apply now
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

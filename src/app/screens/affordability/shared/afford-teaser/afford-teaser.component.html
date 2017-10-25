@@ -1,0 +1,32 @@
+<div class="afford-teaser-loading" *ngIf="showAffordLoading">
+  <ion-spinner name="crescent"></ion-spinner>
+</div>
+<ng-container *ngIf="!showAffordLoading">
+  <div class="afford-teaser-summary" *ngIf="isTrackable">
+    <ng-container *ngIf="goal.targetProperty">
+      <div class="target-property-bg" [ngStyle]="{ 'background-image': goal.targetProperty.coverImage(true) }"></div>
+      <ion-grid no-padding *ngIf="goal.targetProperty">
+        <ion-row>
+          <ion-col col-4>
+            <div class="target-property-image" [ngStyle]="{ 'background-image': goal.targetProperty.coverImage(true) }"></div>
+          </ion-col>
+          <ion-col col-8 class="target-property-desc">
+            <h4 text-wrap>{{goal.targetProperty.displayName()}}</h4>
+            <div><ion-badge color="secondary">Target Property</ion-badge></div>
+            <p *ngIf="goal.targetProperty.currentValue">Est value: ${{goal.targetProperty.currentValue | number:'1.0-0'}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ng-container>
+    <div margin-vertical>
+      <button ion-button outline small color="light" [navPush]="screens.afford">Track my Affordability Goal progress</button>
+    </div>
+  </div>
+  <div class="afford-teaser-begin" *ngIf="!isTrackable">
+    <div padding class="message">
+      <h2>{{preferredName ? preferredName + ', your ' : 'Your '}} next property is closer than you think</h2>
+      <p>With an Affordability Goal, you can determine the surplus you need, and visually see your progress.</p>
+      <button ion-button small [navPush]="screens.afford" [navParams]="{ isCreate: true }">Set up my goal</button>
+    </div>
+  </div>
+</ng-container>

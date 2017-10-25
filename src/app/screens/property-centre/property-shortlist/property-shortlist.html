@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Shortlist</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <loading-bar [active]="showLoadingFavourites">Loading your shortlisted properties</loading-bar>
+  <div [hidden]="favourites.length">
+    <ion-card class="announcement">
+      <div class="captioned-image">
+        <img src="assets/img/demo/tapholdproperty.jpg">
+        <div class="card-title" padding>Start creating your shortlist</div>
+      </div>
+      <ion-card-content>
+        <p>When you search and find properties you like, tap and hold the search result to add it to your shortlist.</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ng-container *ngFor="let fav of favourites">
+    <property-summary placeholder="true" [hidden]="fav.property"></property-summary>
+    <property-summary 
+      *ngIf="fav.property" 
+      favourite="true"
+      [property]="fav.summary"
+      (propertySelected)="propertySelected($event)"
+      (propertyFavourited)="propertyFavourited($event)"></property-summary>
+  </ng-container>
+</ion-content>

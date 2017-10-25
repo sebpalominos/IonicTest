@@ -1,0 +1,9 @@
+// For %extensions
+
+%centered-column {
+  @include absolute-fill();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+}

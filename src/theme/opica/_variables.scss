@@ -1,0 +1,203 @@
+/** OPICA wl theme variables **/
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+/* Classics from flatuicolors.com */
+$flat-colors: (
+  turquoise: #1abc9c,
+  _turquoise: #1abc9c,
+  emerald: #2ecc71,
+  peter-river: #3498db,
+  belize-hole: #2980b9,
+  amethyst: #9b59b6,
+  wet-asphalt: #34495e,
+  green-sea: #16a085,
+  nephritis: #27ae60,
+  wisteria: #8e44ad,
+  midnight-blue: #2c3e50,
+  sun-flower: #f1c40f,
+  sunflower: #f1c40f,
+  carrot: #e67e22,
+  alizarin: #e74c3c,
+  clouds: #ecf0f1,
+  concrete: #95a5a6,
+  orange: #f39c12,
+  _orange: #f39c12,
+  pumpkin: #d35400,
+  pomegranate: #c0392b,  
+  silver: #bdc3c7,
+  _silver: #bdc3c7,
+  asbestos: #7f8c8d
+);
+
+/* OPICA colours */
+$opc-colors: (
+  brand: darken(#f26722, 12%),
+  main: darken(#f26722, 12%),
+  primary: #222,
+  muted: #555,
+  secondary: #848585,
+  alt: #848585,
+  bg: #f4f4f4,
+  bg1: #f4f4f4,
+  bg2: #f2f2f2,
+  bg3: #f2f2f2,
+  // bg3: #ecf0f1,
+  card-bg: #ecf0f1,
+  slate: #36454F,
+  fg: #121212,
+  info-bar-success: #2ecc71,
+  info-bar-info: #3498db,
+  info-bar-warning: #f39c12,
+  info-bar-danger: map-get($flat-colors, pomegranate),
+  // tl-green: mediumseagreen,
+  // tl-amber: darkorange,
+  // tl-red: crimson
+);
+$opc-inverse-colors: (
+  bg: #0a0a0a,
+  bg1: #1d1d1d,
+  bg2: #2a2a2a,
+  bg3: #363636,
+  card-bg: #121212,
+  light-gray: #abb7b7,
+  darkdullblue: #22313f,
+  fg: #eaeaea,
+);
+$colors: (
+  primary: map-get($opc-colors, brand),
+  secondary: map-get($flat-colors, peter-river),
+  danger: map-get($flat-colors, pomegranate),
+  tl-green: mediumseagreen,
+  tl-amber: darkorange,
+  tl-red: crimson,
+  light: #f4f4f4,
+  dark: #222,
+  mid: #9a9a9a,
+);
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$background-color: map-get($opc-colors, bg);
+$text-color: map-get($opc-colors, fg);
+$toolbar-text-color: $text-color;
+$tabs-background: map-get($opc-colors, bg3);
+$tabs-border-color: map-get($flat-colors, _silver);
+$tabs-tab-color-active: #252526;
+$tabs-tab-color-inactive: lighten($tabs-tab-color-active, 50%);
+
+$chip-icon-size: 28px;
+$chip-avatar-size: 28px;
+$chip-icon-font-size: 14px;
+
+$progress-bar-height: 20px !default;      // @custom
+$slider-card-border: 1px solid darken(map-get($opc-colors, bg), 5%);
+
+$refresher-height: 80px;
+$refresher-border-color: transparent;
+$refresher-text-color: rgba(white, .8);
+$refresher-icon-color: rgba(white, .8);
+
+$list-background-color: map-get($opc-colors, bg3);
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+$toolbar-background: map-get($opc-colors, bg2);
+// $toolbar-background: map-get($colors, light);
+$toolbar-ios-height: 50px;
+
+$button-ios-outline-border-color: #fff;
+$button-ios-outline-background-color-activated: $button-ios-outline-border-color;
+$button-ios-outline-text-color: $button-ios-outline-border-color;
+$button-ios-clear-text-color-hover: #333;
+
+$list-ios-background-color: $list-background-color;
+$list-ios-activated-background-color: map-get($flat-colors, _silver);
+$list-ios-border-color: map-get($flat-colors, _silver);
+$item-ios-divider-background: lighten($background-color, 5%);
+$item-ios-divider-color: $text-color;
+$list-ios-header-color: $text-color;
+
+$card-ios-header-color: map-get($colors, dark);
+$card-ios-header-font-size: 2.2rem;
+$card-ios-header-font-weight: 700;
+$card-ios-title-text-color: #080808;
+$card-ios-text-color: map-get($opc-colors, fg);
+
+$item-ios-detail-push-color: #222;
+$note-ios-color: #888;
+
+$radio-ios-color-on: #121212;
+
+$chip-ios-height: 28px;
+
+$toggle-ios-background-color-on: map-get($flat-colors, emerald);
+
+$searchbar-ios-input-clear-icon-color: rgba(240,240,240,.8);
+$text-input-ios-input-clear-icon-color: rgba(240,240,240,.8);
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+$toolbar-md-height: 60px;
+
+$button-md-outline-border-color: #fff;
+$button-md-outline-background-color-activated: $button-md-outline-border-color;
+$button-md-outline-text-color: $button-ios-outline-border-color;
+$button-md-clear-text-color: #333;
+
+$list-md-border-color: transparent;
+$item-md-detail-push-color: gainsboro;
+
+$radio-md-color-on: whitesmoke;
+
+$list-md-background-color: $list-background-color;
+$list-md-activated-background-color: lighten($list-md-background-color, 10%);
+// $list-md-border-color: lighten($list-md-background-color, 5%);
+$list-md-border-color: map-get($flat-colors, _silver);
+$item-md-divider-background: lighten($background-color, 5%);
+$item-md-divider-color: $text-color;
+$list-md-header-color: $text-color;
+
+$searchbar-md-input-clear-icon-color: rgba(240,240,240,.6);
+$text-input-md-input-clear-icon-color: rgba(240,240,240,.6);
+
+$note-md-color: #aaa;
+
+$card-md-header-color: map-get($colors, dark);
+$card-md-header-font-size: 2.2rem;
+$card-md-header-font-weight: 700;
+$card-md-title-text-color: #080808;
+$card-md-text-color: map-get($opc-colors, fg);
+
+$chip-md-height: 28px;
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+// $item-wp-detail-push-color: gainsboro;     // apparently WP is already set to transparent
+// $radio-wp-color-on: whitesmoke;
+
+// [OPICA] Common measurements
+// --------------------------------------------------
+// Sizes (heights and widths)
+$info-bar-border-width: 8px;
+$hero-unit-height: 240px;
+
+// Spacings (margins and padding)

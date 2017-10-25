@@ -1,0 +1,16 @@
+.create-afford-surplus-target {
+  .label[range-left], .label[range-right] {
+    font-size: 1.2rem;
+  }
+  .afford-surplus-target {
+    color: map-get($opc-colors, muted);
+    font-size: .9em;
+  }
+}
+
+.create-afford-surplus-target,
+.create-afford-set-property-price {
+  .text-input {
+    text-align: right;
+  }
+}

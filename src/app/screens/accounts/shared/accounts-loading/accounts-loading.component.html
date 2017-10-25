@@ -1,0 +1,17 @@
+<div class="accounts-loading-message" [ngClass]="{ appear: showSplash }">
+  <ion-card class="accounts-loading-card">
+    <ion-card-content text-center>
+      <ion-grid>
+        <ion-row>
+          <ion-col text-center *ngFor="let iconUrl of loadingScreenIconUrls">
+            <img class="loading-display-icon" [src]="iconUrl" alt="Loading">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div margin-top class="loading-label">
+        <ion-spinner name="crescent"></ion-spinner>
+        <h2>Loading accounts</h2>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>

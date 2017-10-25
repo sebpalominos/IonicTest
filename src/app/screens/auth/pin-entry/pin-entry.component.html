@@ -1,0 +1,39 @@
+<ion-header no-border>
+  <ion-navbar hideBackButton transparent>
+    <ion-buttons left *ngIf="navCtrl.canGoBack()" [hidden]="isSubmitted">
+      <button ion-button icon-left clear navPop color="light">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content #content no-bounce>
+  <form class="auth-form pin-form" (ngSubmit)="submit()"> 
+    <div padding>
+      <h1>Enter your access PIN</h1>
+      <p>Enter three randomly-selected digits from your PIN code.</p>
+    </div>
+    <div class="auth-form-fields pin-form-fields">
+      <div class="pin-digit-wrapper" *ngFor="let digitPlace of digitPlaces; let i = index">
+        <!--<input #digitInput
+          *ngIf="digitPlaceMask[i]"
+          [id]="'digitIndex'+i"
+          type="password"
+          maxlength="1"
+          class="pin-digit pin-digit-required pin-digit-text-field" 
+          (keyup)="pinKeyed($event, i)"
+          [(ngModel)]="pin[i]"
+          [ngClass]="{ 'pin-digit-invalid': !digitPlaceValidity[i] }" 
+          [ngModelOptions]="{ standalone: true }" />-->
+        <div class="pin-digit pin-digit-required" [ngClass]="{ 'pin-digit-invalid': !digitPlaceValidity[i] }" *ngIf="digitPlaceMask[i]">
+          <ion-icon name="medical" *ngIf="pin[i]"></ion-icon>
+        </div>
+        <div class="pin-digit pin-digit-blank" *ngIf="!digitPlaceMask[i]"></div>
+      </div>
+    </div>
+    <input ion-fixed type="submit"/>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-numeric-keyboard [visible]="showKeyboard" [options]="keyboardOptions" (inkClick)="pinKeyedHandler($event)"></ion-numeric-keyboard>
+</ion-footer>

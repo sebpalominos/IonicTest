@@ -1,0 +1,136 @@
+progress[value] {
+  //===============================
+  // The famous progress bar 
+  //===============================
+  &.progress-bar {
+    width: 100%;
+    margin: $label-ios-margin;
+
+    &.progress-bar-danger {
+      background: firebrick !important;
+    }
+    &::-webkit-progress-bar {
+      border-radius: 1px;
+      background: map-get($flat-colors, asbestos);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35) inset;
+    }
+    // Not preferred
+    p + & {
+      margin-top: 2px;
+    }
+    // Probably more preferred 
+    &[data-label]::before{
+      content: attr(data-label);
+      color: white;
+    }
+
+    // Default to blue colour scheme for progress bars 
+    @include progress-bar-color("carrot", 1);
+
+  }
+
+  //===============================
+  // Background progressbars
+  //===============================
+  &.progress-bar-bg {
+    @include absolute-fill();
+    width: auto;
+    height: auto;
+    z-index: 1;
+    &.progress-bar-bg-danger {
+      background: firebrick !important;
+      &::after {
+        content: '';
+        display: block;
+        @include absolute-fill();
+        background: repeating-linear-gradient(
+          -45deg,
+          rgba(firebrick, .2),
+          rgba(firebrick, .2) 10px,
+          rgba(#400, .2) 10px,
+          rgba(#400, .2) 20px
+        ) !important;
+      }
+    }
+
+    // Assume webkit 
+    &::-webkit-progress-bar {
+      background: none transparent;
+    }
+  }
+}
+
+//===============================
+// Progressbar wrappers
+//===============================
+.progress-bar-wrapper {
+  position: relative;
+  height: $progress-bar-height * 1.25;
+  margin: $label-ios-margin;
+  progress[value].progress-bar {
+    @include absolute-fill(4);
+    height: 100%;
+    margin: 0;
+  }
+  &[no-margin] {
+    margin: 0;
+  }
+  .progress-bar-caption {
+    @include absolute-fill(6);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 100;
+    font-size: 1.2rem;
+    color: map-get($colors, light);
+    > * {
+      margin: 0 .5rem
+    }
+  }
+}
+
+//======================================
+// Progress bar extendo colours
+// Must list as standalone colours – as it could extend either
+// normal .progress-bar or .progress-bar-bg
+//======================================
+.progress-bar-blue {
+  @include progress-bar-color("belize-hole", 1);
+  background-color: map-get($flat-colors, "peter-river");
+}
+.progress-bar-dullgreen {
+  @include progress-bar-color("green-sea", 1);
+  background-color: map-get($flat-colors, "_turquoise");
+}
+.progress-bar-green {
+  @include progress-bar-color("nephritis", 1);
+  background-color: map-get($flat-colors, "emerald");
+}
+.progress-bar-purple {
+  @include progress-bar-color("wisteria", 1);
+  background-color: map-get($flat-colors, "amethyst");
+}
+.progress-bar-darkblue {
+  @include progress-bar-color("wet-asphalt", 1);
+  background-color: map-get($flat-colors, "midnight-blue");
+}
+.progress-bar-red {
+  @include progress-bar-color("pomegranate", 1);
+  background-color: map-get($flat-colors, "alizarin");
+}
+.progress-bar-orange {
+  @include progress-bar-color("pumpkin", 1);
+  background-color: map-get($flat-colors, "carrot");
+}
+.progress-bar-yellow {
+  @include progress-bar-color("_orange", 1);
+  background-color: map-get($flat-colors, "sunflower");
+}
+.progress-bar-white {
+  @include progress-bar-color("_silver", 1);
+  background-color: map-get($flat-colors, "clouds");
+}
+.progress-bar-gray {
+  @include progress-bar-color("asbestos", 1);
+  background-color: map-get($flat-colors, "concrete");
+}

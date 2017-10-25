@@ -1,0 +1,44 @@
+/** Institution color scheme mixin */
+@mixin instoColorScheme($slug, $bg, $fg) {
+  .insto-colorscheme-#{$slug} {
+    background-color: darken($bg, 10%);
+    color: $fg;
+    // h1, h2, h3, h4, p {
+      // color: $fg;
+    // }
+  }
+}
+
+.accounts-loading {
+  .loading-display-icon {
+    max-height: 50px;
+  }
+  .loading-label {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    h2 {
+      margin: 0 $content-margin/2;
+    }
+  }
+}
+.account-list {
+  .account-counter {
+    text-align: center;
+    padding: $content-padding/3 0;
+  }
+
+  .disable-account{
+    font-size: medium;
+  }
+
+  .enabled-account{
+    font-size: medium;
+    background-color: map-get($opc-colors, main);
+    color: map-get($opc-colors, bg1);
+  }
+  .disable-button{
+    padding: 16px;
+    background: map-get($opc-colors, bg);
+  }
+}

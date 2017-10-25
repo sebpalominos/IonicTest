@@ -1,0 +1,68 @@
+.fullscreen-form.opc-immortal-login {
+  .button-default.button-ios-light .button-inner,
+  .button-outline-ios-light.activated {
+    color: map-get($flat-colors, belize-hole);
+  }
+}
+
+.opc-immortal-login {
+  color: white;
+  .content {
+    background: map-get($flat-colors, belize-hole);
+    color: white;
+  }
+  &.fullscreen-form {
+    .text-input::-webkit-input-placeholder {
+      color: rgba(white, .4);
+    }
+    .text-input {
+      color: white;
+    }
+  }
+  .footer {
+    .button-default .button-inner {
+      
+    }
+  }
+}
+
+
+.opc-forgot-password {
+  .content {
+    background: map-get($opc-colors, secondary);
+    color: white;
+  }
+  .auth-form {
+    .item {
+      color: map-get($colors, light);
+      background: transparent;
+      .item-inner {
+        border: none;
+      }
+    }
+  } 
+  .footer {
+    .button-default .button-inner {
+      color: map-get($opc-colors, secondary);
+    } 
+  }
+}
+
+.opc-change-password {
+  .content {
+    background: map-get($flat-colors, emerald);
+    color: white;
+  }
+  .footer {
+    .button-default .button-inner {
+      color: map-get($flat-colors, emerald);
+    } 
+  }
+}
+
+.opc-pin-entry {
+  .content {
+    background: url('../assets/img/bg/splash.png') no-repeat center center/cover map-get($opc-colors, brand);
+    color: white;
+  }
+}

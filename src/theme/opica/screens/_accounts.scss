@@ -1,0 +1,52 @@
+.account-list, .account {
+  $icon-w: 32px;
+  $icon-h: 32px;
+  // $icon-h: $card-ios-header-font-size;
+  ion-card-header .fi-icon {
+    @include inline-logo-icon($icon-w, $icon-h);
+    color: $card-ios-header-color;
+    background-color: transparent;
+    vertical-align: middle;
+  }
+}
+.account-single {
+  .content {
+    background: map-get($opc-colors, bg3);
+  }
+}
+.account-list {
+  .accounts-loading { 
+    background: url('../assets/img/bg/belbrio.jpg') no-repeat center center/cover $background-color; 
+  }
+  .content, .content.has-refresher {
+    .scroll-content {
+      // background: url('../assets/img/bg/belbrio.jpg') no-repeat center center/cover $background-color;    
+      background: $background-color;
+    }
+    .refresher-refreshing, 
+    .refresher-refreshing-icon,
+    .refresher-refreshing-text {
+      color: white;
+    }
+  }
+  .accounts-list, .pending-accounts-list {
+    .list-header .label {
+      // color: rgba(white, .9);
+      color: rgba(black, .9);
+    }
+  }
+  .account-counter {
+    background: map-get($opc-inverse-colors, bg1);
+    color: map-get($opc-inverse-colors, fg);
+  }
+  .has-refresher > .scroll-content {
+    border-top-color: map-get($opc-inverse-colors, bg1);
+  }
+  .list-header-md {
+    background: rgba(white, .2);
+    border-top: none;
+  }
+  .info-bar {
+    // background: lighten(map-get($opc-colors, info-bar-info), 30%);
+  }
+}

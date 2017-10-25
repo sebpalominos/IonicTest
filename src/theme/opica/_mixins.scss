@@ -1,0 +1,167 @@
+// Mixins for use by everyone!! Share the love!!
+/** 
+ * Have a child element fill the entirety of the parent. 
+ * Parent must be position: relative
+ */
+@mixin absolute-fill($z: 0) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  z-index: $z;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+@mixin absolute-center-flex($z: 0) {
+  @include absolute-fill($z);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin background-image($bgColor: transparent) {
+  overflow: hidden;
+  background-color: $bgColor;
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/**
+ * Override an ion-list's color
+ */
+@mixin list-item-color-override(){
+  background: map-get($opc-colors, main);
+  &.activated {
+    background: lighten(map-get($opc-colors, main), 10%);
+  }
+  p {
+    color: rgba(map-get($opc-inverse-colors, fg), .8);
+  }
+}
+
+/**
+ * Apply a color to a progressbar from the $flat-colors map
+ */
+@mixin progress-bar-color($colorName, $opacity: .6) {
+  &::-webkit-progress-value {
+    background-color: rgba(map-get($flat-colors, $colorName), $opacity);
+    transition: width .6s ease;
+  }
+}
+
+/** 
+ * Inline logo icon generator
+ */
+@mixin inline-logo-icon($w, $h, $flexible-width: false) {
+  display: inline-block;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  @if $flexible-width {
+    height: $h;
+    width: auto;
+    min-width: $w;
+  }
+  @else {
+    height: $h;
+    width: $w;
+  }
+  &.round {
+    border-radius: min($w, $h);
+    background: white;
+  }
+  &.circle {
+    border-radius: max($w, $h);
+    background: white;
+  }
+}
+
+/**
+ * A triangle that forms the tip of a speech bubble/callout
+ */
+@mixin callout-triangle($size: 20px, $color: white, $position: "bottom"){
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    @if $position == "top" {
+      border-bottom: $size solid $color;
+      top: -$size;
+    } @else {
+      border-top: $size solid $color;
+      bottom: -$size;
+    }
+  }
+}
+
+/* 
+ * A visual hint on top of the container for 'dragup drawers'
+ */
+@mixin drag-hint($height: 8px) {
+  &::before {
+    display: block;
+    content: '';
+    height: $height;
+    background-image: url('data:image/svg+xml;utf8,<svg width="30" height="4" viewBox="0 0 30 4" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="30" height="4" rx="2" ry="2" style="fill: #ccc;"/></svg>');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    opacity: 1;
+    border-radius: $height/2;
+  }
+}
+
+/*
+    Example usage: 
+    @include animation(10s, 5s, changecolour)
+ */
+@mixin animation ($animation, $duration: .5s, $delay: 0) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: forwards; /* this prevents the animation from restarting! */
+}
+
+// Specifically used by the donut pie chart, although other sue cases may exist.
+@mixin center-overlap(){
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+/**
+ * A keyframe generator
+ */
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}

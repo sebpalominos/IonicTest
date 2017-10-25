@@ -1,0 +1,33 @@
+<div class="goal-summary-error" *ngIf="showError">
+  <div>Sorry, something went wrong while trying to load the goal overview.</div>
+</div>
+<div padding class="goal-summary-loading" *ngIf="showCreateGoal">
+  <opc-icon-heading src="assets/icons/squidink/svg64/text-field rename.svg" size="xl">
+    <h2>Create a new Goal</h2>
+    <p>Welcome to the Goal Centre. To get started, select the type of goal you'd like to create.</p>
+  </opc-icon-heading>
+</div>
+<div class="goal-summary-loading" *ngIf="showLoading">
+  <div>Hey there. We're just loading, don't mind us.</div>
+</div>
+<slider id="slider-goal-summary" class="goal-summary" inner-dots [opcSliderOpts]="{ dots: true, infinite: false }" [hidden]="showError">
+  <slider-card borderless *ngFor="let goal of goals" (press)="goalPressed.emit(goal.typeHeader)">
+    <h2>{{goal.typeHeader.title}}</h2>
+    <div [hidden]="goal.hasOverview">
+      <p>Your goal is missing some setup information.</p>
+      <button ion-button>Complete missing steps</button>
+    </div>
+    <div *ngIf="goal.hasOverview"> 
+      <div *ngFor="let indicator of goal.overview.milestoneIndicators">
+        <p>{{indicator.title}}<br><strong>{{indicator.information}}</strong></p>
+      </div>
+      <pie-chart [data]="goal.chartData">
+        <span>{{goal.percentage}}%</span>
+        <small>{{goal.percentageCaption}}</small>
+      </pie-chart>
+    </div> 
+    <button ion-button icon-right color="secondary" (tap)="goalTapped.emit(goal.typeHeader)">
+      View detailed progress <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+  </slider-card>
+</slider>

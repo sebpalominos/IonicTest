@@ -1,0 +1,92 @@
+.opc-pin-entry {
+  $pin-digit-gap: 4px;
+  $pin-digit-height: 60px;
+  $pin-digit-count: 6;
+  .pin-form {
+    @include absolute-fill();
+    .ios & { top: $toolbar-ios-height; }
+    .md & { top: $toolbar-md-height; }
+  }
+  .pin-form-fields {
+    margin: 0 auto;
+    display: flex;
+    width: 90vw;
+    height: $pin-digit-height * 1.2;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pin-digit-wrapper {
+    margin: 0 $pin-digit-gap;
+    padding: 0;
+    height: $pin-digit-height;
+    flex: 1 0 auto;
+    position: relative;
+    &:first-child {
+      margin-left: $pin-digit-gap;
+    }
+    &:last-child {
+      margin-right: $pin-digit-gap;
+    }
+  }
+  .pin-digit {
+    @include absolute-fill();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: $pin-digit-height;
+    // THEEME BELOW
+    color: white;
+    font-size: bold;
+    // font-size: $pin-digit-height*.85;
+    border-radius: 4px;
+    &.pin-digit-text-field {
+      padding: 0;
+      margin: 0;
+      -webkit-appearance: none;
+    }
+    &.pin-digit-required {
+      background: transparent;
+      border: 3px solid white;
+      text-align: center;
+      user-select: none;
+    }
+    &.pin-digit-blank {
+      // background: rgba(black, .4);
+      background: transparent;
+      border: 2px solid rgba(black, .2);
+    }
+    &.pin-digit-invalid {
+      background: rgba(map-get($colors, tl-red), .4);
+    }
+  }
+  .ion-numeric-keyboard-container.visible.has-top-bar, 
+  .ion-numeric-keyboard-container.visible {
+    height: 60px * 4 !important; 
+  }
+  .ion-numeric-keyboard {
+    .row .col.key {
+      background-color: #333 !important;
+      border-color: #444 !important;
+      button {
+        color: #fefefe !important;
+      }
+    }
+    .row, .row .col.key .button {
+      height: 60px !important;
+    }
+    .row.ion-numeric-keyboard-top-bar,
+    .row.ion-numeric-keyboard-top-bar .col.top-bar-key,
+    .row .col.key.control-key {
+      background-color: #242424 !important;
+    }
+  }
+  &.placeholder {
+    .scroll-content {
+      @include absolute-center-flex();
+    }
+    .spinner circle {
+      stroke: white;
+    }
+  }
+}

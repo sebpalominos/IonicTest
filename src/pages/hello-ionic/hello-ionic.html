@@ -17,6 +17,7 @@
   </p>
   <p>
     Follow along on the tutorial section of the Ionic docs!
+    <ion-input [(ngModel)]="searchParams" name="freetext" type="text" placeholder="Search anything" (keydown)="onKeyDown()" (keyup)="onKeyUp()"></ion-input>
   </p>
   <p>
     <button ion-button color="primary" menuToggle>Toggle Menu</button>
@@ -25,7 +26,6 @@
   
   <button ion-button clear color="dark" (tap)="toggleSpinner()" >On/Off Spinner</button>
   <h4>{{text1 || text2}}</h4>
-  <h4>{{disabled['providerName']}}</h4>
   <ion-list>
     <ion-item *ngFor="let item of disabled">
       {{item.disabledAccounts[name]}}

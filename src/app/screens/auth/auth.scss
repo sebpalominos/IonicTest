@@ -1,0 +1,24 @@
+// Shared between login form, forgot password and reset password forms
+.fullscreen-form {
+  // Make login fields kind of start at half-height
+  .content {
+    position: relative;
+  }
+  .brand-logos {
+    @include absolute-fill(1);
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // flex-flow: column nowrap;
+    .brand-logo-upper, .brand-logo-lower {
+      // Note: Use CSS transforms to get hardware accelerated 
+      text-align: center;
+      margin: 0 auto;
+      // transition: transform .4s ease;
+    }
+  }
+
+  .toolbar .toolbar-background {
+    background: transparent;
+  }
+}

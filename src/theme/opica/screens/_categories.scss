@@ -1,0 +1,62 @@
+.category-list {
+  .has-refresher > .scroll-content {
+    border-top-color: #444;
+  }
+  // Colour scheme for chroma categories list 
+  .category-list-group {
+    .item-divider {
+      font-size: .6em;
+    }
+  }
+  .categories-loading {
+    background: url('../assets/img/bg/belbrio.jpg') no-repeat center center/cover #111;    
+  }
+  .categories, .category-list-group {
+    .label p, .note, .icon {
+      color: rgba(white, .8);
+    }
+    .label {
+      font-weight: 300;
+      h2 {
+        text-transform: uppercase;
+        font-size: .95em;
+        font-weight: 400;
+        color: white;
+      }
+    }
+    .note {
+      font-size: 1.4em;
+      font-weight: 300;
+    }
+
+    // Colorization
+    .item.item-block:nth-of-type(9n+1) {
+      background: map-get($flat-colors, wet-asphalt);
+    }
+    .item.item-block:nth-of-type(9n+2) {
+      background: map-get($flat-colors, peter-river);
+    }
+    .item.item-block:nth-of-type(9n+3) {
+      background: map-get($flat-colors, amethyst);
+    }
+    .item.item-block:nth-of-type(9n+4) {
+      background: map-get($flat-colors, pomegranate);
+    }
+    .item.item-block:nth-of-type(9n+5) {
+      background: map-get($flat-colors, pumpkin);
+    }
+    .item.item-block:nth-of-type(9n+6) {
+      background: map-get($flat-colors, _orange);
+    }
+    .item.item-block:nth-of-type(9n+7) {
+      background: map-get($flat-colors, asbestos);
+    }
+    .item.item-block:nth-of-type(9n+8) {
+      background: map-get($flat-colors, _turquoise);
+    }
+    .item.item-block:nth-of-type(9n+9) {
+      background: map-get($flat-colors, green-sea);
+    }
+    // End colorization
+  }
+}

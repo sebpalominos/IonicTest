@@ -1,0 +1,20 @@
+.account-single {
+  .section {
+    // padding: $content-padding 0;
+    // margin-bottom: $content-margin;
+    background: map-get($opc-colors, bg3);
+    box-shadow: 0 0 10px rgba(#777, .1);
+  }
+  .insto-header {
+    background: url('../assets/img/bg/black-leather.jpg') no-repeat center center/cover map-get($opc-inverse-colors, bg3);
+    color: map-get($opc-inverse-colors, fg);
+    .icon-heading p {
+      color: map-get($opc-inverse-colors, light-gray);
+    }
+  }
+  // @include instoColorScheme("westpac", #D5002B, white);
+  // @include instoColorScheme("stgeorge", #004833, #78BE20);
+  // @include instoColorScheme("bom", #F7F8F9, #1F252C);
+  // @include instoColorScheme("banksa", #F8F8F8, #002F6C);
+  // @include instoColorScheme("cba", black, #FFCC00);
+}

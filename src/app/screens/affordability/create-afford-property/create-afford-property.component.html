@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Select {{whichPropertyDescriptor}} property</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <info-bar context="danger" *ngIf="showLoadingError">
+    There was an error when loading required information. <a (click)="loadWorkspace(true)">Try again.</a>
+  </info-bar>
+  <loading-bar [active]="showLoadingFavourites">Loading your shortlisted properties</loading-bar>
+  <ion-list *ngIf="existingProperty">
+    <ion-item (click)="selectProperty(existingProperty)">
+      <ion-thumbnail item-start>
+        <img [src]="existingProperty.coverImage()">
+      </ion-thumbnail>
+      <h2 text-wrap>{{existingProperty.displayName()}}</h2>
+      <p *ngIf="existingProperty.currentValue">Estimated value: ${{existingProperty.currentValue | number:'1.0-0'}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>Discover</ion-list-header>
+    <button ion-item (click)="invokePropertySearch()">
+      <ion-icon item-start name="search"></ion-icon>
+      <h2>Search for a property</h2>
+      <p text-wrap>Select your {{whichPropertyDescriptor}} property by looking up address, street, town, suburb or postcode</p>
+    </button>
+  </ion-list>
+  <!--<ion-scroll scrollY="true" *ngIf="favourites">-->
+    <ion-list *ngIf="favourites">
+      <ion-list-header>My shortlisted properties</ion-list-header>
+      <button ion-item detail-none *ngFor="let item of favourites" (click)="selectProperty(item.property)" [disabled]="!item.property">
+        <ion-thumbnail item-start>
+          <img src="assets/img/placeholder/realestate-not-available-thumbnail.jpg" alt="Loading" [hidden]="item.favourite?.thumbnailUrl">
+          <img [src]="item.favourite?.thumbnailUrl" alt="item.favourite?.displayName" *ngIf="item.favourite?.thumbnailUrl">
+        </ion-thumbnail>
+        <ng-container *ngIf="item.favourite">
+          <h2 text-wrap>{{item.favourite.displayName}}</h2>
+          <p [hidden]="item.summary">Loading estimated value...</p>
+          <p *ngIf="item.summary">Estimated value: ${{item.summary.currentValue | number:'1.0-0'}}</p>
+        </ng-container>
+      </button>
+    </ion-list>
+    <h6 padding-horizontal [hidden]="favourites && favourites.length">You have not added any shortlisted properties.</h6>
+  <!--</ion-scroll>-->
+</ion-content>

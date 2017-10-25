@@ -1,0 +1,63 @@
+// TEMP: replace with a more permanent stylesheet
+@mixin define-fatcow-icon($name){
+  &.fatcow-icon-#{$name}{
+    background-image: url('../assets/icons/fatcow/#{$name}.png');
+  }
+}
+
+.fatcow-icon {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-right: .4rem;
+  font-size: 1rem;
+  line-height: 1;
+  height: 1.8rem;
+  width: 1.8rem;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+  &.icon-size-xs {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+  &.icon-size-sm {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+  &.icon-size-md {
+    height: 2.4rem;
+    width: 2.4rem;
+  }
+  &.icon-size-lg {
+    height: 3.2rem;
+    width: 3.2rem;
+  }
+
+  // Define a couple to start with...
+  @include define-fatcow-icon("information");
+  @include define-fatcow-icon("calculator-black");
+  @include define-fatcow-icon("card-back");
+  @include define-fatcow-icon("card-front");
+  @include define-fatcow-icon("chart-down-color");
+  @include define-fatcow-icon("chart-up-color");
+  @include define-fatcow-icon("check-box");
+  @include define-fatcow-icon("coins");
+  @include define-fatcow-icon("comments");
+  @include define-fatcow-icon("compass");
+  @include define-fatcow-icon("house");
+  @include define-fatcow-icon("house-go");
+  @include define-fatcow-icon("date");
+  @include define-fatcow-icon("key");
+  @include define-fatcow-icon("progressbar");
+  @include define-fatcow-icon("statistics");
+  @include define-fatcow-icon("tag-blue");
+  @include define-fatcow-icon("tag-green");
+  @include define-fatcow-icon("tag-orange");
+  @include define-fatcow-icon("tag-pink");
+  @include define-fatcow-icon("tag-purple");
+  @include define-fatcow-icon("tag-red");
+  @include define-fatcow-icon("tag-yellow");
+  @include define-fatcow-icon("three-tags");
+}

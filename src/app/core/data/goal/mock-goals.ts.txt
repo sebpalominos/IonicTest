@@ -1,0 +1,89 @@
+import { AccountGoalShape } from '../../../screens/goal-centre/shared/savings-goal.model';
+import { CategoryGoalShape } from '../../../screens/goal-centre/shared/category-goal.model';
+import { GoalShape } from '../../../screens/goal-centre/shared/goal.model';
+import { GoalHistoryDataPoint } from '../../../screens/goal-centre/shared/goal-type';
+import { History, HistoryDataPoint } from '../../../screens/misc/shapes/history';
+import { GoalType, GoalTypeMap } from '../../../screens/goal-centre/shared/goal-type';
+import { TimeScaleType } from '../../../core/data/shared/constant-types';
+
+export const GOAL_TYPES: GoalTypeMap = {
+  1: 'saving',
+  2: 'saving',
+  10: 'spending',
+  11: 'spending',
+  12: 'spending',
+  13: 'spending',
+};
+
+export const ACCOUNT_GOALS: AccountGoalShape[] = [
+  { id: 1, accountId: 1, name: 'Home outdoor extension', valueActual: 1950, valueTarget: 2000, valueTotalTarget: 8000, debt: false, dateCreated: new Date('2016-12-13T10:00:20+11:00') },
+  { id: 2, accountId: 3, name: 'Extra repayments', valueActual: 4235.50, valueTarget: 6000, valueTotalTarget: 60000, debt: true, dateCreated: new Date('2016-01-23T07:00:20+11:00') },
+];
+
+export const CATEGORY_GOALS: CategoryGoalShape[] = [
+  { id: 10, categoryId: 20, name: 'Buy less furniture', valueActual: 640, valueTarget: 600, valueTotalTarget: 3000, dateCreated: new Date('2016-07-14T11:00:20+11:00') },
+  { id: 11, categoryId: 22, name: 'School essentials only', valueActual: 100, valueTarget: 440, valueTotalTarget: 1200, dateCreated: new Date('2016-08-01T05:00:00+11:00') },
+  { id: 12, categoryId: 23, valueActual: 600, valueTarget: 100, valueTotalTarget: 800, dateCreated: new Date('2016-10-13T10:00:20+11:00') },
+  { id: 13, categoryId: 47, valueActual: 240, valueTarget: 600, valueTotalTarget: 6200, dateCreated: new Date('2016-12-13T10:00:20+11:00') },
+  // { id: 6, categoryId: 92, valueTarget: null },
+  // { id: 7, categoryId: 40, valueTarget: null },
+];
+
+export const GOALS: GoalShape[] = [].concat(ACCOUNT_GOALS, CATEGORY_GOALS);
+
+export const GOAL_HISTORY_MAP: { [goalId: number]: History } = {
+  1: <History> { 
+    timeScale: TimeScaleType.Monthly, 
+    dataPoints: [
+      <GoalHistoryDataPoint> { valueActual: 1950, valueTarget: 2000, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+      <GoalHistoryDataPoint> { valueActual: 2000, valueTarget: 2000, date: new Date('2016-12-31T23:59:59+11:00'), label: 'December total' },
+      <GoalHistoryDataPoint> { valueActual: 1800, valueTarget: 2000, date: new Date('2016-11-30T23:59:59+11:00'), label: 'November total' },
+      <GoalHistoryDataPoint> { valueActual: 1950, valueTarget: 2000, date: new Date('2016-10-31T23:59:59+11:00'), label: 'October total' }
+    ] 
+  }, 
+  2: <History> { 
+    timeScale: TimeScaleType.Monthly, 
+    dataPoints: [
+      <GoalHistoryDataPoint> { valueActual: 5900, valueTarget: 6000, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+      <GoalHistoryDataPoint> { valueActual: 5620, valueTarget: 6000, date: new Date('2016-12-31T23:59:59+11:00'), label: 'December total' },
+      <GoalHistoryDataPoint> { valueActual: 5600, valueTarget: 5500, date: new Date('2016-11-30T23:59:59+11:00'), label: 'November total' },
+      <GoalHistoryDataPoint> { valueActual: 5460, valueTarget: 5500, date: new Date('2016-10-31T23:59:59+11:00'), label: 'October total' }
+    ] 
+  }, 
+  10: <History> {
+    timeScale: TimeScaleType.Monthly,
+    dataPoints: [
+      <GoalHistoryDataPoint> { valueActual: 640, valueTarget: 600, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+      <GoalHistoryDataPoint> { valueActual: 800, valueTarget: 600, date: new Date('2016-12-31T23:59:59+11:00'), label: 'December spend' },
+      <GoalHistoryDataPoint> { valueActual: 400, valueTarget: 600, date: new Date('2016-11-30T23:59:59+11:00'), label: 'November spend' },
+      <GoalHistoryDataPoint> { valueActual: 550, valueTarget: 600, date: new Date('2016-10-31T23:59:59+11:00'), label: 'October spend' }
+    ]
+  },
+  11: <History> {
+    timeScale: TimeScaleType.Monthly,
+    dataPoints: [
+      <GoalHistoryDataPoint> { valueActual: 100, valueTarget: 440, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+      <GoalHistoryDataPoint> { valueActual: 300, valueTarget: 440, date: new Date('2016-12-31T23:59:59+11:00'), label: 'December spend' },
+      <GoalHistoryDataPoint> { valueActual: 200, valueTarget: 440, date: new Date('2016-11-30T23:59:59+11:00'), label: 'November spend' },
+      <GoalHistoryDataPoint> { valueActual: 230, valueTarget: 480, date: new Date('2016-10-31T23:59:59+11:00'), label: 'October spend' }
+    ]
+  },
+  12: <History> {
+    timeScale: TimeScaleType.Monthly,
+    dataPoints: [
+      <GoalHistoryDataPoint> { valueActual: 600, valueTarget: 100, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+      <GoalHistoryDataPoint> { valueActual: 400, valueTarget: 100, date: new Date('2016-12-31T23:59:59+11:00'), label: 'December spend' },
+      <GoalHistoryDataPoint> { valueActual: 200, valueTarget: 100, date: new Date('2016-11-30T23:59:59+11:00'), label: 'November spend' },
+      <GoalHistoryDataPoint> { valueActual: 150, valueTarget: 100, date: new Date('2016-10-31T23:59:59+11:00'), label: 'October spend' }
+    ]
+  },
+  13: <History> {
+    timeScale: TimeScaleType.Monthly,
+    dataPoints: [
+      <GoalHistoryDataPoint> { valueActual: 240, valueTarget: 600, date: new Date('2016-01-27T23:59:59+11:00'), label: 'January to date', isInProgress: true },
+      <GoalHistoryDataPoint> { valueActual: 300, valueTarget: 600, date: new Date('2016-12-31T23:59:59+11:00'), label: 'December spend' },
+      <GoalHistoryDataPoint> { valueActual: 400, valueTarget: 800, date: new Date('2016-11-30T23:59:59+11:00'), label: 'November spend' },
+      <GoalHistoryDataPoint> { valueActual: 550, valueTarget: 600, date: new Date('2016-10-31T23:59:59+11:00'), label: 'October spend' }
+    ]
+  }
+};

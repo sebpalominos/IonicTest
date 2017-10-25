@@ -1,0 +1,16 @@
+.disabled-accounts-list {
+    .account-counter {
+      text-align: center;
+      padding: $content-padding/3 0;
+    }
+
+    .disable-account{
+      font-size: medium;
+      background-color: map-get($flat-colors, alizarin);
+      color: map-get($opc-colors, bg1);
+    }
+
+    .enabled-button{
+      padding: 16px;
+    }
+  }

@@ -1,0 +1,53 @@
+.affordability {
+  .loading .scroll-content {
+    background: url('../assets/img/bg/kitchen2.jpg') center center/cover #222;
+  }
+  // .target-property-bg {
+  //   @include absolute-fill();
+  //   @include background-image();
+  //   z-index: -1;
+  //   filter: grayscale(0.6) blur(8px);
+  // }
+  .toolbar-background {
+    background: none transparent;
+  }
+  .scroll-content {
+    background: white;
+  }
+  .tracking-notice {
+    padding: $content-padding/2 $content-padding;
+    text-align: center;
+    color: white;
+    background: map-get($colors, tl-green);
+  }
+}
+
+.afford-burndown {
+  margin-top: -$content-padding;
+  display: block;
+}
+
+.create-afford {
+  .status-text, .status-icon {
+    &.red {
+      color: map-get($colors, tl-red);
+    }
+    &.amber, &.orange {
+      color: map-get($colors, tl-amber);
+    }
+    &.green {
+      color: map-get($colors, tl-green);
+    }
+  }
+  .progress-bar {
+    &.red {
+      @extend .progress-bar-red;
+    }
+    &.amber {
+      @extend .progress-bar-orange;
+    }
+    &.green {
+      @extend .progress-bar-green;
+    }
+  }
+}

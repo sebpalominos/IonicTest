@@ -1,0 +1,62 @@
+.property-next {
+  .card-extra {
+    height: 260px;
+    border: 1px solid map-get($flat-colors, _silver);
+    border-radius: $card-ios-border-radius;
+    .inner {
+      text-align: center;
+      margin-bottom: $content-margin;
+    }
+  }
+}
+.property-search {
+  .content {
+    background: url('../assets/img/bg/realestate-search.jpg') no-repeat center center/cover map-get($colors, dark);
+    color: white; 
+    .list-header {
+      color: white;
+    }
+  }
+  .search-form {
+    color: map-get($colors, light);
+    .text-input {
+      font-size: 1.2em;
+      font-weight: 500;
+    }
+  }
+  .property-search-suggestions {
+    .item {
+      background: transparent;
+      color: white;
+      border-color: white;
+    }
+    .item-inner {
+      border-color: white;
+    }
+  }
+}
+.property-single {
+  .content{
+    background: white;
+    .item{
+      background: white;
+    }
+  }
+  .property-heading {
+    position: relative;
+    padding: $content-padding/2;
+    background: map-get($flat-colors, clouds);
+    font-weight: bold;
+    text-align: center;
+    z-index: 600;
+    border-bottom: 3px solid darken(map-get($flat-colors, clouds), 10%);
+    // box-shadow: 0 2px 0px rgba(#777, .2);
+    &.has-images {
+      margin: -15px $content-margin 0;
+    }
+    h1, h2 {
+      margin: 0;
+      font-size: 2rem;
+    }
+  }
+}

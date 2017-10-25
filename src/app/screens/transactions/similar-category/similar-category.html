@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Found similar</ion-title>
+    <ion-buttons right>
+      <button ion-button clear (click)="cancel()">Cancel</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="selected-items">
+    <div padding class="existing-category" *ngIf="firstTransaction.category">
+      {{firstTransaction.category.longName()}} (Existing category)
+      <div class="with-watermark">
+        <opc-icon *ngIf="lastCategoryIcon" class="watermark" [name]="lastCategoryIcon.name" [set]="lastCategoryIcon.set"></opc-icon>      
+      </div>
+    </div>
+    <div padding class="selected-category">
+      <h3 no-margin>{{category?.longName()}}</h3>
+      <div class="with-watermark">
+        <opc-icon *ngIf="categoryIcon" class="watermark" [name]="categoryIcon.name" [set]="categoryIcon.set"></opc-icon>      
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let group of supersedingGroups">
+    <div padding class="selected-transaction">
+      <h3>{{group.superseding.displayName()}}</h3>
+      <div *ngIf="group.superseding.title"><code>{{group.superseding.description}}</code></div>
+      <div>{{group.superseding.dateTransacted | date:'mediumDate'}}  &middot; {{group.superseding.amount | currency:'AUD':true}}</div>
+    </div>
+    <ion-list *ngIf="group.superseded && group.superseded.length > 0">
+      <ion-item-divider text-wrap>
+        <h3>Similar transactions found</h3>
+        <p>The following will be added to the same category:</p>
+      </ion-item-divider>
+      <ion-item *ngFor="let similar of group.superseded">
+        <ion-label>
+          <h3 text-wrap>{{similar.displayName()}}</h3>
+          <p>{{similar.dateTransacted | date:'mediumDate'}} &middot; {{similar.amount | currency:'AUD':true}}</p>
+        </ion-label>
+        <!--<ion-note item-end>{{similar.amount | currency:'AUD':true}}</ion-note>-->
+        <!--<ion-checkbox [(ngModel)]="similar.selected"></ion-checkbox>-->
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf="group.superseded && group.superseded.length === 0">
+      <ion-item-divider text-wrap>
+        <h3>No similar transactions detected</h3>
+        <p>Maybe next time!</p>
+      </ion-item-divider>
+    </ion-list>
+  </div> 
+</ion-content>
+<ion-footer padding>
+  <button ion-button block (click)="submit()">Confirm</button>
+</ion-footer>

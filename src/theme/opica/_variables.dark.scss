@@ -1,0 +1,178 @@
+/** OPICA wl theme variables **/
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+/* Classics from flatuicolors.com */
+$flat-colors: (
+  turquoise: #1abc9c,
+  _turquoise: #1abc9c,
+  emerald: #2ecc71,
+  peter-river: #3498db,
+  belize-hole: #2980b9,
+  amethyst: #9b59b6,
+  wet-asphalt: #34495e,
+  green-sea: #16a085,
+  nephritis: #27ae60,
+  wisteria: #8e44ad,
+  midnight-blue: #2c3e50,
+  sun-flower: #f1c40f,
+  sunflower: #f1c40f,
+  carrot: #e67e22,
+  alizarin: #e74c3c,
+  clouds: #ecf0f1,
+  concrete: #95a5a6,
+  orange: #f39c12,
+  _orange: #f39c12,
+  pumpkin: #d35400,
+  pomegranate: #c0392b,  
+  silver: #bdc3c7,
+  _silver: #bdc3c7,
+  asbestos: #7f8c8d
+);
+
+/* OPICA colours */
+$opc-colors: (
+  brand: #7a0026,
+  main: #7a0026,
+  primary: #222,
+  secondary: map-get($flat-colors, peter-river),
+  bg: #0a0a0a,
+  bg1: #0a0a0a,
+  bg2: #1d1d1d,
+  bg3: #363636,
+  card-bg: #121212,
+  fg: #eaeaea,
+  info-bar-success: #2ecc71,
+  info-bar-info: #3498db,
+  info-bar-warning: #f39c12,
+  info-bar-danger: map-get($flat-colors, pomegranate),
+  tl-green: mediumseagreen,
+  tl-amber: darkorange,
+  tl-red: crimson
+);
+$colors: (
+  primary:    map-get($opc-colors, brand),
+  secondary:  map-get($flat-colors, peter-river),
+  danger:     map-get($flat-colors, pomegranate),
+  light:      #f4f4f4,
+  dark:       #222
+);
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$background-color: #0a0a0a;
+$text-color: #fff;
+$toolbar-text-color: $text-color;
+$tabs-background: map-get($opc-colors, bg3);
+$tabs-border-color: #080808;
+$tabs-tab-color-active: #fff;
+$tabs-tab-color-inactive: #7f8c8d;
+
+$chip-icon-size: 28px;
+$chip-icon-font-size: 14px;
+
+$progress-bar-height: 20px !default;      // @custom
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+$toolbar-background: map-get($opc-colors, bg2);
+// $toolbar-background: map-get($colors, light);
+$toolbar-ios-height: 50px;
+$button-ios-outline-border-color: #fff;
+$button-ios-outline-background-color-activated: $button-ios-outline-border-color;
+$button-ios-outline-text-color: $button-ios-outline-border-color;
+
+$list-ios-background-color: #121212;
+$list-ios-activated-background-color: lighten($list-ios-background-color, 10%);
+$list-ios-border-color: lighten($list-ios-background-color, 5%);
+$item-ios-divider-background: lighten($background-color, 5%);
+$item-ios-divider-color: map-get($flat-colors, clouds);
+$list-ios-header-color: $text-color;
+
+$card-ios-header-color: gainsboro;
+$card-ios-header-font-size: 2.2rem;
+$card-ios-header-font-weight: 700;
+$card-ios-title-text-color: white;
+$card-ios-text-color: whitesmoke;
+
+$item-ios-detail-push-color: gainsboro;
+$note-ios-color: #aaa;
+
+$radio-ios-color-on: whitesmoke;
+
+$chip-ios-background-color: map-get($flat-colors, belize-hole);
+$chip-ios-font-size: 14px;
+$chip-ios-border-radius: 12px;
+$chip-ios-height: 24px;
+$chip-ios-margin: 2px 2px;
+$chip-ios-label-margin: 0 8px 2px;
+
+$toggle-ios-background-color-on: map-get($flat-colors, emerald);
+
+$searchbar-ios-input-clear-icon-color: rgba(240,240,240,.6);
+$text-input-ios-input-clear-icon-color: rgba(240,240,240,.6);
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+$toolbar-md-height: 60px;
+$list-md-border-color: transparent;
+$item-md-detail-push-color: gainsboro;
+
+$radio-md-color-on: whitesmoke;
+
+$list-md-background-color: #121212;
+$list-md-activated-background-color: lighten($list-ios-background-color, 10%);
+$list-md-border-color: lighten($list-ios-background-color, 5%);
+$item-md-divider-background: lighten($background-color, 5%);
+$item-md-divider-color: map-get($flat-colors, clouds);
+$list-md-header-color: $text-color;
+
+$chip-md-background-color: map-get($flat-colors, belize-hole);
+$chip-md-font-size: 12px;
+$chip-md-border-radius: 14px;
+$chip-md-height: 24px;
+$chip-md-margin: 2px 2px;
+$chip-md-label-margin: 0 6px 2px;
+
+$searchbar-md-input-clear-icon-color: rgba(240,240,240,.6);
+$text-input-md-input-clear-icon-color: rgba(240,240,240,.6);
+
+$note-md-color: #aaa;
+
+$card-md-header-color: gainsboro;
+$card-md-header-font-size: 2.2rem;
+$card-md-header-font-weight: 700;
+$card-md-title-text-color: white;
+$card-md-text-color: whitesmoke;
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+// $item-wp-detail-push-color: gainsboro;     // apparently WP is already set to transparent
+// $radio-wp-color-on: whitesmoke;
+
+// [OPICA] Common measurements
+// --------------------------------------------------
+// Sizes (heights and widths)
+$info-bar-border-width: 8px;
+$hero-unit-height: 280px;
+
+// Spacings (margins and padding)

@@ -1,0 +1,85 @@
+<div>
+  <h2 padding-horizontal text-center>Your Affordability Goal</h2>
+  <!--<slider margin-bottom id="slider-time-to-affordability" class="afford-tta"  [opcSliderOpts]="{ centerMode: true, variableWidth: true }">-->
+    <!--<slider-card *ngIf="goal.overview?.currentSurplus">-->
+      <ion-card class="afford-time-card" *ngIf="goal.overview?.currentSurplus">
+        <ion-card-header><h2>Current Progress</h2></ion-card-header>
+        <ion-list>
+          <ion-item>
+            <h2 text-wrap>Target Surplus</h2>
+            <ion-note item-end>
+              {{goal.overview?.currentSurplus.targetSurplus | currency:'AUD':true}} 
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <h2 text-wrap>Projected Surplus</h2>
+            <ion-note item-end>
+              {{goal.overview?.currentSurplus.projectedSurplus | currency:'AUD':true}}
+              (<span ion-text [color]="currentSurplusDiffColor">{{currentSurplusDiffPercent}}%</span>)              
+            </ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    <!--</slider-card>-->
+    <!--<slider-card *ngIf="goal.overview?.historicalSurplus">-->
+      <ion-card class="afford-time-card" *ngIf="goal.overview?.historicalSurplus">
+        <ion-card-header><h2>Past Progress</h2></ion-card-header>
+        <ion-list>
+          <ion-item *ngFor="let history of goal.overview?.historicalSurplus">
+            <h2>{{history.dateLabel}}</h2>
+            <p>{{history.relativeDateLabel}}</p>
+            <ion-note item-end>{{history.surplus | currency:'AUD':true}}</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    <!--</slider-card>-->
+    <!--<slider-card *ngFor="let snapshotDisplay of snapshotDisplays">-->
+      <ion-card class="afford-time-card" *ngFor="let snapshotDisplay of snapshotDisplays">
+        <ion-card-header><h2>{{snapshotDisplay.label}}</h2></ion-card-header>
+        <ion-list>
+          <ion-item>
+            <h2 text-wrap>Equity</h2> 
+            <ion-note item-end>{{snapshotDisplay.snapshot.equity | currency:'AUD':true}}</ion-note>
+            <!--<ion-icon item-end name="help"></ion-icon>-->
+          </ion-item>
+          <ion-item>
+            <h2 text-wrap>Max amount borrowable</h2> 
+            <ion-note item-end>{{snapshotDisplay.snapshot.maxAmountBorrowable | currency:'AUD':true}}</ion-note>
+            <!--<ion-icon item-end name="help"></ion-icon>-->
+          </ion-item>
+          <ion-item>
+            <h2 text-wrap>Amount until affordable</h2> 
+            <ion-note item-end>{{snapshotDisplay.snapshot.amountUntilAffordable | currency:'AUD':true}}</ion-note>
+            <!--<ion-icon item-end name="help"></ion-icon>-->
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    <!--</slider-card>-->
+    <!--<slider-card>-->
+      <ion-card class="afford-time-card">
+        <ion-card-header><h2>Mortgage information</h2></ion-card-header>
+        <ion-card-content *ngIf="goal.overview?.mortgageDefaulted">
+          <ion-label color="danger">No mortgage nominated:</ion-label> We have applied default average values for our mortgage-based calculations.
+        </ion-card-content>
+        <ion-list>
+          <ion-item>
+            <h2>Start date</h2>
+            <ion-note item-end>{{goal.overview?.mortgageStartDate | date:'mediumDate'}}</ion-note>
+          </ion-item>
+          <ion-item>
+            <h2>Interest Rate</h2>
+            <ion-note item-end>{{goal.overview?.mortgageInterestRate}}%</ion-note>
+          </ion-item>
+          <ion-item>
+            <h2>Contract Term</h2>
+            <ion-note item-end>{{goal.overview?.mortgageContractTermMonths}} months</ion-note>
+          </ion-item>
+          <ion-item>
+            <h2>Contract end date</h2>
+            <ion-note item-end>{{goal.overview?.mortgageContractCompletionDate | date:'mediumDate'}}</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    <!--</slider-card>-->
+  <!--</slider>-->
+</div>

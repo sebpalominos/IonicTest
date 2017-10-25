@@ -1,0 +1,16 @@
+// Note: see goal-summary.scss for styles to the fixed summary tile
+.goal-centre {
+  .hero-placeholder {
+    height: $hero-unit-height;
+    background: map-get($flat-colors, amethyst);
+    color: white;
+  } 
+  .goal-selected {
+    .goal-warning-color {
+      color: map-get($colors, tl-green);
+    }
+    .goal-ok-color {
+      color: map-get($colors, tl-green);
+    }
+  }
+}

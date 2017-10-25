@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle *ngIf="!navCtrl.canGoBack()">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Categorisation Queue <!-- <p>Swipe left to ignore</p> -->
+    </ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only clear (click)="showOptions()" *ngIf="!isSelectMultipleMode">
+        <ion-icon name="more"></ion-icon>
+      </button>
+      <button ion-button icon-only clear (click)="cancelSelectMultipleMode()" *ngIf="isSelectMultipleMode">
+        Cancel
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!-- <ion-refresher (ionRefresh)="loadTransactions(false, $event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher> -->
+  <section class="intro-card-background">
+    The following transactions weren't automatically categorised, and require your input. We'll remember your preferences for next time!
+    <opc-icon class="watermark" name="folder-17" set="interaction" size="lg"></opc-icon>
+  </section>
+  <ion-list no-margin #transactionList>
+    <ng-container *ngFor="let month of transactionsByMonth">
+      <ion-item-group *ngIf="month.visible">
+        <ion-item-divider color="dark">{{month.name}}</ion-item-divider>
+        <ng-container *ngFor="let item of month.transactions">
+          <ion-item-sliding *ngIf="item.visible && !item.ignored">
+            <ion-item (tap)="transactionSelected(item)">
+              <ng-container item-start *ngIf="isSelectMultipleMode">
+                <ion-icon item-start name="radio-button-off" *ngIf="!item.selected"></ion-icon>
+                <ion-icon item-start name="radio-button-on"  *ngIf="item.selected"></ion-icon>
+              </ng-container>
+              <ion-icon item-end ion-text color="tl-green" name="checkmark-circle" *ngIf="item.tx.category"></ion-icon>
+              <h2 text-wrap [ngClass]="{ 'long-tx-name': item.tx.title.length > 30 }">{{item.tx.title}}</h2>
+              <!--&nbsp;<small class="transaction-verified" *ngIf="item.tx.category"><ion-icon name="checkmark-circle"></ion-icon></small>-->
+              <p>
+                <span class="tag-row" *ngIf="item.tx.category">
+                  <ion-icon class="tag-icon" name="pricetag"></ion-icon>
+                  <ion-badge>{{item.tx.category?.name}}</ion-badge>
+                </span>&nbsp;
+                {{item.tx.dateTransacted | date:'mediumDate'}} <!--&middot; {{item.tx.account.preferredName()}}-->
+              </p>
+              <ion-note item-end><opc-money colorize [sign]="item.tx.type">{{item.tx.amount | number:'1.2-2'}}</opc-money></ion-note>
+            </ion-item>
+            <ion-item-options side="right" icon-start (ionSwipe)="ignoreTransaction(item)" *ngIf="!isSelectMultipleMode">
+              <button ion-button expandable color="danger" (click)="ignoreTransaction(item)">
+                <ion-icon name="archive"></ion-icon> Ignore
+              </button>
+            </ion-item-options>
+            <!-- <ion-item-options side="right" icon-left (ionSwipe)="editCategory(item.tx)">
+              <button ion-button expandable (click)="editCategory(item.tx)">
+                <ion-icon name="albums"></ion-icon> Categorise
+              </button>
+            </ion-item-options> -->
+          </ion-item-sliding>
+        </ng-container>
+      </ion-item-group>
+    </ng-container>
+  </ion-list>
+  <section *ngIf="transactions && transactions.length === 0" [hidden]="showTransactionsLoading">
+    <h6 text-center>No transactions found for this month.</h6>
+  </section>
+  <div padding text-center *ngIf="showTransactionsLoading">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="loadMoreTransactions()">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+</ion-content>
+<ion-footer [hidden]="isSelectMultipleMode">
+  <ion-toolbar class="initial-slide-out" [ngClass]="{ 'slide-in': !showTransactionsLoading && numQueued != null }">
+    <h4 no-margin margin-left text-left><ion-badge color="tl-green" *ngIf="numDone">{{numDone | i18nPlural:numDonePluralMapping}}</ion-badge> &nbsp;{{numQueued | i18nPlural:numQueuedPluralMapping}}</h4>
+    <ion-buttons right>
+      <button ion-button padding-horizontal solid small navPop>Finish</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer *ngIf="isSelectMultipleMode">
+  <ion-toolbar>
+    <h4 no-margin margin-left text-left>{{numSelected}} selected</h4>
+    <ion-buttons right>
+      <button ion-button padding-horizontal solid small (click)="editCategoryMultiple()" [disabled]="numSelected < 1">Choose category</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Property goal</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <img src="assets/img/demo/vic1.jpg" alt="4 Fairfield Glade">
+  <div padding>
+    <h1>4 Fairfield Glade, Craigieburn VIC 3064</h1>  
+  </div>
+  <slider id="slider-property-goal" class="property-goal" [opcSliderOpts]="{ dots: true, infinite: false }" inner-dots>
+    <slider-card *ngFor="let hs of homeMonthlySummaryMap" borderless [navPush]="screens.transactionList">
+      <h2>{{hs.title}}</h2>
+      <dl class="numeric-stat">
+        <dt>Monthly Income</dt> 
+        <dd class="money-value">{{hs.monthlyIncome | number:'1.2-2'}}</dd>
+      </dl>
+      <dl class="numeric-stat">
+        <dt>Monthly Expenses</dt> 
+        <dd class="money-value">{{hs.monthlyExpenses | number:'1.2-2'}}</dd>
+      </dl>
+      <pie-chart [title]="hs.chartTitle" [data]="hs.chartData">
+        <small>Goal completion</small>
+        <span>{{hs.goalPercentage}}%</span>
+      </pie-chart>
+    </slider-card>
+  </slider>
+
+  <ion-list>
+    <ion-item>
+      <ion-icon name="square" item-start style="color: orange;"></ion-icon>
+      Tracking <ion-note item-end>Amber</ion-note>
+    </ion-item>
+    <ion-item>
+      Current goal <ion-note item-end>$1,250,000</ion-note>
+    </ion-item>
+    <ion-item>
+      Achievement <ion-note item-end>68%</ion-note>
+    </ion-item>
+    <ion-item>
+      Range <ion-note item-end>$1.1m – 1.25m</ion-note>
+      <p>Source: CoreLogic RPData</p>
+    </ion-item>
+    <ion-item>
+      Target Date <ion-note item-end>Dec 2017</ion-note>
+    </ion-item>
+    <button ion-item>
+      Monthly Savings Goal <ion-note item-end>$2,500</ion-note>
+    </button>
+  </ion-list>
+
+  <div padding>
+    <h2>Insights for your goal</h2>
+  </div>
+
+  <slider id="slider-property-goal-insights" class="property-goal-insights" [opcSliderOpts]="{ dots: true, infinite: false }" inner-dots>
+    <slider-card>
+      <header>
+        <h3>Lower expenses</h3>
+      </header>
+      <section>
+        Your miscellaneous expenses are high based on this month's expenses.
+      </section>
+      <ion-row class="cta-row">
+        <ion-col width-50 class="cta-wrapper">
+          <button ion-button block clear>No thanks</button>
+        </ion-col>
+        <ion-col width-50 class="cta-wrapper">
+          <button ion-button block clear>Act now</button>
+        </ion-col>
+      </ion-row>
+    </slider-card>
+    <slider-card>
+      <header>
+        <h3>Reinvest</h3>
+      </header>
+      <section>
+        Reinvest your upcoming holiday funds into this property goal.
+      </section>
+      <ion-row class="cta-row">
+        <ion-col width-50 class="cta-wrapper">
+          <button ion-button block clear>No thanks</button>
+        </ion-col>
+        <ion-col width-50 class="cta-wrapper">
+          <button ion-button block clear>Reinvest</button>
+        </ion-col>
+      </ion-row>
+    </slider-card>
+  </slider>
+
+
+  <ion-list margin-top>
+    <button ion-item>
+      <ion-icon name="create" item-start></ion-icon>
+      Edit goal
+    </button>
+    <!--<button ion-item>
+      <ion-icon name="clock" item-start></ion-icon>
+      View Historical data
+    </button>-->
+  </ion-list>
+</ion-content>

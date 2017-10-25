@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Customise your Goal</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div padding>
+    <h2 *ngFor="let summary of goal?.summary.objectSummaries">
+      <ng-container [ngSwitch]="summary.label">
+        <span *ngSwitchCase="'generic_savings_saving_for'">Saving for {{summary.savingFor}}</span>
+      </ng-container>
+    </h2>
+    <p>You can edit any particular aspect of your goal, and recalculate the impact it will have on the other aspects.</p>
+  </div>
+  <ion-list no-margin>
+    <ng-container *ngFor="let summary of summaryItems" [ngSwitch]="summary.itemType">
+      <ion-item *ngIf="summary.isEditing">
+        <ion-label color="primary" stacked>
+          {{summary.item?.label}}
+        </ion-label>
+        <ion-input 
+          *ngSwitchCase="'MONEY'"
+          type="number" 
+          placeholder="Amount" 
+          [(ngModel)]="summary.userInput" 
+          [name]="summary.item?.id"></ion-input>          
+        <ion-input 
+          *ngSwitchCase="'MONTHS'"
+          type="number" 
+          placeholder="Time or Months" 
+          [(ngModel)]="summary.userInput" 
+          [name]="summary.item?.id"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!summary.isEditing">
+        <h2>{{summary.item?.label}}</h2>
+        <ion-note item-end *ngSwitchCase="'MONTHS'">{{summary.item.timeValue}}</ion-note>
+        <ion-note item-end *ngSwitchCase="'MONEY'">{{summary.item.proposedValue}}</ion-note>
+        <button ion-button outline item-end color="primary"
+          *ngIf="summary.item.isEditable" 
+          (click)="setEditing(summary)">Edit</button>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+  <div padding>
+    <button ion-button block (click)="recalculate(summary.item)" *ngIf="isDirty">Recalculate</button>
+    <button ion-button block outline (click)="recalculate(summary.item)" *ngIf="isDirty">Cancel</button>
+    <button ion-button block (click)="submitSettings()" [hidden]="isDirty">Save</button>
+  </div>
+</ion-content>

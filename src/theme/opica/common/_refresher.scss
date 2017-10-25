@@ -1,0 +1,11 @@
+$refresher-border-color: darken(map-get($colors, primary), 10%);
+$refresher-text-color: white;
+$refresher-icon-color: white;
+
+// Todo: change background-color to primary;
+.content.has-refresher {
+  background: map-get($opc-inverse-colors, bg3);
+  .scroll-content {
+    background: $background-color;
+  }
+}

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-title *ngIf="!isError">Success</ion-title>
+    <ion-title *ngIf="isError">Error</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content no-bounce>
+  <section class="finished-message" *ngIf="!isError">
+    <img class="finished-icon" src="assets/icons/squidink/svg64/ok.svg" alt="OK">
+    <h1>Touch ID is now enabled</h1>
+    <p>Next time you re-enter the app, tap the <ion-icon ion-text color="danger" name="finger-print"></ion-icon> Touch ID symbol to perform a fingerprint login.</p>
+  </section>
+  <section class="error-message" *ngIf="isError">
+    <img class="finished-icon" src="assets/icons/squidink/svg64/miscellaneous/cone.svg" alt="Warning">
+    <h1>Could not set up Touch ID</h1>
+    <p>You might not have TouchID available, or iOS might not be properly configured for Touch ID.</p>
+    <p *ngIf="errorCode">Error code: <code>{{errorCode}}</code></p>
+  </section>
+</ion-content>
+<ion-footer padding>
+  <button ion-button block large color="primary" (click)="closeAuthModal()">Close</button>
+</ion-footer>

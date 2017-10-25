@@ -1,0 +1,16 @@
+h4 {
+  font-size: 1.4rem;
+}
+
+// Use as a "normal words" heading
+h5 {
+  margin: 0 0 .5em;
+  font-weight: normal;
+  font-size: 1em;
+}
+// Use as a capitalized heading
+h6 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  opacity: .8;
+}

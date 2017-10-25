@@ -1,0 +1,34 @@
+<header class="section-header" padding>
+  <h2 class="section-header-title">Just for you</h2>
+  <div class="section-header-actions">
+    <ion-icon name="flash"></ion-icon>&nbsp; Powered by OPICA
+  </div>
+</header>
+<slider id="slider-home-suggestions" class="home-suggestions" [opcSliderOpts]="{ centerMode: true, variableWidth: true, dots: false }">
+  <slider-card *ngFor="let si of suggestionItems" forceCardHeight>
+    <header>
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col width-75>
+            <h3 [ngClass]="{'smaller': si.suggestion.title.length > 28}">{{si.suggestion.title}}</h3>
+          </ion-col>
+          <ion-col width-25>
+            <img class="card-thumbnail" *ngIf="si.thumbnail" [ngStyle]="{'backgroundImage': 'url('+si.thumbnail+')'}"/>
+            <ion-icon *ngIf="si.ionicon" [name]="si.ionicon"></ion-icon>
+            <opc-icon *ngIf="si.opicon" [name]="si.opicon.name" [set]="si.opicon.set" size="xl"></opc-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </header>
+    <section>
+      <p>{{si.suggestion.description}}</p>
+      <button hidden ion-button color="primary" block (click)="viewSuggestion(si.suggestion)">
+        {{si.suggestion.callToActionLabel || 'Check it out'}}
+      </button>
+    </section>
+    <button-row>
+      <span><a (click)="hideSuggestion(si)">No thanks</a></span>
+      <button ion-button small item-end (click)="viewSuggestion(si.suggestion)">{{si.suggestion.callToActionLabel || 'Check it out'}}</button>
+    </button-row>
+  </slider-card>
+</slider>

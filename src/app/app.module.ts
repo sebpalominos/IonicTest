@@ -1,46 +1,82 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { IonicStorageModule } from '@ionic/storage';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
-import { GoogleMapPage } from '../pages/google-map/google-map.component';
-import { GoogleMapComponent } from '../pages/google-map-modal/google-map-modal.component';
+import { AppComponent } from './app.component';
+import { AccountsModule } from './screens/accounts/accounts.module';
+import { AffordabilityModule } from './screens/affordability/affordability.module';
+import { AuthModule } from './screens/auth/auth.module';
+import { CategoriesModule } from './screens/categories/categories.module';
+import { GoalsModule } from './screens/goal-centre/goal-centre.module';
+import { GoalWorkspaceModule } from './screens/goal-workspace/goal-workspace.module';
+import { HomeModule } from './screens/home/home.module';
+import { InsightsModule } from './screens/insights/insights.module';
+import { MiscModule } from './screens/misc/misc.module';
+import { NotificationsModule } from './screens/notification-centre/notifications.module';
+import { OnboardingModule } from './screens/onboarding/onboarding.module';
+import { SharedModule } from './shared/shared.module';
+import { PropertiesModule } from './screens/property-centre/property-centre.module';
+import { ServicesModule } from './core/services/services.module';
+import { TransactionsModule } from './screens/transactions/transactions.module';
+import { UserModule } from './screens/user/user.module';
+import { Pro } from '@ionic/pro';
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+const IonicPro = Pro.init('8267bb10', {
+  appVersion: "0.16.2"
+});
+
+export class MyErrorHandler implements ErrorHandler {
+  handleError(err: any): void {
+    IonicPro.monitoring.handleNewError(err);
+  }
+}
 
 @NgModule({
   declarations: [
-    MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    GoogleMapPage,
-    GoogleMapComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    HttpModule,
+    IonicModule.forRoot(AppComponent, { 
+      env: 'prod',
+      inAppBrowserRegistrationUrl: 'https://portal.opicagroup.com.au/register.php?mode=inappbrowser',
+      apiEndpointBaseUrl: 'https://app.opicagroup.com.au/api/',
+    }),
+    IonicStorageModule.forRoot({
+      name: 'insightslocal',
+      driverOrder: ['sqlite', 'indexeddb', 'websql'],
+    }),
+    AccountsModule,
+    AffordabilityModule,
+    AuthModule,
+    CategoriesModule,
+    GoalsModule,
+    GoalWorkspaceModule,
+    HomeModule,
+    InsightsModule,
+    MiscModule,
+    NotificationsModule,
+    OnboardingModule,
+    SharedModule,
+    PropertiesModule,
+    ServicesModule,
+    TransactionsModule,
+    UserModule
   ],
-  bootstrap: [IonicApp],
-  exports: [ 
-    GoogleMapPage
+  bootstrap: [
+    IonicApp
   ],
   entryComponents: [
-    MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    GoogleMapPage,
-    GoogleMapComponent
+    AppComponent
   ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+  providers: [{provide: ErrorHandler, useClass: MyErrorHandler }]
 })
 export class AppModule {}

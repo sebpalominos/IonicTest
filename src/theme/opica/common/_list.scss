@@ -1,0 +1,59 @@
+// >> OPICA Theme for lists, item-groups and list elements
+// Including ion-list 
+
+.list-ios[no-border] {
+  & > .item-block:first-child {
+    border-top: none;
+  }
+  & > .item-block:last-child, & > .item-wrapper:last-child .item-block {
+    border-bottom: none;
+  }
+}
+
+.item.item-with-progress {
+  & progress::-webkit-progress-value {
+    transition: width .6s ease;
+  }
+  & .progress-bar-bg {
+    opacity: 1;
+    transition: opacity .4s ease;
+  }
+  &.filter .progress-bar-bg {
+    opacity: 0;
+  }
+  & .item-fg {
+    color: map-get($colors, light);
+  }
+  
+  .item-inner {
+    position: relative;
+    z-index: 2;
+  }
+  .note {
+    z-index: 2;
+  }
+  // Rainbow progress background bars
+
+  &:nth-of-type(7n+1) .progress-bar-bg {
+    @extend .progress-bar-dullgreen;
+  }
+  &:nth-of-type(7n+2) .progress-bar-bg {
+    @extend .progress-bar-blue;
+  }
+  &:nth-of-type(7n+3) .progress-bar-bg {
+    @extend .progress-bar-purple;
+  }
+  &:nth-of-type(7n+4) .progress-bar-bg {
+    @extend .progress-bar-orange;
+  }
+  &:nth-of-type(7n+5) .progress-bar-bg {
+    @extend .progress-bar-yellow;
+  }
+  &:nth-of-type(7n+6) .progress-bar-bg {
+    @extend .progress-bar-green;
+  }
+  &:nth-of-type(7n+7) .progress-bar-bg {
+    @extend .progress-bar-darkblue;
+  }
+
+}

@@ -1,0 +1,33 @@
+.money {
+  /*
+   * Money class
+   * |- Value-based modifiers
+   * |  |- .value-negative
+   * |  `- .value-positive
+   * |- Currency type modifiers
+   * |  `- .currency-aud
+   * `- Color display modifiers
+   *    |- .money-color-positive 
+   *    |- .money-color-neutral
+   *    `- .money-color-negative 
+   */
+  // Symbol prepender
+  &.currency-aud {
+    &::before {
+      content: '$';
+    }
+    &.value-negative::before {
+      content: '-$';
+    }
+  }
+  // Colors
+  &.money-color-positive {
+    color: map-get($colors, tl-green);
+  }
+  &.money-color-neutral {
+    color: map-get($colors, mid);
+  }
+  &.money-color-negative {
+    color: map-get($colors, tl-red);
+  }
+}

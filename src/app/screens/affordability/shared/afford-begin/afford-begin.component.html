@@ -1,0 +1,12 @@
+<div padding class="afford-begin-message">
+  <h1>One step closer to your next property</h1>
+  <button ion-button (click)="beginGoal()">{{isInProgress ? 'Continue your' : 'Start an'}} Affordability Goal&#8482;</button>
+  <button ion-button icon-right clear class="show-info-button" color="light" (click)="showInfo = !showInfo">
+    What's an Affordability Goal?
+    <ion-icon item-end name="arrow-down" [ngClass]="{ open: showInfo }"></ion-icon>
+  </button>
+  <div class="afford-goal-info" [ngClass]="{ open: showInfo }" [hidden]="!showInfo">
+    <p>With an Affordability Goal, we'll create your personalised saving plan that helps you reach the deposit amount for your home loan. </p>
+    <p><strong>You are in control</strong> of setting your spending limits &ndash; so you don't have to cut the things you want to keep!</p>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.categoriser-pad {
+  background: url('../assets/img/bg/martin-place.jpg') no-repeat center center/cover #111;  
+  .pad-section, ~.pad-section {
+    &.pad-top {
+      // background: map-get($opc-colors, brand);
+    }
+    &.pad-bottom {
+      box-shadow: 0 -5px 10px rgba(0,0,0,.2);
+      background-color: map-get($opc-colors, bg);
+      // border-top: 2px solid map-get($opc-colors, bg3);
+    }
+  }
+  .pad-top-subheading {
+    color: white;
+    border-bottom: 1px solid white;
+  }
+  .pad-bottom-header {
+    padding-top: .75rem;
+    padding-bottom: .5rem;
+    background-color: #222;
+    border-top: 1px solid lighten(#222, 12%);
+    box-shadow: inset 0 2px 8px lighten(#222, 5%);
+    color: map-get($opc-inverse-colors, fg);
+  }
+  .pad-submit {
+    background: white;
+    padding: $content-padding/2 $content-padding;
+    border-top: 1px solid rgba($list-ios-border-color, .6);
+  }
+  .grid-button {
+    color: white;
+    transition: background .5s ease;
+    &.active {
+      background: rgba(255,255,255,.2);
+    }
+  }
+  .existing-category::after {
+    content: ' ●';
+    display: inline;
+    color: orange;
+    text-shadow: 0 0 2px rgba(255,255,255,.2);
+  }
+  .category-submit, ~.category-submit {
+    background: map-get($opc-colors, bg);
+  }
+}  

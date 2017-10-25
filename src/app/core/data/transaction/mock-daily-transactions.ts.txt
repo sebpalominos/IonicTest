@@ -1,0 +1,112 @@
+// A very simple mock
+
+import { TransactionShape } from '../../../screens/transactions/shared/transaction.model';
+import { CategoryShape } from '../../../screens/categories/shared/category.model';
+
+export const TRANSACTIONS_DAILY: TransactionShape[] = [
+  { 
+    id: '6a15ea51-0da2-4e97-9d32-a055e579130d',
+    title: 'COCA COLA AMATIL',
+    description: 'COCA COLA AMATIL NORTH SYDNEY AU', 
+    amount: 3.00, 
+    dateTransacted: new Date('2016-05-09'), 
+    categoryId: 56,
+    accountId: 1
+  }, { 
+    id: '5e7d6d9e-8205-44a1-8d76-c8d4e8e4f8fd',
+    title: 'Irongrill',
+    description: 'IRONGRILL SYDNEY AU', 
+    amount: 12.50, 
+    dateTransacted: new Date('2016-05-09'),
+    categoryId: 56,
+    accountId: 1
+  }, {    
+    id: '55976ff8-052b-4fd5-b4d0-a8aee75ff452',
+    title: 'Caltex Crows Next',
+    description: 'CALTEX CROWS NEST CROWS NEST AU', 
+    amount: 39.60, 
+    dateTransacted: new Date('2016-10-25') ,
+    categoryId: 23,
+    accountId: 1
+  }, { 
+    id: '55976ff8-052b-4fd5-b4d0-a8aee75ff452',
+    title: 'UBER',
+    description: 'UBER AU SEP21 YSPXP HELP.UBER.COM AU', 
+    amount: 13.61, 
+    dateTransacted: new Date('2016-05-09') ,
+    categoryId: 47,
+    accountId: 1
+  }, { 
+    id: '79750998-a93c-48c2-ad30-230ce6f7c516',
+    title: 'Woolworths',
+    description: 'WOOLWORTHS 1166 CHATS IN AU', 
+    amount: 16.89, 
+    dateTransacted: new Date('2016-05-10'),
+    categoryId: 92,
+    accountId: 1
+  }, { 
+    id: '2b87aadc-bfa9-476e-997b-3f635497f04f',
+    title: '047333 TFR',
+    description: '047333 TFR FROM Westpac Choice', 
+    amount: 800.00, 
+    dateTransacted: new Date('2016-05-10'),
+    accountId: 1
+  }, {
+    id: 'M08GK343426IX50IA3',
+    title: 'Adobe Creative Cloud',
+    description: '021116 ADOBE *CREATIVE CLOUD SAGGART IE',
+    amount: 695.88,
+    dateTransacted: new Date('2016-11-02'),
+    categoryId: 22,
+    accountId: 1
+  }, {
+    id: '248722dc-bda9-416e-997b-3f635497894a',
+    title: 'Rent',
+    description: 'RENT LJ HOOKER MQP TFR',
+    amount: 890.00,
+    dateTransacted: new Date('2016-10-01'),
+    accountId: 1
+  }, {
+    id: '244722dc-bda9-416e-997b-3f635497894a',
+    title: 'Rent',
+    description: 'RENT LJ HOOKER MQP TFR',
+    amount: 890.00,
+    dateTransacted: new Date('2016-10-08'),
+    accountId: 1
+  }, {
+    id: '344722dc-b5a9-416e-997b-3f635497894a',
+    title: 'Rent',
+    description: 'RENT LJ HOOKER MQP TFR',
+    amount: 890.00,
+    dateTransacted: new Date('2016-10-15'),
+    accountId: 1
+  }, {
+    id: 'M07GJG152210Q71M8D',
+    title: 'Rms Etoll',
+    description: 'RMS ETOLL PH:131865 PARRAMATTA AU',
+    amount: 40.62,
+    dateTransacted: new Date('2016-08-03'),
+    categoryId: 47,
+    accountId: 1
+  }
+];
+
+export const TRANSACTION_CATEGORIES_DAILY: CategoryShape[] = [
+  {
+    id: 56,
+    name: 'Dining and takeaway',
+    parentId: 5,
+  }, {
+    id: 47,
+    name: 'Transport',
+    parentId: 7,
+  }, {
+    id: 92,
+    name: 'Groceries',
+    parentId: 7,
+  }, {
+    id: 40,
+    name: 'Outgoing bank transfers',
+    parentId: 6,
+  }
+]

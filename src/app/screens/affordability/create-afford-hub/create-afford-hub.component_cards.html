@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="close()">
+        <span showWhen="ios">Close</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>My Affordability Goal</ion-title>
+  </ion-navbar>
+  <ion-navbar>
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col class="afford-status" *ngFor="let status of statii">
+          <ion-icon 
+            name="checkmark-circle" 
+            class="afford-status-icon" 
+            [ngClass]="{ 'afford-icon-complete': status.checkComplete() }"></ion-icon>
+          <div>{{status.label}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="scenario-item">
+    <h6 padding-horizontal>My Existing Property</h6>
+    <aside class="cutout-placeholder" [hidden]="existingProperty" (tap)="changeExistingProperty()">
+      <span>Tap to select your property</span>
+    </aside>
+    <property-summary *ngIf="existingProperty" 
+      [property]="existingProperty"
+      [mortgage]="mortgage"
+      (tap)="changeExistingProperty()"></property-summary>
+  </div>
+  <div class="scenario-item">
+    <h6 padding-horizontal>My Target Property</h6>
+    <aside class="cutout-placeholder" [hidden]="targetProperty" (tap)="changeTargetProperty()">
+      <span>Tap to select your property</span>
+    </aside>
+    <property-summary *ngIf="targetProperty" 
+      [property]="targetProperty"
+      (tap)="changeTargetProperty()"></property-summary>
+  </div>
+  <div class="scenario-item">
+    <h6 padding-horizontal>Affordability</h6>
+    <aside class="cutout-placeholder" [hidden]="surplus" (tap)="changeSurplus()">
+      <span>Tap to set your surplus target</span>
+    </aside>
+    <ion-card *ngIf="surplus">
+      <ion-card-header>Surplus Target</ion-card-header>
+      <ion-list>
+        <ion-item>
+          Annual target <ion-note item-end>{{surplus.targetedYearlySurplus}}</ion-note>
+        </ion-item>
+        <ion-item>
+          Monthly savings required <ion-note item-end>{{surplus.monthlySavingsRequired}}</ion-note>
+        </ion-item>
+        <ion-item>
+          Current savings <ion-note item-end>{{surplus.currentSavings}}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer padding>
+  <button ion-button block (click)="continue()" [disabled]="!checkAffordabilitySetupComplete()">{{submitButtonText}}</button>
+</ion-footer>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Adjust mortgage</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <header padding class="create-goal-preamble">
+    <opc-icon-heading src="assets/icons/squidink/svg64/financial/calculator.svg" size="lg">
+      <h4>Adjust your mortgage account</h4>
+      <p>Just checking that these are the right figures.</p>
+    </opc-icon-heading>
+  </header>
+  <ion-list *ngIf="account">
+    <ion-item>
+      <ion-label color="primary">Interest Rate</ion-label>
+      <ion-input type="number" [(ngModel)]="account.interestRate" placeholder="e.g. 4.5"></ion-input>
+      <ion-note item-end>%</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Contract term</ion-label>
+      <ion-input type="number" [(ngModel)]="account.months" placeholder="e.g. 300"></ion-input>
+      <ion-note item-end>months</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer padding>
+  <button ion-button block (click)="continue()">Continue</button>
+</ion-footer>

@@ -1,0 +1,38 @@
+.afford-begin {
+  @include absolute-fill();
+  background: url('../assets/img/bg/afford.jpg') center center/cover #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::after {
+    @include absolute-fill();
+    z-index: 2;
+    background: rgba(black, .2); 
+  }
+  .afford-begin-message {
+    color: white;
+    text-align: center;
+    z-index: 5;
+    margin-bottom: $content-margin * 2;
+    p {
+      font-size: 1.1em;
+    }
+  }
+  .show-info-button {
+    .icon {
+      transform: rotate(0deg);
+      transform-origin: 70% 50%;
+      transition: transform .2s linear;
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .afford-goal-info {
+    opacity: 0;
+    transition: opacity .3s linear;
+    &.open {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Search results</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div [hidden]="results">
+    <property-summary placeholder="true"></property-summary>
+    <property-summary placeholder="true"></property-summary>
+  </div>
+  <div *ngIf="results">
+    <property-summary *ngFor="let property of results" 
+      [property]="property"
+      (propertySelected)="propertySelected($event)"></property-summary>
+  </div>
+</ion-content>

@@ -1,0 +1,22 @@
+.select-institution {
+  .select-insto-header {
+    position: relative;
+    overflow: hidden;
+    h1 {
+      position: relative;
+      margin-top: $content-margin * 2;
+      z-index: 5;
+    }
+    // h1 + p {
+    //   margin-top: -$content-margin/2;
+    // }
+  }
+  #select-insto-top-right-image {
+    z-index: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transform: scale(1.6) rotate(10deg);
+    opacity: .8;
+  }
+}

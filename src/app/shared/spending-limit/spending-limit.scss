@@ -1,0 +1,17 @@
+.spending-limit {
+  .loading-chip {
+    ion-avatar img {
+      padding: 8px;
+    }
+  }
+  .spend-values > span {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  .spend-values > span ~ span {
+    margin-left: 1em;
+  }
+  .spend-limit {
+    color: map-get($opc-colors, secondary);
+  }
+}

@@ -1,0 +1,48 @@
+.afford-teaser {
+  $target-property-image-width: 100px;
+  @include absolute-center-flex();
+  text-align: center;
+  .afford-teaser-summary {
+    @include absolute-fill();
+    flex: 1 1 auto;
+    padding: $content-padding;
+    // .ios & { padding-top: $toolbar-ios-height; }
+    // .md & { padding-top: $toolbar-md-height; }
+    .target-property-bg {
+      @include absolute-fill();
+      @include background-image();
+      z-index: -1;
+      filter: grayscale(0.6) blur(8px);
+    }
+    .target-property-image {
+      @include background-image();
+      width: $target-property-image-width;
+      height: $target-property-image-width;
+      border-radius: $target-property-image-width/2;
+      border: 2px solid rgba(white, .4);
+    }
+    .target-property-desc {
+      text-align: left;
+    }
+  }
+  .afford-teaser-loading {
+    .spinner circle {
+      stroke: white;
+    }
+  }
+  .afford-teaser-begin {
+    &::after {
+      display: block;
+      content: '';
+      @include absolute-fill();
+      @include background-image();
+      background-image: url('../assets/img/demo/warringahfwy.jpg');
+      z-index: 1;
+    }
+    .message {
+      margin-top: $content-margin;
+      position: relative;
+      z-index: 5;
+    }
+  }
+}

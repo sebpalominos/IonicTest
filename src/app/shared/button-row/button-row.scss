@@ -1,0 +1,45 @@
+// Wrapper for ion-button inside a card
+.opc-button-row {
+  // STRUCTURE
+  padding: $content-padding/2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // THEMING
+  background: darken(map-get($opc-colors, card-bg), 10%);
+  border-top: 1px solid darken(map-get($opc-colors, card-bg), 20%);
+  .ios &.right {
+    min-height: $button-ios-small-height;
+  }
+  .md &.right {
+    min-height: $button-md-small-height;
+  }
+  .opc-button-row-left {
+    text-align: left;
+  }
+  .opc-button-row-right {
+    text-align: right;
+  }
+  .opc-button-row-caption {
+    color: map-get($opc-colors, muted);
+    opacity: .8;
+    font-size: 1.4rem;
+    a {
+      color: darken(map-get($opc-colors, muted), 10%);
+      text-decoration: none;
+      border-bottom: 1px solid darken(map-get($opc-colors, muted), 12%);
+    }
+    &:not(.caption-right) {
+      text-align: right;
+    }
+    & > * {
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+  .opc-button-row-left, .opc-button-row-right, .opc-button-row-caption {
+    &:empty {
+      display: none;
+    }
+  }
+}

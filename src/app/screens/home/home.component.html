@@ -1,0 +1,28 @@
+<ion-header no-border>
+  <ion-navbar class="opc-search-navbar" color="light">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-toolbar no-padding class="omni-search-bar" *ngIf="showSearch">
+      <ion-searchbar #searchbar 
+        [(ngModel)]="searchOverlay.queryText" 
+        [showCancelButton]="false" 
+        (ionFocus)="searchOverlay.handleAction($event)" 
+        (ionBlur)="searchOverlay.handleAction($event)" 
+        (ionInput)="searchOverlay.handleAction($event)"></ion-searchbar>
+    </ion-toolbar>
+    <!--(ionCancel)="searchOverlay.reset($event)" -->
+  </ion-navbar>
+</ion-header>
+<ion-content (ionScroll)="searchOverlay.close()">
+  <search-overlay ion-fixed [searchbar]="searchbar" #searchOverlay></search-overlay>
+  <hero-unit #heros>
+    <home-summary [screens]="screens"></home-summary>
+  </hero-unit>
+  <div class="overscroll" padding-top>
+    <!--<home-suggestions [screens]="screens"></home-suggestions>-->
+    <!--<home-accounts [screens]="screens"></home-accounts>-->
+    <!--<home-goals [screens]="screens"></home-goals>-->
+    <home-shortcuts [screens]="screens"></home-shortcuts> 
+  </div>
+</ion-content>

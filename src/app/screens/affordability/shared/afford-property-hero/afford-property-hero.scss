@@ -1,0 +1,89 @@
+.afford-property-hero {
+  $property-display-cover-height: 160px;
+  $property-display-height: 180px;
+  $property-avatar-width: 90px;
+  // Hack: specificity
+  .ios .content.hero-edge & .opc-hero-unit {
+    margin-top: -115px;  
+    height: $property-display-height;
+  }
+  .hero-inner {
+    // overflow: hidden;
+    position: static;
+    // padding-left: 30px;
+  }
+  .afford-property-top {
+    @include absolute-fill();
+    // @include background-image();
+    filter: grayscale(0.6) blur(8px) brightness(.9);
+    transform: scale(1.2);
+  }
+  .afford-property-bottom {
+    position: absolute;
+    top: $property-display-cover-height;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: white;
+    // box-shadow: 0 -40px 60px rgba(black, 1);
+    .afford-property-profile {
+      position: relative;
+      margin-left: 40px;
+      top: $property-avatar-width * -1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+    .afford-property-headings {
+      // text-align: right;
+      h1 {
+        font-size: 1.83rem;
+        color: white;
+        margin: 0;
+      }
+      text-shadow: 0 0 20px black;
+    }
+    .afford-property-image {
+      flex: 0 0 auto;
+      margin-left: $content-margin;
+      height: $property-avatar-width;
+      width: $property-avatar-width;
+      border: 2px solid rgba(white, .2);
+      @include background-image();
+      overflow: visible;
+      position: relative;
+      .corner-icon {
+        font-size: 3.6rem;
+        color: white;
+        text-shadow: 0 0 4px rgba(black, .7);
+        position: absolute;
+        top: -2rem;
+        right: -.5rem;
+      }
+    }
+  }
+  .afford-property-placeholder {
+    @include absolute-fill();
+    overflow: hidden;
+    height: $property-display-height; 
+    overflow: hidden;
+    .afford-property-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #555;
+      .spinner circle {
+        stroke: white;
+      }
+    }
+  }
+  .afford-property-slider {
+    @include absolute-fill();
+    overflow: hidden;
+    .carousel-card {
+      position: relative;
+      height: $property-display-height; 
+      overflow: hidden;
+    }
+  }
+}

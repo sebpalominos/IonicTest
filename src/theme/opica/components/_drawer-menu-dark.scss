@@ -1,0 +1,79 @@
+/** Ye olde drawer menu */
+@mixin inverse-color-override(){
+  background: map-get($opc-inverse-colors, bg1);
+  color: map-get($opc-inverse-colors, fg);
+}
+@mixin inverse-list-color-override(){
+  background: map-get($opc-inverse-colors, bg2);
+  color: map-get($opc-inverse-colors, fg);
+  &.activated {
+    background: map-get($opc-inverse-colors, bg3);
+  }
+  .item-inner {
+    border-bottom-color: lighten(map-get($opc-inverse-colors, bg2), 15%);
+  }
+}
+
+.menu-header-status-dot {
+  display: inline-block;
+  margin-right: 3px;
+  fill: map-get($colors, tl-green);
+  vertical-align: middle;
+}
+
+/** Colorific overrides */
+.md, .ios {
+  .menu-inner {
+    .toolbar-title {
+      font-weight: 300;
+    }
+    &, .content, .content, .toolbar-background, .toolbar-title {
+      @include inverse-color-override;
+    }
+    .item {
+    // .item, .item-md, .item-ios {
+      @include inverse-list-color-override;
+    }
+    .opc-menu-profile {
+      margin: 0;
+      .item-md, .item-ios {
+        @include list-item-color-override;
+      }
+    }
+    .footer .item  {
+      background: transparent;
+    }
+  }
+}
+
+// Modular adjustments 
+.menu-inner {
+  .opc-menu-profile {
+    .item-md, .item-ios {
+      h2, .profile-name {
+        font-size: 1.8rem;
+      }
+    }   
+  }
+  // Version label
+  .drawer-version-label { 
+    padding: $content-padding;
+    color: gray;
+    opacity: .4;
+    font-size: 1.2rem;
+  }
+  // Watermark that sticks near the bottom of things
+  .drawer-branding-device-watermark {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    display: block;
+    width: 260px;
+    opacity: .2;
+    overflow: hidden;
+    img {
+      transform: translateY(50px);
+    }
+  }
+}

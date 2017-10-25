@@ -1,0 +1,31 @@
+.hero-inner {
+  // visual effects
+  // .carousel-card > * {
+  //   opacity: 0;
+  //   visibility: hidden;
+  //   transition: opacity .2s ease; 
+  //   .top & {
+  //     visibility: visible;
+  //     opacity: 1;
+  //   }
+  // }
+}
+
+.hero-inner {
+  // opacity: 1;
+  // transition: opacity .4s ease;
+  .menu-content-open & {
+    // opacity: 0;
+  }
+}
+
+// The overscroll counterpart:
+.overscroll {
+  background: map-get($opc-colors, bg);
+  &::before {
+    content: '';
+    display: none;
+    height: $hero-unit-height;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Edit Spending Limit</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <section>
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col>
+          <h2>{{spendingCategory.spendingArea?.label}}</h2>
+          <p>{{spendingCategory.spendingArea?.type}}</p>
+        </ion-col>
+        <ion-col col-4 text-center *ngIf="showSliderBased">
+          <dl class="numeric-stat">
+            <dd class="money-value">{{spendingCategory.limit | number:'1.0-0'}}</dd>
+            <dt>Per month</dt>
+          </dl>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+  <ion-list no-margin>
+    <ion-item *ngIf="showSliderBased">
+      <ion-range [(ngModel)]="spendingCategory.limit" color="secondary" pin="true" [min]="sliderRangeLower" [max]="sliderRangeUpper" [step]="sliderStep">
+        <ion-label range-left>${{sliderRangeLower | number:'1.0-0'}}</ion-label>
+        <ion-label range-right>${{sliderRangeUpper | number:'1.0-0'}}</ion-label>
+      </ion-range>
+    </ion-item>
+    <ion-item *ngIf="!showSliderBased">
+      <ion-label fixed>Limit ($)</ion-label>
+      <ion-input type="number" [(ngModel)]="spendingCategory.limit" name="limit" placeholder="Spend limit amount" clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Write a short statement about your goal</ion-label>
+      <ion-textarea [(ngModel)]="spendingCategory.narrative" name="narrative" placeholder="Why are you setting this goal?"></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <section hidden>
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center *ngIf="spendingCategory.spendingLimit">
+          <dl class="numeric-stat">
+            <dd class="money-value">{{spendingCategory.spendingLimit?.limitValue}}</dd>
+            <dt>Limit</dt>
+          </dl>
+        </ion-col>
+        <ion-col text-center>
+          <dl class="numeric-stat">
+            <dd class="money-value">{{spendingCategory.spendingArea.projectedValue}}</dd>
+            <dt>Projected</dt>
+          </dl>
+        </ion-col>
+        <ion-col text-center>
+          <dl class="numeric-stat">
+            <dd class="money-value">{{spendingCategory.spendingArea.currentValue}}</dd>
+            <dt>Current</dt>
+          </dl>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+  <div padding *ngIf="spendingCategory.isEditing">
+    <button ion-button block (tap)="setSpendLimit()" [disabled]="showLoading">Set Limit</button>  
+  </div>
+</ion-content>

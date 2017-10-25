@@ -1,0 +1,48 @@
+<header class="section-header" padding>
+  <h2 class="section-header-title">Account overview</h2>
+  <div class="section-header-actions">
+    <button ion-button clear [navPush]="screens.accountList">
+      See all
+    </button>
+  </div>
+</header> 
+<slider id="slider-home-accounts" class="home-accounts" [opcSliderOpts]="{ centerMode: true, variableWidth: true, dots: true }">
+  <slider-card *ngFor="let a of accounts" (tap)="showOptions(a.account)">
+    <header>
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col width-10>
+            <!--<h3>{{a.account.financialInstitutionName()}}</h3>-->
+            <div class="slider-icon icon-sm logo-icon" [ngClass]="a.account.financialInstitution.logoClass"></div>
+          </ion-col>
+          <ion-col width-90>
+            <div class="slider-inline-row">
+              <h3>{{a.account.preferredName()}}</h3>
+              <div text-right [ngClass]="{ 'text-danger': a.account.balance() <= 0 }">{{a.account.balance() | currency:'USD':true:'1.0-0'}}</div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </header>
+    <section>
+      <ion-grid no-padding>
+        <ion-row center *ngIf="a.account.goal">
+          <ion-col width-10 text-center><ion-icon name="checkbox-outline"></ion-icon></ion-col>
+          <ion-col width-90><span class="text-success">You are X% to reaching your goal</span></ion-col>
+        </ion-row>
+        <ion-row center *ngIf="!a.account.goal">
+          <ion-col width-10 text-center><ion-icon name="alert"></ion-icon></ion-col>
+          <ion-col width-90>No saving goal for this account.</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col width-10 text-center><ion-icon name="pricetag"></ion-icon></ion-col>
+          <ion-col width-90>
+            <ion-chip color="primary" *ngFor="let cty of a.categories">
+              <ion-label>{{cty.name}}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </section>
+  </slider-card>
+</slider>

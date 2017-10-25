@@ -1,0 +1,41 @@
+.opc-slider-card {
+  display: block;
+  background-color: map-get($opc-colors, card-bg);
+  .ios & {
+    margin-right: $card-ios-margin-right /2;
+    margin-left: $card-ios-margin-left /2;
+    border-radius: $card-ios-border-radius;
+    header, footer, section {
+      padding: $card-ios-padding-top $card-ios-padding-right $card-ios-padding-bottom $card-ios-padding-bottom;
+      & + header, & + footer, & + section {
+        padding-top: 0;
+      }
+    }
+  }
+  .md & {
+    margin-right: $card-md-margin-right /2;
+    margin-left: $card-md-margin-left /2;
+    border-radius: $card-md-border-radius;
+    header, footer, section {
+      padding: $card-md-padding-top $card-md-padding-right $card-md-padding-bottom $card-md-padding-bottom;
+      & + header, & + footer, & + section {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &.borderless, &[borderless] {
+    margin: 0;
+    border-radius: 0;
+    border: none !important;
+    background-color: transparent;
+    // Automatically provide padding
+    .ios &[padding] {
+      padding: $card-ios-padding-top $card-ios-padding-right $card-ios-padding-bottom $card-ios-padding-bottom;
+    }
+    .md &[padding] {
+      padding: $card-md-padding-top $card-md-padding-right $card-md-padding-bottom $card-md-padding-bottom;
+    }
+  }
+
+}

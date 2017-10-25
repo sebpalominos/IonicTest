@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Set Surplus Limits</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="skip()">Skip</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!--<ion-toolbar color="secondary">
+    <ion-title>
+      Surplus Target: ${{surplusTarget | number:'1.0-0'}} per month
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button item-end icon-only clear color="light" [navPush]="screens.help">
+        <ion-icon name="help-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>-->
+  <info-bar snap="top" context="info">Set spending limits on your most common areas. Use these savings to fuel your mortgage deposit.</info-bar>
+  <section>
+    <div>
+      <dl text-center class="numeric-stat inline">
+        <dt class="block-title">Amount saved</dt>
+        <dd class="status-text numerator money-value" [ngClass]="progressStatusColor()">{{savingsActual | number:'1.0-0'}}</dd>
+        <dd class="vinculum">/</dd>
+        <dd class="denominator money-value">{{savingsRequired | number:'1.0-0'}}</dd>
+      </dl>
+    </div>
+    <opc-progress [color]="progressStatusColor()" max="100" [value]="progressPercent"></opc-progress>
+  </section>
+  <afford-related-workspace 
+    *ngIf="showWorkspaceLoaded"
+    [id]="goalTypeIdentifier" 
+    [workspacePath]="workspacePath"
+    [workspace]="workspace"
+    (workspaceChanged)="refreshSurplusDisplay($event)"></afford-related-workspace>
+</ion-content>
+<ion-footer padding>
+  <button ion-button block (click)="continue()" [disabled]="!hasReachedSurplusTarget()">Continue</button>
+</ion-footer>

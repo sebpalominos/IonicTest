@@ -1,0 +1,12 @@
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  // width: 250px;
+  height: $progress-bar-height;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}

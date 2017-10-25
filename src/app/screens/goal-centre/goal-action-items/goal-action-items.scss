@@ -1,0 +1,15 @@
+.goal-action-items-list {
+  $goal-hero-unit-height: 320px !default;
+  .opc-hero-unit {
+    min-height: $goal-hero-unit-height;
+    .hero-inner .opc-slider .slick-slider {
+      min-height: $goal-hero-unit-height;
+    }
+  }
+  .opc-hero-unit ~ .overscroll {
+    // top: $goal-hero-unit-height;
+  }
+  .goal-summary {
+    height: 100%;
+  }
+}

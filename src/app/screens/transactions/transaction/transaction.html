@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Transaction</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <section [ngSwitch]="errorName">
+    <div *ngSwitchCase="'loadError'" class="box-danger">Cannot load transaction</div>
+  </section>
+  <ion-card *ngIf="categoryIcon">
+    <ion-card-content>
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col width-25>
+            <opc-icon [name]="categoryIcon.name" [set]="categoryIcon.set" size="xl" item-start></opc-icon>
+          </ion-col> 
+          <ion-col width-75>
+            <!--<h2>{{transaction.displayName() || '' | truncate:25}}</h2>-->
+            <h2 text-wrap>{{transaction.displayName()}}</h2>
+            <ion-chip *ngIf="transaction.category">
+              <ion-label>{{transaction.category.name}}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <info-bar context="warning" *ngIf="!transaction.category" [hidden]="categoryIcon">
+    <ion-icon name="warning"></ion-icon>
+    This transaction is not categorised
+  </info-bar>
+  <div padding *ngIf="!categoryIcon">
+    <h4>{{transaction.displayName()}}</h4>
+    <ion-chip *ngIf="transaction.category">
+      <ion-label>{{transaction.category.name}}</ion-label>
+    </ion-chip>
+  </div>
+  <ion-list>
+    <ion-list-header>
+      Information
+    </ion-list-header>
+    <ion-item>
+      Amount
+      <ion-note item-end>{{transaction.amount | currency:'AUD':true:'1.2-2'}}</ion-note>
+    </ion-item>
+    <ion-item>
+      Date Transacted
+      <ion-note item-end>{{transaction.dateTransacted | date:'mediumDate'}}</ion-note>
+    </ion-item>
+    <ion-item *ngIf="transaction.category">
+      Category
+      <ion-note item-end>{{transaction.category.name}}</ion-note>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Actions
+    </ion-list-header>
+    <button ion-item (click)="chooseCategory()">
+      <ion-icon item-start name="list-box"></ion-icon>
+      <span *ngIf="!transaction.category">Choose a category</span>
+      <span *ngIf="transaction.category">Edit category</span>
+    </button>
+    <!--<button ion-item (click)="share()">
+      <ion-icon item-start name="share"></ion-icon>
+      Share
+    </button>-->
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,14 @@
+.finished-connection {
+  .scroll-content {
+    @include absolute-center-flex();
+  }
+  .finished-message {
+    text-align: center;
+    margin-bottom: 20vh;
+  }
+  .finished-icon {
+    display: block;
+    margin: 0 auto;
+    width: 6rem;
+  }
+}

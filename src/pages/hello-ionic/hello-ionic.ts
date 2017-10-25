@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { GoogleMapComponent } from '../google-map-modal/google-map-modal.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'page-hello-ionic',
@@ -11,6 +12,9 @@ export class HelloIonicPage {
   time = false;
   text1 = 'Hola';
   text2 = 'Hello';
+  text3 = 'ForSaleProperty';
+  debounced;
+  searchParams;
 
   constructor(
     public modalCtrl: ModalController
@@ -29,30 +33,16 @@ export class HelloIonicPage {
     googleMapModal.present();
   }
 
+  onKeyDown(){
+    console.log('down');
+    clearTimeout(this.debounced);
+  }
 
-  disabled = [
-    {
-       "providerName": "Westpac",
-       "providerInternalSlug": "westpac",
-       "providerInternalId": 14,
-       "lastRefreshStatus": "SUCCESS",
-       "disabledAccounts": [
-          {
-             "connectorAccountId": "519557",
-             "connectorUserSiteId": 6,
-             "name": "Jim fund",
-             "connector": "PROVISO"
-          }
-       ],
-       "connector": "PROVISO"
-    },
-    {
-       "providerName": "ING Direct",
-       "providerInternalSlug": "ing",
-       "providerInternalId": 5000151,
-       "lastRefreshStatus": "SUCCESS",
-       "disabledAccounts": [],
-       "connector": "PROVISO"
-    }
- ];
+  onKeyUp(){
+    console.log('up');
+    this.debounced = setTimeout(()=>{
+      console.log('up late',this.searchParams);
+    },2000);
+  }
+
 }

@@ -1,0 +1,43 @@
+.create-afford-hub {
+  // Create a dashed-cutout placeholder that center aligns text inside
+  .scenario-item {
+    margin: $content-margin 0;
+  }
+  .folded-scenario-item {
+    header {
+      padding: $content-padding/4 $content-padding/2;
+      color: map-get($opc-colors, secondary);
+      border-bottom: 1px solid $list-ios-border-color;
+    }
+  }
+  .hub-ready .toolbar-background {
+    border-bottom: 4px solid map-get($colors, tl-green);
+    border-width: 0 0 4px !important;
+  }
+  .cutout-placeholder {
+    border: 4px dashed map-get($flat-colors, _silver);
+    border-radius: 6px;
+    color: map-get($flat-colors, asbestos);
+    height: 120px;
+    // 
+    margin: 0 $content-margin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .afford-status {
+    text-align: center;
+    margin-top: -$content-padding/2;
+    margin-bottom: $content-padding/2;
+    .afford-status-icon {
+      color: map-get($opc-colors, muted);
+    }
+    .afford-icon-complete {
+      color: map-get($colors, tl-green);
+    }
+  }
+  .afford-setup-ok-message {
+    color: white;
+    background: map-get($colors, tl-green);
+  }
+}

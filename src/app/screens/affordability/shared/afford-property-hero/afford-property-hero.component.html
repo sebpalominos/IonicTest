@@ -1,0 +1,45 @@
+<hero-unit #hero>
+  <div class="afford-property-placeholder" [hidden]="showPropertiesLoaded">
+    <cover-image class="afford-property-top" height="auto"></cover-image>
+      <div class="afford-property-bottom">
+        <div padding class="afford-property-profile">
+          <div class="afford-property-headings"></div>
+          <div class="afford-property-image" [ngStyle]="{ color: 'gray' }">
+            <ion-spinner name="crescent"></ion-spinner>
+          </div>
+        </div>
+      </div>
+  </div>
+  <slider id="slider-afford-property" class="afford-property-slider" [opcSliderOpts]="{ dots: false, infinite: true }" *ngIf="showPropertiesLoaded">
+    <!--Target property display-->
+    <slider-card borderless>
+      <cover-image class="afford-property-top" [src]="goal.targetProperty?.coverImage()" height="auto"></cover-image>
+      <div class="afford-property-bottom">
+        <div padding class="afford-property-profile">
+          <div class="afford-property-headings">                
+            <h1>{{goal.targetProperty?.displayName()}}</h1>
+            <p><ion-badge>Target Property</ion-badge></p>
+          </div>
+          <div class="afford-property-image" [ngStyle]="{ 'background-image': goal.targetProperty?.coverImage(true) }">
+            <ion-icon class="corner-icon" name="heart"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </slider-card>
+    <!--Existing property display-->
+    <slider-card borderless *ngFor="let existingProperty of goal.existingProperties">
+      <cover-image class="afford-property-top" [src]="existingProperty?.coverImage()" height="100"></cover-image>
+      <div class="afford-property-bottom">
+        <div padding class="afford-property-profile">
+          <div class="afford-property-image" [ngStyle]="{ 'background-image': existingProperty?.coverImage(true) }">
+            <ion-icon class="corner-icon" name="lock"></ion-icon>
+          </div>
+          <div class="afford-property-headings">
+            <h1>{{existingProperty?.displayName()}}</h1>
+            <p><ion-badge color="secondary">Existing Property</ion-badge></p>
+          </div>
+        </div>
+      </div>
+    </slider-card>
+  </slider>
+</hero-unit>

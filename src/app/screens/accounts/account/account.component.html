@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="showEditActionSheet()">Edit</button>
+    </ion-buttons>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content [ngClass]="colorSchemeClassName">
+  <ng-container *ngIf="account">
+    <section class="section insto-header">
+      <opc-icon-heading icon-rounded [src]="account.institution.getLogoUrl()" size="xl" [ngClass]="{ 'small-heading': account.preferredName().length > 16 }">
+        {{localInfo?.nickname || account.preferredName()}} 
+        <p>{{account.typeName()}} &middot; Updated {{account.dateLastRefreshed | date:'shortDate'}}</p> 
+      </opc-icon-heading>
+    </section>
+    <div class="section">
+      <ion-list>
+        <ion-item *ngIf="completionMetric">
+          Completion Rate
+          <opc-icon item-end set="business" name="price-tag-7"></opc-icon>
+          <ion-note item-end>{{completionMetric.percentage}}%</ion-note>
+        </ion-item>
+        <ion-item *ngIf="account.balance">
+          Current Balance
+          <ion-note item-end>{{account.balance.currentValue|currency:'AUD':true}}</ion-note>
+        </ion-item>
+        <ion-item *ngIf="account.projectedEndOfMonthBalance">
+          Projected Balance (EOM)
+          <ion-note item-end>{{account.projectedEndOfMonthBalance.currentValue|currency:'AUD':true}}</ion-note>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="section">
+      <ion-list>
+        <button ion-item [navPush]="screens.transactionList" [navParams]="{ account: account }">
+          <ion-icon name="folder-open" item-start></ion-icon>
+          All transactions
+        </button>
+      </ion-list>
+    </div>
+    <account-top-transactions [account]="account" [display]="5"></account-top-transactions>
+  </ng-container>
+</ion-content>

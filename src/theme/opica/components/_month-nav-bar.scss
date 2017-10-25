@@ -1,0 +1,50 @@
+$month-nav-height: 60px;
+$month-nav-icon-width: 30px;
+.has-month-nav-bar.has-refresher > .scroll-content {
+    border-top-color: map-get($colors, primary);    // This works well, because the date nav is also the primary colour
+}
+.month-nav-bar {
+  align-items: center;
+  height: $month-nav-height;
+  padding-right: $content-padding;
+  font-weight: bold;
+  .month-nav-next, .month-nav-prev, .item-inner {
+    overflow: visible;
+  }
+  .month-nav-next, .month-nav-prev {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: -$month-nav-icon-width/2;
+      display: block;
+      height: $month-nav-icon-width;
+      width: $month-nav-icon-width;
+      border-radius: $month-nav-icon-width/2;
+      z-index: 1;
+      background: rgba(white, .15); 
+    } 
+    &::before {
+      z-index: 5;
+    }
+    transition: transform .2s linear;
+    &:active {
+      transform: scale(1.25);
+    }
+  }
+  // .ion-md-arrow-round-forward, 
+  .month-nav-next {
+    margin-right: 0;
+    &::after {
+      left: 50%;
+      margin-left: -$month-nav-icon-width/2;
+    }
+  }
+  .month-nav-prev {
+    &::after {
+      right: 50%;
+      margin-right: -$month-nav-icon-width/2;
+    }
+  }
+}

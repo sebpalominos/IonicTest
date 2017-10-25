@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons right *ngIf="isInitial">
+      <button ion-button clear (click)="closeAll()">Cancel</button>
+    </ion-buttons>
+    <ion-title>Affordability</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <cover-image src="assets/img/demo/sydneycentralpark.jpg"></cover-image>
+  <section padding>
+    <p>{{preferredName ? preferredName + ', a ' : 'A '}} real estate goal will help you towards owning your next property.</p>
+    <p>To get started, select your existing property, and the mortgage on that property if you have one.</p>
+  </section>
+  <ion-list>
+    <button ion-item [navPush]="screens.property" [navParams]="{ selectionType: initialSelectionType.EXISTING_PROPERTY_MORTGAGE, existingProperty: existingProperty }">
+      Existing property with mortgage
+    </button>
+    <button ion-item [navPush]="screens.property" [navParams]="{ selectionType: initialSelectionType.EXISTING_PROPERTY_ONLY }">
+      Existing property without mortgage
+    </button>
+    <button ion-item (click)="setNone()">
+      No existing property
+    </button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,14 @@
+{
+  "env": "dev",
+  "inAppBrowserRegistrationUrl": "https://portal.opicagroup.com.au/register.php?mode=inappbrowser",
+  "apiEndpointBaseUrl": "https://dev-ie.nonprod.opicawealth.net/api/",
+  "telemetryEndpoint": "https://insights-telemetry.nonprod.opicawealth.net",
+  "telemetryApiKey": "xqwZlgnld49F6sMMdorNeqzLZQZBx0j46Gn80t4g",
+  "googleApiBaseUrl":"https://maps.google.com/maps/api/js?key=",
+  "googleApiKey":"AIzaSyDzbtcflg2pdF0ZfoeMczLnB6Qll6_8m4w",
+  "allowImmortalToken": true,
+  "allowEnvChange": true,
+  "autoEnvBaseUrl": true,
+  "splashPageTimeout": 10000,
+  "notificationRetrievalInterval": 60000
+}

@@ -1,0 +1,29 @@
+<div>
+  <!-- <h2 padding-horizontal text-center>Spending Limit Progress</h2> -->
+  <slider margin-bottom id="slider-afford-tracking" class="afford-tracking-graphs" [opcSliderOpts]="{ centerMode: true, variableWidth: true }">
+    <slider-card class="afford-tracking-card" *ngFor="let graph of trackingLevelGraphs">
+      <h4 no-margin>{{graph.trackingLevel.description}}</h4>
+      <ion-grid no-padding>
+        <ion-row>
+          <dl ion-col text-center class="numeric-stat">
+            <dt>Limit</dt>
+            <dd class="money-value">{{graph.trackingLevel.limitValue | number:'1.0-0'}}</dd>
+          </dl>
+          <dl ion-col text-center class="numeric-stat">
+            <dt>Actual</dt>
+            <dd class="money-value">{{graph.trackingLevel.actualValue | number:'1.0-0'}}</dd>
+          </dl>
+        </ion-row>
+      </ion-grid>
+      <line-chart 
+        *ngIf="graph.chartLines" 
+        [lines]="graph.chartLines" 
+        [labels]="graph.chartLabels" 
+        [options]="graph.chartOptions"></line-chart>
+      <div padding text-center [hidden]="graph.chartLines">
+        <ion-spinner name="crescent"></ion-spinner>
+      </div> 
+      <p class="afford-tracking-long-desc">{{graph.longDescription}}</p>
+    </slider-card>
+  </slider>
+</div>

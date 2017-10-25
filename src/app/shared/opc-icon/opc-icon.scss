@@ -1,0 +1,83 @@
+/** Shortcut mixin for OPICA custom icons */
+@mixin define-opica-icon($name, $file){
+  .opicon-#{$name}{
+    background-image: url('../assets/icons/opicons/#{$file}');
+  }
+}
+
+// .opc-icon {
+//   font-size: 1rem;
+// }
+
+// Namespace for all custom icons is `opc-icon`
+$opc-icon-font-size: 1.2em !default;
+$opc-icon-font-size-sm: 1em !default;
+$opc-icon-font-size-md: 1.6em !default;
+$opc-icon-font-size-lg: 2em !default;
+$opc-icon-font-size-xl: 4em !default;
+.font-icon {
+  font-size: $opc-icon-font-size;
+  line-height: 1em;
+  &.icon-size-sm {
+    font-size: $opc-icon-font-size-sm;
+  }
+  &.icon-size-md {
+    font-size: $opc-icon-font-size-md;
+  }
+  &.icon-size-lg {
+    font-size: $opc-icon-font-size-lg;
+  }
+  &.icon-size-xl {
+    font-size: $opc-icon-font-size-xl;
+  }
+}
+
+// Define all the possible *special* opicons
+@include define-opica-icon('compass', 'opica-w@2x.png');
+@include define-opica-icon('compass-light', 'opica-w@2x.png');
+@include define-opica-icon('compass-dark', 'opica-g@2x.png');
+
+// Namespace for all custom icons is `opc-icon`
+$opc-icon-size: 3rem !default;
+$opc-icon-size-sm: 1.4rem !default;
+$opc-icon-size-md: 2.4rem !default;
+$opc-icon-size-lg: 4rem !default;
+$opc-icon-size-xl: 6rem !default;
+.opc-icon, .opicon {
+  display: inline-block;
+  background-position: center center;
+  background-size: cover;
+  background-color: transparent;
+  transition: all .2s ease;
+  &:active {
+    transform: scale(1.2);
+  }
+
+  // Default 30px x 30px
+  // height: $opc-icon-size;
+  // width: $opc-icon-size;
+
+  // .icon-size-sm::before {
+  //   height: $opc-icon-size-sm;
+  //   width: $opc-icon-size-sm;
+  // }
+  // .icon-size-md::before {
+  //   height: $opc-icon-size-md;
+  //   width: $opc-icon-size-md;
+  // }
+  // .icon-size-lg::before {
+  //   height: $opc-icon-size-lg;
+  //   width: $opc-icon-size-lg;
+  // }
+  // .icon-size-xl::before {
+  //   height: $opc-icon-size-xl;
+  //   width: $opc-icon-size-xl;
+  // }
+
+  // Inside a toolbar, consider being a certain size
+  .toolbar & {
+    height: $searchbar-ios-input-height;
+    width: $searchbar-ios-input-height;
+  }
+  
+}

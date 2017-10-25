@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>About and Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list margin-vertical>
+    <ion-item>
+      Version <ion-note item-end>{{versionInfo?.version}}</ion-note>
+    </ion-item>
+    <ion-item>
+      Version Date <ion-note item-end>{{versionInfo?.versionDateHuman}}</ion-note>
+    </ion-item>
+  </ion-list>
+  <ion-list margin-vertical *ngFor="let settingList of configuredSettings">
+    <ion-item *ngFor="let setting of settingList" (tap)="showSettingDetails(setting)">
+      {{setting.key}} <ion-note item-end>{{setting.value | truncate:15}}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

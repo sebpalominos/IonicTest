@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <ng-container [ngSwitch]="account">
+      <ion-title *ngSwitchCase="true">{{account.name}}</ion-title>
+      <ion-title *ngSwitchDefault>
+        Your transactions
+        <p>Swipe left to categorise</p>
+      </ion-title>
+    </ng-container>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="toggleFilter()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="has-month-nav-bar">
+  <!-- <ion-refresher (ionRefresh)="loadTransactions(false, $event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="crescent">
+    </ion-refresher-content>
+  </ion-refresher> -->
+  <ion-toolbar color="primary" [hidden]="!showFilter">
+    <ion-searchbar 
+      (ionInput)="filterItems($event)" 
+      (ionCancel)="toggleFilter(false)" 
+      [showCancelButton]="true" 
+      placeholder="Search by description"></ion-searchbar>
+  </ion-toolbar>
+  <ion-list #transactionList>
+    <ion-list-header class="month-nav-bar" color="primary" (press)="showMonthNavOptions()">
+      <ion-icon item-start class="month-nav-prev" name="md-arrow-round-back" (click)="prevMonth()"></ion-icon>
+      <ion-icon item-end class="month-nav-next" name="md-arrow-round-forward" (click)="nextMonth()" [hidden]="hideNextMonth"></ion-icon>
+      {{perspectiveTitle}}
+    </ion-list-header>
+    <ng-container *ngFor="let item of transactions">
+      <ion-item-sliding *ngIf="item.visible">
+        <ion-item>
+          <h2 text-wrap [ngClass]="{ 'long-tx-name': item.tx.title.length > 30 }">{{item.tx.title}}</h2>
+          <!--&nbsp;<small class="transaction-verified" *ngIf="item.tx.category"><ion-icon name="checkmark-circle"></ion-icon></small>-->
+          <p>
+            <span class="tag-row" *ngIf="item.tx.category">
+              <ion-icon class="tag-icon" name="pricetag"></ion-icon>
+              <ion-badge>{{item.tx.category?.name}}</ion-badge>
+            </span>&nbsp;
+            {{item.tx.dateTransacted | date:'mediumDate'}}
+          </p>
+          <ion-note item-end><opc-money colorize [sign]="item.tx.type">{{item.tx.amount | number:'1.2-2'}}</opc-money></ion-note>
+        </ion-item>
+        <ion-item-options side="right" icon-start (ionSwipe)="editCategory(item.tx)">
+          <button ion-button expandable (click)="editCategory(item.tx)">
+            <ion-icon name="albums"></ion-icon> Categorise
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ng-container>      
+  </ion-list>
+  <section *ngIf="transactions && transactions.length === 0" [hidden]="showTransactionsLoading">
+    <h6 text-center>No transactions found for this month.</h6>
+  </section>
+  <div padding text-center *ngIf="showTransactionsLoading">
+    <ion-spinner name="crescent" ></ion-spinner>
+  </div>
+</ion-content>

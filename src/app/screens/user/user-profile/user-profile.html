@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>My profile</ion-title>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button clear color="dark" (click)="showOptions()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <header class="profile-cover">
+    <div class="profile-avatar" *ngIf="profileAvatar">
+      <img [src]="profileAvatar" [alt]="preferredName">
+    </div>
+    <div class="profile-headings">
+      <h1>{{preferredName}}</h1>
+    </div>
+  </header>
+  <ion-list *ngIf="accountStats">
+    <ion-item>
+      <h2>Your net worth</h2>
+      <p>{{accountStats.numActiveAccounts | i18nPlural:numAccountsPluralMapping}}</p>
+      <ion-note item-end><opc-money colorize [sign]="accountStats.netWorth < 0 ? -1 : 1">{{accountStats.netWorth | number:'1.2-2'}}</opc-money></ion-note>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="preferences">
+    <ion-list-header>
+      Preferences
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Enable Touch ID Login</ion-label>
+      <ion-toggle [(ngModel)]="preferences.useFingerprintLogin" (ionChange)="updateFingerprintLoginPreference()"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Passcode lock (TBA)</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <button ion-item [navPush]="screens.accountSettings">About</button>
+    <button ion-item block (tap)="wipeStorage()">Wipe Local Storage</button>
+  </ion-list>
+</ion-content>

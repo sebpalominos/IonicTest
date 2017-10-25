@@ -1,0 +1,57 @@
+<div class="pad-section pad-top category-icons categories-loading" *ngIf="showLoadingCategories">
+  <ion-spinner name="crescent"></ion-spinner>
+</div>
+<div ion-grid class="pad-section pad-top category-icons" [ngClass]="{ expanded: this.activeTopCategory }" [hidden]="showLoadingCategories">
+  <ion-row margin>
+    <ion-segment [(ngModel)]="displayCategoryType" color="light">
+      <ion-segment-button value="expenditure"> Expenditure </ion-segment-button>
+      <ion-segment-button value="income"> Income </ion-segment-button>
+    </ion-segment>
+  </ion-row>
+  <ng-container [ngSwitch]="displayCategoryType">
+    <ion-row *ngSwitchCase="'income'" hidden>
+      <h6 class="pad-top-subheading" ion-col>Income categories</h6> 
+    </ion-row>
+    <ion-row wrap *ngSwitchCase="'income'">
+      <ion-col col-3 *ngFor="let item of categoryPadInflowItems" [attr.data-id]="item.id">
+        <button class="grid-button" [ngClass]="{ 'active': item.category === activeTopCategory }" (click)="setTopCategory(item)">
+          <opc-icon class="grid-icon" *ngIf="item.icon" [set]="item.icon.set" [name]="item.icon.name"></opc-icon>
+          <span class="grid-label" [ngClass]="{ 'existing-category': isExistingCategory(item.category.id) }">{{item.category.name}}</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngSwitchCase="'expenditure'" hidden>
+      <h6 class="pad-top-subheading" ion-col>Expenditure categories</h6> 
+    </ion-row>
+    <ion-row wrap *ngSwitchCase="'expenditure'">
+      <ion-col col-3 *ngFor="let item of categoryPadOutflowItems" [attr.data-id]="item.id">
+        <button class="grid-button" [ngClass]="{ 'active': item.category === activeTopCategory }" (click)="setTopCategory(item)">
+          <opc-icon class="grid-icon" *ngIf="item.icon" [set]="item.icon.set" [name]="item.icon.name"></opc-icon>
+          <span class="grid-label" [ngClass]="{ 'existing-category': isExistingCategory(item.category.id) }">{{item.category.name}}</span>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ng-container>    
+</div>
+<div class="pad-section pad-bottom" [ngClass]="{ expanded: this.activeTopCategory }">
+  <div margin class="no-items-label" [hidden]="subcategories">No items to display!</div>
+  <header padding-horizontal class="pad-bottom-header">
+    <h4>Available categories</h4>
+    <button ion-button clear color="light" class="pad-bottom-hide" (tap)="clearActive()">
+      <ion-icon name="arrow-down"></ion-icon>
+    </button>
+  </header>
+  <div class="category-list">
+    <ion-list radio-group>
+      <!--<ion-item *ngFor="let sub of subcategories | filterSubcategories:activeTopCategory.id">-->
+      <ion-item *ngFor="let sub of subcategories">
+        <ion-label [ngClass]="{ 'existing-category': isExistingCategory(sub) }">{{sub.name}}</ion-label>
+        <ion-radio (ionSelect)="updateSelected(sub)"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div>
+  <section class="pad-submit">
+    <button ion-button block primary (tap)="submitSelected()" [disabled]="!selectedSubcategory">Set category</button>
+  </section>
+</div>
+<!--<div id="dragger" class="dragger" (pan)="moveDragger()"></div>-->

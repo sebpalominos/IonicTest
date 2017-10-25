@@ -1,0 +1,64 @@
+.goal-workspace {
+  .opc-hero-unit {
+    color: white;
+    background: url('../assets/img/bg/black-leather.jpg') bottom center/cover transparent;
+    height: 200px;
+    & ~ .overscroll {
+      // top: 200px;
+    }
+    .hero-spend-amount { 
+      position: absolute;
+      right: 25px;
+      bottom: 25px;
+      font-size: 1.3rem;
+      display: inline-block;
+      color: white;
+      text-align: right;
+      h3, h4 { 
+        display: block;
+        font-size: 2.2rem;      
+      }
+      .numeric-stat {
+        margin: 0;
+      }
+    }
+    .pie-chart {
+      .canvas-holder {
+        position: absolute;
+        left: 10px;
+        top: 20px;
+        min-height: 160px;
+        max-height: 100%;
+        width: 45%;
+      }
+      .graph-legend {
+        position: absolute;
+        right: 10px;
+        top: 25px;
+        width: 160px;
+        height: 160px;
+      }
+      .canvas-holder.doughnut {
+        canvas {
+          @include center-overlap();
+          z-index: 20;
+          font-size: 3.2em;
+          text-align: center;
+          line-height: 1;
+        }
+        .overlay-center {
+          @include center-overlap();
+          z-index: 10;
+          text-align: center;          
+          margin-top: 1rem;
+          font-size: 3rem;
+          line-height: 2.4rem;
+          small {
+            font-size: 0.4em;
+            line-height: 0.4em;
+          }
+        }
+      }
+    }
+  }
+}

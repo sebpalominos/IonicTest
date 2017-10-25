@@ -1,0 +1,35 @@
+.categorisation-queue {
+  .has-refresher > .scroll-content {
+    border-top-color: $background-color;
+    border-top-color: map-get($opc-colors, brand);
+  }
+  .intro-card-background {
+    color: white;
+    background: map-get($opc-colors, brand);
+    position: relative;
+    .watermark {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      opacity: .4;
+      transform: scale(4);
+      transform-origin: 80% 80%;
+    }
+  }
+  .queue-help {
+    padding: $content-padding $item-ios-padding-left;
+    // padding-right: $item-ios-padding-right;
+    font-size: .8em;
+    background: map-get($flat-colors, wet-asphalt);
+    color: map-get($colors, light);
+  }
+  .footer .toolbar {
+    &.initial-slide-out {
+      transition: transform .4s ease;
+      transform: translateY(100%);
+      &.slide-in {
+        transform: translateY(0);
+      }
+    }
+  }
+}

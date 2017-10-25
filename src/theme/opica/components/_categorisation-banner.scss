@@ -1,0 +1,13 @@
+.categorisation-banner {
+  &.queue-complete {
+    .item-md, .item-ios {
+      background: map-get($colors, tl-green);
+    }
+  }
+  h2, .opc-icon {
+    color: white;
+  }
+  .opc-icon .font-icon.icon-size-lg {
+    font-size: 2.4em;
+  }
+}

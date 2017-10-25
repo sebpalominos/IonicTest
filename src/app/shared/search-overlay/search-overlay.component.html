@@ -1,0 +1,23 @@
+<div class="search-results-wrapper" (touchend)="touchEndAction($event)" [ngStyle]="searchResultsWrapperStyles" [hidden]="!showOverlay">
+  <div text-center *ngIf="results && results.length === 0">
+    <h6 ion-text color="light" *ngIf="queryText?.length > 0">No search results</h6>
+    <button margin-vertical ion-button color="light" outline small (tap)="close()">Close</button>
+  </div>
+  <ion-list color="light" *ngIf="results?.length">
+    <ion-item-divider>
+      Search Results
+      <button ion-button clear item-end (tap)="close()">Close</button>
+    </ion-item-divider>
+    <button ion-item *ngFor="let result of results" (click)="selectResult(result)">
+      <!--<opc-icon [set]="result.icon?.set" [name]="result.icon?.name" size="md" item-start></opc-icon>-->
+      <ng-container [ngSwitch]="result.icon?.type" item-start>
+        <opc-icon *ngSwitchCase="'opc-icon'" [set]="result.icon?.set" [name]="result.icon?.name" size="md" item-start></opc-icon>
+        <ion-icon *ngSwitchCase="'ion-icon'" [name]="result.icon?.name" item-start></ion-icon>
+      </ng-container>
+      {{result.nameLabel}}
+      <!--<h2>{{result.nameLabel}}</h2>-->
+      <!--<p>{{result.typeLabel}}</p>-->
+      <ion-note item-end>{{result.typeLabel}}</ion-note>
+    </button>
+  </ion-list>
+</div>

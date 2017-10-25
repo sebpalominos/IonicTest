@@ -1,0 +1,40 @@
+$category-matcher-triangle-size: 10px !default;
+
+.category-matcher {
+  .selected-items {
+    .existing-category {
+      position: relative;
+      padding: $content-padding;
+      background: map-get($flat-colors, midnight-blue);
+      color: white;
+      z-index: 7;
+      @include callout-triangle(10px, map-get($flat-colors, midnight-blue));
+    }
+    .selected-category {
+      position: relative;
+      padding: $content-padding;
+      padding-top: $content-padding + $category-matcher-triangle-size/2;
+      background: map-get($flat-colors, belize-hole);
+      color: white;
+      z-index: 6;
+      @include callout-triangle(10px, map-get($flat-colors, belize-hole));
+    }
+    .selected-transaction {
+      padding: $content-padding;
+      padding-top: $content-padding + $category-matcher-triangle-size/2;
+      background: map-get($flat-colors, peter-river);
+      color: white;
+    }
+    .with-watermark {
+      // This extends the opicons `with-watermark`
+      @include absolute-fill();
+      background-color: transparent;
+    }
+  }
+}
+
+// Intended to be a little icon inline on the 
+// transaction list ion-item
+.transaction-verified {
+  color: dodgerblue;
+}

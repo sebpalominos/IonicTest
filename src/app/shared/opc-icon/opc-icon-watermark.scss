@@ -1,0 +1,16 @@
+// Icons when applied as watermarks over the background 
+// of their container.
+$opicon-watermark-font-size: 140px !default;
+$opicon-watermark-offset-top: -30px !default;
+.with-watermark {
+  position: relative;
+  overflow: hidden;       // Hide the watermark if it goes nuts
+  .opc-icon.watermark {
+    position: absolute; 
+    top: -$content-padding;
+    right: -$content-padding;
+    opacity: .2;
+    font-size: $opicon-watermark-font-size;
+    margin-top: $opicon-watermark-offset-top;
+  } 
+}

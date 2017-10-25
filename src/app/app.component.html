@@ -1,0 +1,48 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <div margin-horizontal>
+        <svg class="menu-header-status-dot" width="10" height="10">
+          <circle cx="5" cy="5" r="5"/>
+        </svg>
+        {{versionName}} {{versionLabel}}
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content no-bounce>
+    <menu-profile [nav]="nav"></menu-profile>
+    <ion-list no-border>
+      <button ion-item detail-none menuClose *ngFor="let mi of menuItems" (tap)="handleMenuAction(mi)">
+        <ion-icon item-start *ngIf="mi.ionicon" [name]="mi.ionicon"></ion-icon>
+        <opc-icon item-start *ngIf="mi.opicon" [name]="mi.opicon.name" [set]="mi.opicon.set" size="sm"></opc-icon>
+        {{mi.label}}
+      </button>
+    </ion-list>
+    <ion-list no-border *ngIf="settingsItems">
+      <button ion-item detail-none menuClose *ngFor="let mi of settingsItems" (tap)="handleMenuAction(mi)">
+        <ion-icon item-start *ngIf="mi.ionicon" [name]="mi.ionicon"></ion-icon>
+        <opc-icon item-start *ngIf="mi.opicon" [name]="mi.opicon.name" [set]="mi.opicon.set" size="sm"></opc-icon>
+        {{mi.label}}
+      </button>
+    </ion-list>
+    <!--<div class="drawer-version-label">
+      Version <strong>{{versionLabel}}</strong>
+    </div>-->
+    <div class="drawer-branding-device-watermark">
+      <img alt="OPICA" src="assets/img/opicagroup.png">
+    </div>
+  </ion-content>
+  <ion-footer>
+    <ion-list no-margin no-border>
+      <button ion-item detail-none menuClose (tap)="nav.setRoot(screens.notifications)" *ngIf="showNotificationTray">
+        <!--<ion-icon item-start name="notifications"></ion-icon>-->
+        <opc-icon item-start set="essential" name="notification"></opc-icon>
+        Notifications
+        <ion-badge item-content color="danger" name="notifications" *ngIf="numNotifications">{{numNotifications}}</ion-badge> 
+      </button>
+    </ion-list>
+  </ion-footer>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

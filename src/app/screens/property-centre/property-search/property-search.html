@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Find a Property</ion-title>
+    <ion-buttons end showWhen="android,windows">
+      <button ion-button (tap)="cancel()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end showWhen="ios">      
+      <button ion-button (tap)="cancel()">
+        <span>Close</span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content #content fullscreen>
+  <info-bar context="danger" *ngIf="showSearchError">
+    There was an error when searching. Are you connected to the internet? <a (click)="search()">Try again</a>.
+  </info-bar>
+  <info-bar *ngFor="let message of searchInfoMessages" context="info">{{message}}</info-bar>
+  <info-bar *ngFor="let message of searchWarningMessages" context="warning">{{message}}</info-bar>
+  <form class="search-form fullscreen-form" margin-vertical (ngSubmit)="search()">
+    <ng-container [ngSwitch]="propertySearchTypeValue">
+      <div *ngSwitchCase="propertySearchTypes.LocationPrice">
+        <div class="form-group realestate-searchbar">
+          <ion-icon name="search"></ion-icon>
+          <ion-input [(ngModel)]="searchParams.locality" type="text" name="locality" placeholder="Enter a city, town or suburb" (blur)="setSearchFocused(false)"
+            (focus)="setSearchFocused(true)"></ion-input>
+        </div>
+        <ion-item>
+          <ion-icon item-start name="navigate"></ion-icon>
+          <ion-range [(ngModel)]="searchParams.price" name="price" min="0" max="20" step="5" pin="true"></ion-range>
+        </ion-item>
+      </div>
+      <div *ngSwitchDefault>
+        <div class="form-group realestate-searchbar">
+          <ion-icon name="search"></ion-icon>
+          <ion-input [(ngModel)]="searchParams.freetext" name="freetext" type="text" placeholder="Search anything" (blur)="setSearchFocused(false)"
+            (focus)="setSearchFocused(true)" (keydown)="onKeyDown()" (keyup)="onKeyUp()"></ion-input>
+          <!-- <ion-icon name="md-arrow-forward" (click)="search()"></ion-icon> -->
+          <ion-spinner name="ios" *ngIf="loadingSuggestions"></ion-spinner>
+          <button ion-button clear color="light" icon-only (tap)="clearSearch($event)" *ngIf="searchParams.freetext.length >0 && !loadingSuggestions">
+            <ion-icon name="close" is-active="false"></ion-icon>
+          </button>
+        </div>
+        <!--<ion-item>
+        <ion-icon item-start name="navigate"></ion-icon>
+        <ion-range [(ngModel)]="searchParams.radius" name="radius" min="0" max="20" step="5" pin="true"></ion-range>
+      </ion-item>-->
+      </div>
+    </ng-container>
+    <input ion-fixed type="submit">
+  </form>
+  <!-- <property-filter 
+    [propTypesIn] = "ptfilters"
+    [sortByIn] = "sortbyfilters"
+    (propertyTypes) = "printPropertyTypes($event)" 
+    (sortBy) = "printSortBy($event)">
+  </property-filter> -->
+  
+  <div margin text-center [hidden]="suggestions">
+    Type an address, street, town, suburb, or postcode, and suggestions will appear here.
+  </div>
+  <div margin text-center *ngIf="suggestions" [hidden]="suggestions.length">
+    No suggestions found!
+  </div>
+  <ion-list class="property-search-suggestions" *ngIf="suggestions?.length">
+    <ion-list-header>
+      Suggestions
+    </ion-list-header>
+    <ion-item *ngFor="let info of suggestions" (click)="info.action()">
+      <ng-container [ngSwitch]="info.suggestion.locationType" item-start>
+        <opc-icon set="essential" name="house" item-start *ngSwitchCase="'address'"></opc-icon>
+        <opc-icon set="essential" name="street-1" item-start *ngSwitchCase="'street'"></opc-icon>
+        <opc-icon set="essential" name="map-location" item-start *ngSwitchCase="'locality'"></opc-icon>
+        <opc-icon set="essential" name="paper-plane-1" item-start *ngSwitchCase="'postcode'"></opc-icon>
+      </ng-container>
+      <h2>{{info.suggestion.displayName}}</h2>
+      <p text-capitalize class="location-type" *ngIf="info.suggestion.locationType != 'locality'"><ion-badge color="secondary">{{info.suggestion.locationType}}</ion-badge></p>
+      <p text-capitalize class="location-type" *ngIf="info.suggestion.locationType == 'locality'"><ion-badge color="secondary">Suburb</ion-badge></p>
+      <ion-icon name="md-arrow-forward" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer padding class="realestate-search-submit" [keyboardAttach]="content" [hidden]="suggestions">
+  <button ion-button block large (tap)="search()">Search</button>
+</ion-footer>

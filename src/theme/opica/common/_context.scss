@@ -1,0 +1,16 @@
+// Contextual classes for colors and other visual cues
+
+.text-danger {
+  color: map-get($flat-colors, pomegranate);
+}
+.text-success {
+  color: map-get($flat-colors, nephritis);
+}
+.text-warning {
+  color: map-get($flat-colors, carrot);
+}
+
+.box-danger {
+  background: rgba(#CF000F, .2);
+  border: 1px solid #CF000F;
+}

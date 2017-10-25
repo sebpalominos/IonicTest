@@ -1,0 +1,47 @@
+<ion-content [ngClass]="{ 'show-form': showForm }" no-bounce>
+  <ion-fab top right>
+    <button ion-fab mini (tap)="showLoginOptions()">
+      <ion-icon color="light" name="settings"></ion-icon>
+    </button>
+  </ion-fab>
+  <div class="brand-logos" ion-fixed>
+    <div class="brand-logo-upper"></div>
+    <div class="brand-logo-lower"></div>
+  </div>
+  <form class="auth-form login-form" (ngSubmit)="continue()">
+    <fieldset padding class="auth-form-fields login-form-fields">
+      <ion-input #credentialInput type="text" name="username" [(ngModel)]="username"  placeholder="User name"></ion-input>
+      <ion-input #credentialInput type="password" name="password" [(ngModel)]="password" placeholder="Password" clearInput></ion-input>
+      <div class="primary-actions">
+        <button ion-button type="submit" block color="light">
+          <span *ngIf="usesPin">Continue &amp; enter PIN</span>
+          <span *ngIf="!usesPin">Login</span>
+        </button>
+      </div>
+      <endpoint-switcher #endpointSwitcher (endpointSelected)="bindSelectedEndpoint($event)" [hidden]="!(allowChangeBaseUrl && showChangeBaseUrl)"></endpoint-switcher>
+    </fieldset>
+    <div ion-grid padding class="other-actions">
+      <ion-row>
+        <button ion-col col-5 ion-button icon-right clear color="light" type="button" [navPush]="screens.immortalLogin" *ngIf="showUseToken">
+          Use Token <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+        <!--<button ion-col ion-button icon-right clear color="light" type="button" (tap)="showLoginHelp()">
+          Forgotten login <ion-icon name="arrow-forward"></ion-icon>
+        </button>-->
+        <button ion-col col-7 ion-button icon-right clear color="light" type="button" (tap)="registerNewUser()" *ngIf="showCreateUser">
+          Create Account <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-row>
+    </div>
+    <!-- <div margin-vertical text-center *ngIf="allowChangeBaseUrl">
+      <a ion-text color="light" *ngIf="showChangeBaseUrl" (click)="showChangeBaseUrl = false">Hide select endpoint</a>
+      <a ion-text color="light" *ngIf="!showChangeBaseUrl" (click)="showChangeBaseUrl = true">Select endpoint</a>
+    </div> -->
+    <!--<input ion-fixed type="submit">-->
+  </form>
+</ion-content>
+<ion-footer padding>
+  <button ion-button icon-left large block outline color="light" (tap)="verifyFingerprint()" *ngIf="showFingerprint">
+    <ion-icon name="finger-print"></ion-icon> Login with Touch ID
+  </button>
+</ion-footer>

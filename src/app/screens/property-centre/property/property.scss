@@ -1,0 +1,23 @@
+// .property-images {
+//   // Expect just a single image to be displayed; don't need any padding
+//   .opc-slider-card, .opc-slider-card[borderless] {
+//     padding: 0;
+//   }
+// }
+.property-single {
+  .property-background{
+    background: white;
+  }
+    
+  .property-main-features {
+    font-size: 3rem;
+    img {
+      height: 2.4rem;
+    }
+  }
+  
+  hr {
+    height: 2px;
+    background-color: rgba(map-get($flat-colors, clouds), .8);
+  }
+}

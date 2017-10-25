@@ -1,0 +1,49 @@
+<ion-card>
+  <ion-card-header>
+    <h2>{{spendingCategory.spendingArea.label}}</h2>
+    <p class="spend-values">
+      <span class="spend-limit" *ngIf="spendingCategory.spendingLimit?.limitValue">Limit: {{spendingCategory.spendingLimit.limitValue | currency:'AUD':true}}</span>
+      <span class="spend-current">Current: {{spendingCategory.spendingArea.currentValue | currency:'AUD':true}}</span>
+      <!--<span class="spend-projected">Projected: {{spendingCategory.spendingArea.projectedValue | currency:'AUD':true}}</span>-->
+    </p>
+  </ion-card-header>
+  <ion-card-content>
+    <line-chart 
+      *ngIf="chartLines" 
+      [lines]="chartLines" 
+      [labels]="chartLabels" 
+      [options]="chartOptions"></line-chart>
+      <h6 [hidden]="chartLines">No graph data available</h6>
+  </ion-card-content>
+  <ion-list hidden>
+    <ion-item *ngFor="let summary of spendingCategory.spendingSummary?.moneySummaries">
+      {{summary.label}} <ion-note item-end>{{summary.currentValue}}</ion-note>
+    </ion-item>
+    <ion-item *ngFor="let summary of spendingCategory.spendingSummary?.timeSummaries">
+      {{summary.label}} <ion-note item-end>{{summary.timeValue}} {{timeScaleTypeValues[summary.timeScale]}}</ion-note>
+    </ion-item>
+    <ion-item *ngFor="let summary of spendingCategory.spendingSummary?.objectSummaries">
+      {{summary.label}} <ion-note item-end>{{summary.savingFor}}</ion-note>
+    </ion-item>
+  </ion-list>
+  <button-row>
+    <span *ngIf="spendingCategory.isLoading">
+      <ion-chip color="mid" class="loading-chip">
+        <ion-avatar style="background-color: #333;">
+          <img src="assets/icons/spinners/arrows-white-on-transparent.gif" alt="Loading">
+        </ion-avatar>
+        <ion-label>Refreshing data</ion-label>
+      </ion-chip>
+    </span>
+    <span *ngIf="spendingCategory.spendingLimit" [hidden]="spendingCategory.isLoading">
+      <ion-chip color="secondary">
+        <ion-icon name="flash" color="dark"></ion-icon>
+        <ion-label>Spending Limit Active</ion-label>
+      </ion-chip>
+    </span>
+    <small *ngIf="!spendingCategory.spendingLimit" [hidden]="spendingCategory.isLoading">
+      Set a spend limit to get started
+    </small>
+    <button ion-button small item-end (click)="editSelected.emit(spendingCategory)">Edit</button>
+  </button-row>
+</ion-card>

@@ -1,0 +1,85 @@
+.icon-heading {
+  .ih-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    & > * {
+      flex: 0 0 initial;
+    }
+  }
+  &[center] {
+    .ih-wrapper {
+      justify-content: center;
+    }
+  }
+  &[end] {
+    .ih-wrapper {
+      justify-content: flex-end;
+    }
+  }
+  /** The icon **/
+  .ih-icon {
+    display: inline-block;
+    flex: 0 0 auto;
+    height: 1em; 
+    width: auto;
+    margin-right: $content-margin;
+  }
+  .size-xl {
+    .ih-icon {
+      margin-left: $content-margin * 0.5;
+      margin-right: $content-margin * 1.5;
+    }
+  }
+  .ih-heading-block {
+    flex: 1 1 auto;
+  }
+  /** The heading **/
+  .ih-heading { 
+    margin: 0;
+    padding: 0;
+    font-size: 2.4rem;
+  }
+  &[small-heading], &.with-small-heading {
+    .ih-heading {
+      font-size: .7em;
+      white-space: normal;
+    }
+  }
+
+  /** Subcaptions **/
+  // Make this a light gray subcaption, like how ion-list does it
+  p {
+    font-size: 1.4rem;
+    margin: 0;
+    color: map-get($opc-colors, muted);
+  }
+  h1, h2, h3, h4 {
+    margin: 0;
+    & + p {
+      margin-top: .5rem;
+    }
+  }
+
+  @mixin ih-icon-size($sel, $edge: 2rem, $radius: 0px) {
+    #{$sel} {
+      width: $edge;
+      height: $edge;
+      border-radius: $radius;
+    }
+  }
+  /** Sizes **/
+  @include ih-icon-size(".size-xxl .ih-icon", 8rem);
+  @include ih-icon-size(".size-xl .ih-icon", 5.8rem);
+  @include ih-icon-size(".size-lg .ih-icon", 3.6rem);
+  @include ih-icon-size(".size-md .ih-icon", 2rem);
+  @include ih-icon-size(".size-sm .ih-icon", 1rem);
+  @include ih-icon-size(".size-xs .ih-icon", .65rem);
+  @include ih-icon-size("&[icon-rounded] .size-xxl .ih-icon", 8rem, 4rem);
+  @include ih-icon-size("&[icon-rounded] .size-xl .ih-icon", 5.8rem, 2.9rem);
+  @include ih-icon-size("&[icon-rounded] .size-lg .ih-icon", 3.6rem, 1.8rem);
+  @include ih-icon-size("&[icon-rounded] .size-md .ih-icon", 2rem, 1rem);
+  @include ih-icon-size("&[icon-rounded] .size-sm .ih-icon", 1rem, .5rem);
+  @include ih-icon-size("&[icon-rounded] .size-xs .ih-icon", .65rem, .375rem);
+  
+}

@@ -1,0 +1,22 @@
+<div class="afford-loading-message" [ngClass]="{ appear: showSplash }">
+  <ion-card class="afford-loading-card">
+    <!--<ion-card-header>
+      Loading Affordability
+    </ion-card-header>-->
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col text-center *ngFor="let iconUrl of loadingScreenIconUrls">
+            <img class="loading-display-icon" [src]="iconUrl" alt="Loading">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    <ion-card-content>
+      <p>A 'tip of the day' will be displayed here while your affordability goal loads.</p>
+      <div margin-top text-center>
+        <ion-spinner name="crescent"></ion-spinner>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>

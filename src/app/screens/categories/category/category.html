@@ -1,0 +1,35 @@
+<ion-header no-border>
+  <ion-navbar [navbar-fadeable]="showNavbar" hideBackButton transparent>
+    <ion-buttons left *ngIf="navCtrl.canGoBack()">
+      <button ion-button icon-left clear navPop color="light">
+        <ion-icon name="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title (tap)="changeFilter()" *ngIf="isFilterable">{{filterName}} <p>Tap to change</p></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content hero-edge fullscreen (ionScroll)="setNavbarVisibility($event)">
+  <hero-unit padding #hero (press)="displayCategoryPopup()">
+    <opc-icon *ngIf="categoryIcon" class="watermark" [name]="categoryIcon.name" [set]="categoryIcon.set" size="xl"></opc-icon>
+    <header class="category-single-heading">
+      <h2 no-margin>{{category?.name}}</h2>
+      <h6 no-margin>{{category?.description}}</h6>
+    </header>
+  </hero-unit>
+  <loading-bar [active]="showLoadingTransactions">Loading transactions</loading-bar>
+  <ion-list>
+    <!--<ion-list-header>Transactions for this category</ion-list-header>-->
+    <ion-item *ngFor="let tx of transactions">
+        <h2 text-wrap [ngClass]="{ 'long-tx-name': tx.title.length > 30 }">{{tx.title}}</h2>
+        <p>
+          <span class="tag-row" *ngIf="category">
+            <ion-icon class="tag-icon" name="pricetag"></ion-icon>
+            <ion-badge>{{tx.category?.name}}</ion-badge>
+          </span>&nbsp;
+          {{tx.dateTransacted | date:'mediumDate'}}
+        </p>
+        <ion-note item-end><opc-money colorize [sign]="tx.type">{{tx.amount | number:'1.2-2'}}</opc-money></ion-note>
+      </ion-item>
+  </ion-list>
+  <h6 text-center *ngIf="transactions && transactions.length === 0">No transactions found!</h6>
+</ion-content>

@@ -1,0 +1,11 @@
+.finished-fingerprint {
+  .scroll-content {
+    @include absolute-center-flex();
+  }
+  .finished-message {
+    text-align: center;
+  }
+  .error-message {
+    text-align: center;
+  }
+}

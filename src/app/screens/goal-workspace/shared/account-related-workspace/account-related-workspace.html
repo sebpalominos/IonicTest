@@ -1,0 +1,28 @@
+<div padding>
+  {{workspace?.description}}
+</div>
+<div padding *ngIf="workspace?.matchKeyName('RD_GET_ORGANISED')">
+  <code>TBA</code>
+</div>
+<ion-list radio-group [(ngModel)]="selectedAccount" *ngIf="workspace?.matchKeyName('RD_SAVINGS_WANTED')">
+  <ion-item *ngFor="let account of workspace?.accounts">
+    <ion-label>
+      <h2 text-wrap>{{account.name}}</h2>
+      <p *ngIf="account.id">
+        <span *ngIf="account.institution">{{account.institution?.displayName()}} &middot; </span> 
+        <span>Balance: {{account.balance.currentValue | number:'1.2-2'}}</span>
+      </p>
+      </ion-label>
+    <ion-radio [value]="account"></ion-radio>
+  </ion-item>
+</ion-list>
+<div padding>
+  <button ion-button block
+  *ngIf="workspace?.matchKeyName('RD_SAVINGS_WANTED')" 
+  (click)="submitAccount()" 
+  [disabled]="!selectedAccount">Change to this account</button>
+  <button ion-button block 
+    *ngIf="workspace?.matchKeyName('RD_GET_ORGANISED')"
+    (click)="submitProduct()" 
+    [disabled]="!selectedProduct">Change to this product</button>  
+</div>

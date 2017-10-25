@@ -1,0 +1,51 @@
+<ion-toolbar>
+  <ion-searchbar 
+    (ionInput)="filterItems($event)" 
+    (ionClear)="clearFilter()"
+    [showCancelButton]="false" 
+    placeholder="Find categories by name"></ion-searchbar>
+</ion-toolbar>
+<ion-list [ngStyle]="searchResultsWrapperStyles">
+  <ion-item-group *ngIf="!isSearchActive && recentCategories?.length">
+    <ion-item-divider color="mid">
+      Recent
+      <button ion-button item-end clear color="light" *ngIf="hasShowMoreRecent()" (tap)="toggleShowMoreRecent()">
+        <span *ngIf="!isShowMoreRecent">Show more</span>
+        <span *ngIf="isShowMoreRecent">Show less</span>
+      </button>
+    </ion-item-divider>
+    <ng-container *ngFor="let item of recentCategories">
+      <button ion-item (tap)="submit(item.category)" *ngIf="!item.isHidden">
+        <opc-icon item-start *ngIf="item.category.parent" [set]="item.category.parent.icon().set" [name]="item.category.parent.icon().name" size="lg"></opc-icon>
+        <h2>{{item.category.name}}</h2>
+        <p>
+          <span *ngIf="item.category.parent">{{item.category.parent.name}} &bull; </span>
+          <span *ngIf="item.category.credit">CR</span> 
+          <span *ngIf="!item.category.credit">DR</span>
+        </p>
+      </button>
+    </ng-container>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="mid">
+      <span *ngIf="!isSearchActive">All categories</span>
+      <span *ngIf="isSearchActive">Matches</span>
+      <button ion-button item-end clear color="light" (tap)="toggleSortDirection()">
+        <ion-icon name="funnel"></ion-icon>
+        <ion-icon name="arrow-round-up" *ngIf="sortDirection === 1"></ion-icon>
+        <ion-icon name="arrow-round-down" *ngIf="sortDirection === -1"></ion-icon>
+      </button>
+    </ion-item-divider>
+    <ng-container *ngFor="let item of subcategories">
+      <button ion-item *ngIf="!item.isHidden" (tap)="submit(item.category)">
+        <opc-icon item-start *ngIf="item.category.parent" [set]="item.category.parent.icon().set" [name]="item.category.parent.icon().name" size="lg"></opc-icon>
+        <h2>{{item.category.name}}</h2>
+        <p>
+          <span *ngIf="item.category.parent">{{item.category.parent.name}} &bull; </span>
+          <span *ngIf="item.category.credit">CR</span>
+          <span *ngIf="!item.category.credit">DR</span>
+        </p>
+      </button>
+    </ng-container>
+  </ion-item-group>
+</ion-list>

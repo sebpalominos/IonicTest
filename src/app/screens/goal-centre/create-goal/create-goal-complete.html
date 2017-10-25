@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Complete</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <header padding class="create-goal-preamble">
+    <opc-icon-heading src="assets/icons/squidink/svg64/confetti.svg" size="lg">
+      Setup is complete
+    </opc-icon-heading>
+  </header>
+  <div padding>
+    <p>
+      You're now ready to go with your {{goalName}}. You can track goal progress, add more details to your goal, and 
+      watch for notifications about your goal. To find out more, just long press on any goal for more options.  
+    </p>
+  </div>
+</ion-content>
+<ion-footer padding>
+  <button ion-button block (click)="closeAll()">Finish</button>
+</ion-footer>

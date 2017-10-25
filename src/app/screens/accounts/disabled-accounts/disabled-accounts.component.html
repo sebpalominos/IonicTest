@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Disabled Accounts</ion-title>
+        <ion-buttons end showWhen="android,windows">
+            <!-- <button ion-button clear color="dark" (tap)="reenableAccounts()" ng-disabled="isReenabled">Re-enable</button> -->
+            <button ion-button (tap)="cancel()">
+            <ion-icon name="md-close"></ion-icon>
+        </button>
+
+        </ion-buttons>
+        <ion-buttons end showWhen="ios">
+            <!-- <button ion-button clear color="dark" (tap)="reenableAccounts()" ng-disabled="isReenabled">Re-enable</button> -->
+            <button ion-button (tap)="cancel()">
+            <span>Close</span>
+        </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <!-- <ion-refresher (ionRefresh)="loadDisabledAccounts(disabledAccounts, false, $event)" [enabled]="!showDisabledAccountsLoading">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="crescent">
+        </ion-refresher-content>
+    </ion-refresher> -->
+    <div text-nowrap class="account-counter disable-account" *ngIf="disableAccountCount > 0">
+        <ion-icon name="eye-off" is-active="false"></ion-icon>
+        &nbsp; {{disableAccountCount}} <span *ngIf="disableAccountCount == 1">account</span> <span *ngIf="disableAccountCount > 1">accounts</span> disabled
+    </div>
+    <ion-item-group *ngFor="let item of disabledAccounts">
+        <ion-item-divider color="light">
+            <ion-avatar item-start>
+                <img [src]="item.bankLogoUrl" alt="item.providerName" *ngIf="item.bankLogoUrl">
+            </ion-avatar>
+            <b>{{item.providerName}}</b>
+        </ion-item-divider>
+        <ion-item *ngFor="let subitem of item.disabledAccounts">
+            <ion-checkbox color="dark" [(ngModel)]="subitem['checked']" (ionChange)="selectedDisabledAccount()"></ion-checkbox>
+            <ion-label>
+                <h2>{{subitem.name}}</h2>
+                <p>{{subitem.connectorAccountId}}</p>
+            </ion-label>
+        </ion-item>
+        <!-- <ion-item>
+            <ion-checkbox color="dark" ></ion-checkbox>
+            <div item-start>
+                <h2>test</h2>
+                <p>testting</p>
+            </div>
+        </ion-item> -->
+    </ion-item-group>
+</ion-content>
+<ion-footer padding>
+    <button ion-button block large (tap)="reenableAccounts()" text-capitalize>Re-enable Accounts</button>
+</ion-footer>

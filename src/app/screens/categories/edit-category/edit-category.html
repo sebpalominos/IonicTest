@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{screenTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div padding>Modify the details for this category</div>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="pricetag" item-start></ion-icon>
+      <ion-input type="text" placeholder="Category name" [(ngModel)]="category.name" clearInput></ion-input>
+    </ion-item>
+    <ion-item *ngIf="validParentCategories">
+      <ion-label>Related category</ion-label>
+      <ion-select [(ngModel)]="category.parentId">
+        <ion-option *ngFor="let pc of validParentCategories" [value]="pc.id">{{pc.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Description</ion-label>
+      <ion-input type="text" placeholder="Your own description of this category" [(ngModel)]="category.description" clearInput></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding *ngIf="isNewCategory">
+    <button ion-button block (click)="createCategory()">Submit</button>
+  </div>
+  <div padding *ngIf="!isNewCategory">
+    <button ion-button block (click)="updateCategory()">Update</button>
+    <button ion-button block outline color="danger" (click)="deleteCategory()">Delete</button>
+  </div>
+</ion-content>

@@ -1,0 +1,27 @@
+.categories-loading {
+  @include absolute-fill();
+  // background: url('../assets/img/bg/afford.jpg') center center/cover #222;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .categories-loading-message {
+    width: 80vw;
+    margin-bottom: $content-margin * 2;
+    transform: scale(0.05);
+    transition: transform .4s cubic-bezier(.13,.94,.77,1.21);
+    &.appear {
+      transform: scale(1);
+    }
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+  .loading-display-icon {
+    max-height: 50px;
+  }
+  .categories-loading-card {
+    text-align: center;
+    z-index: 5;
+  }
+}
